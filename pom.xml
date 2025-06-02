@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>uz.lb</groupId>
+    <artifactId>FX-Chat</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <java.fx.version>21.0.1</java.fx.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <!-- Front -->
+        <!-- fx libraries -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${java.fx.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/fx/javafx.controls.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>${java.fx.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/fx/javafx.base.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${java.fx.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/fx/javafx.fxml.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${java.fx.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/fx/javafx.graphics.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>${java.fx.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/fx/javafx.media.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-swing</artifactId>
+            <version>${java.fx.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/fx/javafx.swing.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>${java.fx.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/fx/javafx.web.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jfoenix</groupId>
+            <artifactId>jfoenix</artifactId>
+            <version>9.0.10</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/front/jfoenix-9.0.10.jar</systemPath>
+        </dependency>
+
+        <!-- Crypto -->
+        <!--  UzDSt libraries  -->
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>paynet</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/crypto/bc-java.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>uz.paynet</groupId>
+            <artifactId>paynet</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/libs/crypto/uzdst-1.75.jar</systemPath>
+        </dependency>
+
+        <!-- SQLite database -->
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.42.0.0</version>
+        </dependency>
+
+
+    </dependencies>
+</project>

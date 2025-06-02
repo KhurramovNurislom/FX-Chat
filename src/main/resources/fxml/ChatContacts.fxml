@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane fx:id="id_apContacts" maxWidth="350.0" minHeight="200.0" minWidth="200.0" prefHeight="600.0"
+            prefWidth="270.0" stylesheets="@/css/chat-contacts/chat-contacts-dark.css" BorderPane.alignment="CENTER"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uz.lb.controllers.ChatContactsController">
+    <children>
+        <AnchorPane fx:id="id_apSearch" prefHeight="35.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="5.0"
+                    AnchorPane.topAnchor="10.0">
+            <children>
+                <TextField fx:id="id_tfSearch" prefHeight="35.0" promptText="Search" AnchorPane.leftAnchor="0.0"
+                           AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="0.0"/>
+                <ImageView fx:id="id_ivSearchClose" fitHeight="21.0" fitWidth="21.0" pickOnBounds="true"
+                           preserveRatio="true" visible="false" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
+                    <image>
+                        <Image url="@../images/dashboard/chat-contacts/circle-close-dark-hover.png"/>
+                    </image>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <ScrollPane fx:id="id_spContacts" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                    AnchorPane.topAnchor="55.0">
+            <content>
+                <VBox fx:id="id_vbContacts"/>
+            </content>
+        </ScrollPane>
+    </children>
+</AnchorPane>

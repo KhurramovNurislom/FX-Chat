@@ -1,0 +1,91 @@
+.root {
+    -fx-main-color: WHITE;
+    -fx-text-color: #f2f2f2;
+    /*-fx-main-color-hover: #1b2731;*/
+    -fx-main-color-hover: #243442;
+    -fx-main-font-family: "Segoe UI Bold";
+    -fx-main-font-size: 14px;
+    -fx-main-font-weight: normal;
+
+}
+
+#id_apShadow {
+    -fx-background-color: BLACK;
+    -fx-background-radius: 0 0 10 10;
+}
+
+#id_apRoot {
+    -fx-background-color: WHITE;
+    -fx-background-radius: 15;
+}
+
+#id_vbChats {
+    -fx-background-color: -fx-main-color;
+    -fx-text-fill: -fx-text-color;
+    -fx-background-radius: 0 0 0 10;
+
+}
+
+
+#id_vbChats JFXButton {
+    -fx-background-color: -fx-main-color;
+    -fx-text-fill: -fx-text-color;
+    -fx-font-family: -fx-main-font-family;
+}
+
+#id_vbChats JFXButton:hover {
+    -fx-background-color: -fx-main-color-hover;
+}
+
+#id_apTitlePane {
+    -fx-background-color: #1d2933;
+    -fx-background-radius: 10 10 0 0;
+}
+
+#id_apTitlePane:hover {
+    -fx-background-color: #212e3b;
+}
+
+
+#id_lblAppName {
+    -fx-text-fill: -fx-text-color;
+    -fx-font-family: -fx-main-font-family;
+}
+
+
+#id_vbSettings {
+    -fx-background-color: -fx-main-color;
+    -fx-text-fill: -fx-text-color;
+    -fx-font-family: -fx-main-font-family;
+    -fx-background-radius: 0 0 0 10;
+}
+
+
+#id_vbSettings .label:hover {
+    -fx-background-color: -fx-main-color-hover;
+}
+
+#id_vbSettings .label.no-hover:hover {
+    -fx-background-color: transparent;
+}
+
+#id_vbContacts {
+    -fx-background-color: #17232e;
+    -fx-text-fill: -fx-text-color;
+    -fx-font-family: -fx-main-font-family;
+}
+
+
+#id_pnInterlocutorProperties {
+    -fx-background-color: -fx-main-color;
+    -fx-text-fill: -fx-text-color;
+}
+
+#id_pnMessageTypes {
+    -fx-background-color: -fx-main-color;
+    -fx-text-fill: -fx-text-color;
+    -fx-font-family: -fx-main-font-family;
+    -fx-background-radius: 0 0 10 0;
+}
+
+

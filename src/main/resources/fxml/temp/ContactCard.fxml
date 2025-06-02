@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+
+<HBox fx:id="id_hbContactCard" prefHeight="60.0" prefWidth="265.0" spacing="5.0" style="-fx-padding: 5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.ContactCardController">
+    <children>
+      <Circle fx:id="id_crAvatar" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE">
+         <HBox.margin>
+            <Insets left="7.0" />
+         </HBox.margin>
+      </Circle>
+        <VBox spacing="2.0">
+            <children>
+                <Label fx:id="id_lblName" style="-fx-font-weight: bold; -fx-font-size: 14;" text="Ism Familya" />
+                <Label fx:id="id_lblLastMessage" style="-fx-text-fill: gray;" text="Oxirgi xabar..." />
+            </children>
+        </VBox>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Circle fx:id="id_crCount" fill="DODGERBLUE" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+         </children>
+      </StackPane>
+      <ImageView fitHeight="24.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox spacing="2.0">
+         <children>
+            <Label fx:id="id_lblTime" style="-fx-font-weight: bold; -fx-font-size: 14;" text="vaqt" />
+         </children>
+      </VBox>
+    </children>
+</HBox>

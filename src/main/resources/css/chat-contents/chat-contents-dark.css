@@ -1,0 +1,51 @@
+
+#id_pnInterlocutorProperties {
+    -fx-background-color: #121a21;
+    -fx-text-fill: #f2f2f2;
+    -fx-border-color: transparent transparent transparent #090d10;
+}
+
+#id_pnMessageTypes {
+    -fx-background-color: #121a21;
+    -fx-text-fill: #f2f2f2;
+    -fx-font-family: "Segoe UI";
+    -fx-background-radius: 0 0 10 0;
+    -fx-border-color: transparent transparent transparent #090d10;
+}
+
+#id_ivBackground {
+    -fx-opacity: 0.3;
+}
+
+/********************************************************/
+
+#id_sbScrollContents {
+    -fx-background-color: #090d10;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+
+#id_sbScrollContents:vertical > .thumb {
+    -fx-background-color: #253341;
+    -fx-background-radius: 15;
+    -fx-min-height: 50px;
+    -fx-max-height: 80px;
+    -fx-cursor: HAND;
+}
+
+#id_sbScrollContents:vertical > .thumb:hover {
+    -fx-background-color: #2f4051;
+}
+
+
+#id_sbScrollContents:vertical > .track {
+    -fx-background-color: #090d10;
+    -fx-background-radius: 10;
+}
+
+#id_sbScrollContents:vertical > .decrement-button,
+#id_sbScrollContents:vertical > .increment-button {
+    -fx-background-color: #090d10;
+    -fx-cursor: HAND;
+}

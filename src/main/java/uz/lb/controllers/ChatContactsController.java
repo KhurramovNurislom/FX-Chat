@@ -1,0 +1,110 @@
+package uz.lb.controllers;
+
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+import uz.lb.caches.ImageCache;
+import uz.lb.models.Contact;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+public class ChatContactsController implements Initializable {
+    @FXML
+    private ScrollPane id_spContacts;
+    @FXML
+    private AnchorPane id_apSearch;
+    @FXML
+    private ScrollBar id_sbScrollContacts;
+    @FXML
+    private AnchorPane id_apContacts;
+    @FXML
+    private TextField id_tfSearch;
+    @FXML
+    private ImageView id_ivSearchClose;
+    @FXML
+    private VBox id_vbContacts;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        searchFieldHover();
+
+        id_ivSearchClose.setOnMouseClicked(e -> id_tfSearch.clear());
+
+
+        List<Contact> contactList = new ArrayList<>();
+
+        for (int i = 0; i < 100; i++) {
+            Contact contact = new Contact();
+            contact.setName(contact.getName() + "132456kbj " + i);
+            contact.setMessage(contact.getMessage() + " " + i);
+            contactList.add(contact);
+        }
+
+
+        for (Contact contact : contactList) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/temp/ContactCard.fxml"));
+                Node contactNode = loader.load();
+
+
+                ContactCardController controller = loader.getController();
+                Image image = new Image(getClass().getResourceAsStream("/images/mv.png"));
+                controller.setName(contact.getName());
+                controller.setMessage(contact.getMessage());
+                controller.setAvatarImage(image);
+                id_vbContacts.getChildren().add(contactNode);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+
+//
+//        id_spContacts.hoverProperty().addListener(l -> {
+//            id_spContacts.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+//        });
+//
+//        id_spContacts.setOnMouseMoved(m -> {
+//            id_spContacts.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+//        });
+
+
+    }
+
+    private void searchFieldHover() {
+
+        id_tfSearch.focusedProperty().addListener((obs, oldVal, newVal) -> updateCloseIcon());
+        id_tfSearch.textProperty().addListener((obs, oldText, newText) -> updateCloseIcon());
+
+        id_ivSearchClose.hoverProperty().addListener(l -> {
+            id_ivSearchClose.setImage(ImageCache.getImageCircleCloseDarkHover());
+        });
+
+        id_ivSearchClose.setOnMouseMoved(m -> {
+            id_ivSearchClose.setImage(ImageCache.getImageCircleCloseDark());
+        });
+    }
+
+    private void updateCloseIcon() {
+        if (!id_tfSearch.getText().isEmpty()) {
+            id_ivSearchClose.setVisible(true);
+            id_ivSearchClose.setImage(
+                    ImageCache.getImageCircleCloseDarkHover()
+            );
+        } else {
+            id_ivSearchClose.setVisible(false);
+        }
+    }
+}
