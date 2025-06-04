@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import uz.lb.FXChat;
 import uz.lb.caches.ImageCache;
 import uz.lb.models.Contact;
 
@@ -36,11 +37,20 @@ public class ChatContactsController implements Initializable {
     @FXML
     private VBox id_vbContacts;
 
+    private boolean isUnlock = true;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         searchFieldHover();
 
-        id_ivSearchClose.setOnMouseClicked(e -> id_tfSearch.clear());
+        id_ivSearchClose.setOnMouseClicked(e -> {
+            if (isUnlock) {
+                FXChat.Lock();
+            } else {
+                id_tfSearch.clear();
+                id_ivSearchClose.setImage(ImageCache.getImageCircleUnLockDark());
+            }
+        });
 
 
         List<Contact> contactList = new ArrayList<>();
@@ -89,22 +99,37 @@ public class ChatContactsController implements Initializable {
         id_tfSearch.textProperty().addListener((obs, oldText, newText) -> updateCloseIcon());
 
         id_ivSearchClose.hoverProperty().addListener(l -> {
-            id_ivSearchClose.setImage(ImageCache.getImageCircleCloseDarkHover());
+            id_ivSearchClose.setImage(ImageCache.getImageCircleUnLockDarkHover());
         });
 
         id_ivSearchClose.setOnMouseMoved(m -> {
-            id_ivSearchClose.setImage(ImageCache.getImageCircleCloseDark());
+            id_ivSearchClose.setImage(ImageCache.getImageCircleUnLockDark());
         });
+
     }
 
     private void updateCloseIcon() {
         if (!id_tfSearch.getText().isEmpty()) {
-            id_ivSearchClose.setVisible(true);
-            id_ivSearchClose.setImage(
-                    ImageCache.getImageCircleCloseDarkHover()
-            );
+            isUnlock = false;
+            id_ivSearchClose.setImage(ImageCache.getImageCircleCloseDarkHover());
+
+            id_ivSearchClose.hoverProperty().addListener(l -> {
+                id_ivSearchClose.setImage(ImageCache.getImageCircleCloseDarkHover());
+            });
+
+            id_ivSearchClose.setOnMouseMoved(m -> {
+                id_ivSearchClose.setImage(ImageCache.getImageCircleCloseDark());
+            });
         } else {
-            id_ivSearchClose.setVisible(false);
+            isUnlock = true;
+            id_ivSearchClose.hoverProperty().addListener(l -> {
+                id_ivSearchClose.setImage(ImageCache.getImageCircleUnLockDarkHover());
+            });
+
+            id_ivSearchClose.setOnMouseMoved(m -> {
+                id_ivSearchClose.setImage(ImageCache.getImageCircleUnLockDark());
+            });
         }
     }
+
 }

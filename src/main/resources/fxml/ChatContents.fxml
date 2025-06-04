@@ -8,22 +8,31 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="id_apChatContents" prefHeight="775.0" prefWidth="705.0" stylesheets="@/css/chat-contents/chat-contents-dark.css" AnchorPane.topAnchor="25.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.ChatContentsController">
+<AnchorPane fx:id="id_apChatContents" prefHeight="775.0" prefWidth="705.0"
+            stylesheets="@/css/chat-contents/chat-contents-dark.css" AnchorPane.topAnchor="25.0"
+            BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uz.lb.controllers.ChatContentsController">
     <children>
-        <AnchorPane fx:id="id_pnInterlocutorProperties" layoutX="89.0" layoutY="61.0" prefHeight="55.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-        <StackPane fx:id="id_spBackground" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
+        <AnchorPane fx:id="id_pnInterlocutorProperties" layoutX="89.0" layoutY="61.0" prefHeight="55.0"
+                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+        <StackPane fx:id="id_spBackground" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="45.0"
+                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
             <children>
-                <ImageView fx:id="id_ivBackground" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="id_ivBackground" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true"
+                           preserveRatio="true">
                     <image>
-                        <Image url="@../images/mv-mono.png" />
+                        <Image url="@../images/mv-mono.png"/>
                     </image>
                 </ImageView>
             </children>
         </StackPane>
-        <VBox fx:id="id_vbChatContent" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0" />
+        <VBox fx:id="id_vbChatContent" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0"
+              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0"/>
 
-        <ScrollBar fx:id="id_sbScrollContents" orientation="VERTICAL" visible="false" AnchorPane.bottomAnchor="100.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0">
+        <ScrollBar fx:id="id_sbScrollContents" orientation="VERTICAL" visible="false" AnchorPane.bottomAnchor="100.0"
+                   AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0">
         </ScrollBar>
-        <AnchorPane fx:id="id_pnMessageTypes" layoutX="14.0" layoutY="582.0" prefHeight="45.0" prefWidth="390.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+        <AnchorPane fx:id="id_pnMessageTypes" layoutX="14.0" layoutY="582.0" prefHeight="45.0" prefWidth="390.0"
+                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
     </children>
 </AnchorPane>

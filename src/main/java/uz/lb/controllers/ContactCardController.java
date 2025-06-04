@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import uz.lb.caches.ImageCache;
 
 import java.net.URL;
 import java.util.ResourceBundle;

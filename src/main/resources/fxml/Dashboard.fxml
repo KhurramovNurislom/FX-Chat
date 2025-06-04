@@ -8,70 +8,84 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="id_apDashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="816.0" prefWidth="1016.0" stylesheets="@/css/dashboard/dashboard-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.DashboardController">
+<AnchorPane fx:id="id_apDashboard" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="816.0" prefWidth="1016.0" stylesheets="@/css/dashboard/dashboard-dark.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uz.lb.controllers.DashboardController">
     <children>
-        <Pane fx:id="id_pnShadow" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0" />
+        <Pane fx:id="id_pnShadow" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0"
+              AnchorPane.topAnchor="8.0"/>
 
-        <VBox fx:id="id_vbDashboardItems" layoutY="66.0" prefWidth="75.0" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="33.0">
+        <VBox fx:id="id_vbDashboardItems" layoutY="66.0" prefWidth="75.0" AnchorPane.bottomAnchor="8.0"
+              AnchorPane.leftAnchor="8.0" AnchorPane.topAnchor="33.0">
             <children>
-                <JFXButton fx:id="id_btnMenu" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" textAlignment="CENTER" wrapText="true">
+                <JFXButton fx:id="id_btnMenu" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5"
+                           prefHeight="60.0" prefWidth="75.0" textAlignment="CENTER" wrapText="true">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                     <graphic>
-                        <ImageView fx:id="id_ivMenu" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="id_ivMenu" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <image>
-                                <Image url="@../images/dashboard/setting/menu.png" />
+                                <Image url="@../images/dashboard/setting/menu.png"/>
                             </image>
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <JFXButton fx:id="id_btnAllChats" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" text="barchasi" textAlignment="CENTER" wrapText="true">
+                <JFXButton fx:id="id_btnAllChats" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5"
+                           prefHeight="60.0" prefWidth="75.0" text="barchasi" textAlignment="CENTER" wrapText="true">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                     <graphic>
-                        <ImageView fx:id="id_ivAllChats" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="id_ivAllChats" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <image>
-                                <Image url="@../images/dashboard/setting/all-chats.png" />
+                                <Image url="@../images/dashboard/setting/all-chats.png"/>
                             </image>
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <JFXButton fx:id="id_btnPersonalChat" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" text="shaxsiy" textAlignment="CENTER" wrapText="true">
+                <JFXButton fx:id="id_btnPersonalChat" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5"
+                           prefHeight="60.0" prefWidth="75.0" text="shaxsiy" textAlignment="CENTER" wrapText="true">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                     <graphic>
-                        <ImageView fx:id="id_ivPersonalChat" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="id_ivPersonalChat" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <image>
-                                <Image url="@../images/dashboard/setting/circle-person.png" />
+                                <Image url="@../images/dashboard/setting/circle-person.png"/>
                             </image>
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                         </ImageView>
                     </graphic>
                 </JFXButton>
-                <JFXButton fx:id="id_btnUnreadChats" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" text="o'qilmagan" textAlignment="CENTER" wrapText="true">
+                <JFXButton fx:id="id_btnUnreadChats" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5"
+                           prefHeight="60.0" prefWidth="75.0" text="o'qilmagan" textAlignment="CENTER" wrapText="true">
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                     <graphic>
-                        <ImageView fx:id="id_ivUnreadChats" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="id_ivUnreadChats" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <image>
-                                <Image url="@../images/dashboard/setting/chat.png" />
+                                <Image url="@../images/dashboard/setting/chat.png"/>
                             </image>
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                         </ImageView>
                     </graphic>
@@ -79,48 +93,67 @@
             </children>
         </VBox>
 
-        <AnchorPane fx:id="id_apTitlePane" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
+        <AnchorPane fx:id="id_apTitlePane" prefHeight="25.0" prefWidth="200.0" AnchorPane.leftAnchor="8.0"
+                    AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="8.0">
             <children>
-                <ImageView fx:id="id_ivClose" fitHeight="19.0" fitWidth="19.0" layoutY="-62.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0">
+                <ImageView fx:id="id_ivClose" fitHeight="19.0" fitWidth="19.0" layoutY="-62.0" pickOnBounds="true"
+                           preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="3.0"
+                           AnchorPane.topAnchor="3.0">
                     <image>
-                        <Image url="@../images/dashboard/title-pane/default-dark.png" />
+                        <Image url="@../images/dashboard/title-pane/default-dark.png"/>
                     </image>
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                 </ImageView>
-                <Label fx:id="id_lblAppName" prefHeight="25.0" prefWidth="350.0" text="FX-Chat" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0" />
-                <ImageView fx:id="id_ivFullScreen" fitHeight="19.0" fitWidth="19.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="3.0">
+                <Label fx:id="id_lblAppName" prefHeight="25.0" prefWidth="350.0" text="FX-Chat"
+                       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="0.0"/>
+                <ImageView fx:id="id_ivFullScreen" fitHeight="19.0" fitWidth="19.0" layoutX="10.0" pickOnBounds="true"
+                           preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="25.0"
+                           AnchorPane.topAnchor="3.0">
                     <image>
-                        <Image url="@../images/dashboard/title-pane/default-dark.png" />
+                        <Image url="@../images/dashboard/title-pane/default-dark.png"/>
                     </image>
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                 </ImageView>
-                <ImageView fx:id="id_ivMinimize" fitHeight="19.0" fitWidth="19.0" layoutX="10.0" layoutY="-52.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="3.0">
+                <ImageView fx:id="id_ivMinimize" fitHeight="19.0" fitWidth="19.0" layoutX="10.0" layoutY="-52.0"
+                           pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="3.0"
+                           AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="3.0">
                     <image>
-                        <Image url="@../images/dashboard/title-pane/default-dark.png" />
+                        <Image url="@../images/dashboard/title-pane/default-dark.png"/>
                     </image>
                     <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="HAND"/>
                     </cursor>
                 </ImageView>
-                <ImageView fx:id="id_ivLogo" fitHeight="25.0" fitWidth="25.0" layoutX="20.0" layoutY="-42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <ImageView fx:id="id_ivLogo" fitHeight="25.0" fitWidth="25.0" layoutX="20.0" layoutY="-42.0"
+                           pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0"
+                           AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0"/>
             </children>
         </AnchorPane>
 
 
-        <SplitPane fx:id="id_spChat" dividerPositions="0.3" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="83.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="33.0">
+        <SplitPane fx:id="id_spChat" dividerPositions="0.3" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="83.0"
+                   AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="33.0">
 
             <items>
-                <fx:include fx:id="id_apContacts" source="ChatContacts.fxml" />
-                <fx:include fx:id="id_apChatContents" source="ChatContents.fxml" />
+                <fx:include fx:id="id_apContacts" source="ChatContacts.fxml"/>
+                <fx:include fx:id="id_apChatContents" source="ChatContents.fxml"/>
             </items>
         </SplitPane>
 
-        <AnchorPane fx:id="id_apShadow" visible="false" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="33.0" />
-        <fx:include fx:id="id_vbSettings" source="Settings.fxml" AnchorPane.bottomAnchor="8.0" AnchorPane.topAnchor="33.0" />
+        <AnchorPane fx:id="id_apShadow" visible="false" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0"
+                    AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="33.0"/>
+        <fx:include fx:id="id_vbSettings" source="Settings.fxml" AnchorPane.bottomAnchor="8.0"
+                    AnchorPane.topAnchor="33.0"/>
+
+        <StackPane fx:id="id_spLock" visible="false" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0"
+                   AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="33.0"
+        style="-fx-background-color: #121A21">
+            <fx:include fx:id="id_apLock" source="Login.fxml"/>
+        </StackPane>
 
     </children>
 </AnchorPane>

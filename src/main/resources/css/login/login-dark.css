@@ -1,0 +1,66 @@
+.root {
+    -fx-text-color: #f2f2f2;
+    -fx-main-color: #090d10;
+    -fx-main-color-hover: #243442;
+    -fx-button-color: #1d2933;
+    -fx-button-color-hover: #212e3b;
+}
+
+#id_pfPassword, #id_tfPassword {
+    -fx-background-color: #121A21;
+    -fx-text-fill: -fx-text-color;
+    -fx-font-size: 15px;
+    -fx-font-family: "Segoe UI";
+}
+
+#id_btnEnter {
+    -fx-background-color: #2a5389;
+    -fx-text-fill: -fx-text-color;
+    -fx-font-size: 16px;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: BOLD;
+    -fx-background-radius: 5 5 5 5;
+    -fx-boder-radius: 5 5 5 5;
+}
+
+#id_btnEnter:hover {
+    /*-fx-background-color: #212e3b;*/
+    -fx-background-color: #366bb0;
+}
+
+#id_lnLine {
+    -fx-stroke: #305f9c;
+    -fx-stroke-width: 2;
+}
+
+#id_lblEnteredPassword{
+    -fx-text-fill:  #366bb0;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+}
+
+
+#id_lblText {
+    -fx-background-color: #121A21;
+    -fx-text-fill: -fx-text-color;
+    /*-fx-text-fill: #4f84c9;*/
+    -fx-font-size: 20px;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: BOLD;
+}
+
+
+#id_lblTextDesc {
+    -fx-background-color: #121A21;
+    -fx-text-fill: RED;
+    -fx-font-size: 14px;
+    -fx-font-family: "Segoe UI";
+}
+
+/*#id_lnLine {*/
+/*    !*-fx-stroke: -fx-text-color;*!*/
+/*    -fx-stroke: RED;*/
+/*    -fx-stroke-width: 2;*/
+/*}*/
+
+

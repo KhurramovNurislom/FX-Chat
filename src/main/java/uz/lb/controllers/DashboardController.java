@@ -4,16 +4,15 @@ import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import uz.lb.FXChat;
@@ -24,6 +23,13 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
+
+
+    @FXML
+    private StackPane id_spLock;
+
+    @FXML
+    private Pane id_pnLock;
     @FXML
     private AnchorPane id_apContacts;
     @FXML
@@ -37,8 +43,7 @@ public class DashboardController implements Initializable {
     @FXML
     private AnchorPane id_apShadow;
 
-    @FXML
-    private AnchorPane id_bpChats;
+
     @FXML
     private VBox id_vbSettings;
 
@@ -81,6 +86,8 @@ public class DashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         FXChat.setTitlePane(id_apTitlePane);
+        FXChat.setLockPane(id_spLock);
+
         slide.setNode(id_vbSettings);
 
         fade.setNode(id_apShadow);
@@ -172,5 +179,10 @@ public class DashboardController implements Initializable {
             id_ivMinimize.setImage(ImageCache.getImageMinimizeDark());
         });
     }
+
+
+
+
+
 }
 
