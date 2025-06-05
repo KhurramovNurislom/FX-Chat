@@ -17,7 +17,10 @@ import javafx.util.Duration;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import uz.lb.controllers.LoginController;
 import uz.lb.utils.ResizableWindowHelper;
+import uz.lb.utils.SystemThemeDetector;
 
+import javax.swing.*;
+import java.awt.geom.FlatteningPathIterator;
 import java.io.IOException;
 import java.security.Security;
 
@@ -65,7 +68,19 @@ public class FXChat extends Application {
         setStage(stage, scene);
 
         stage.show();
+
+
+        if (SystemThemeDetector.isDarkTheme()) {
+            System.out.println("Dark-theme");
+//            scene.getStylesheets().add(getClass().getResource("/css/dark-theme.css").toExternalForm());
+        } else {
+
+            System.out.println("light-theme");
+//            scene.getStylesheets().add(getClass().getResource("/css/light-theme.css").toExternalForm());
+        }
+
     }
+
 
     public static void Lock(String fxmlPath) {
 
