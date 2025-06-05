@@ -41,11 +41,12 @@ public class ChatContactsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
         searchFieldHover();
 
         id_ivSearchClose.setOnMouseClicked(e -> {
             if (isUnlock) {
-                FXChat.Lock();
+                FXChat.Lock("/fxml/Login.fxml");
             } else {
                 id_tfSearch.clear();
                 id_ivSearchClose.setImage(ImageCache.getImageCircleUnLockDark());
@@ -89,7 +90,6 @@ public class ChatContactsController implements Initializable {
 //        id_spContacts.setOnMouseMoved(m -> {
 //            id_spContacts.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
 //        });
-
 
     }
 

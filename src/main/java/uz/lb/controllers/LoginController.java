@@ -1,23 +1,33 @@
 package uz.lb.controllers;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import uz.lb.FXChat;
 import uz.lb.caches.ImageCache;
+import uz.lb.caches.LenghtCache;
+import uz.lb.utils.WindowUtil;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
+
+    @FXML
+    private Text id_txtRegistration;
 
     @FXML
     private Label id_lblText;
@@ -46,76 +56,69 @@ public class LoginController implements Initializable {
     @FXML
     private ImageView id_ivEye;
 
-    private boolean eyebool = false;
+    private boolean eyeBool = true;
 
     private String passOld = "";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        hover();
+        hoverEye();
+
+        id_txtRegistration.setOnMouseClicked(e -> {
+            FXChat.Lock("/fxml/Registration.fxml");
+//            Stage currentStage = (Stage) id_apLogin.getScene().getWindow();
+//
+//            WindowUtil.openWindow("/fxml/Registration.fxml", "Registration", currentStage);
+        });
+
+        id_pfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            id_tfPassword.setText(newValue);
+        });
+
+        id_tfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            id_pfPassword.setText(newValue);
+        });
 
         id_ivEye.setOnMouseClicked(e -> {
-            id_tfPassword.setText(id_pfPassword.getText());
-
-            id_pfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
-                id_tfPassword.setText(newValue);
-            });
-
-            id_tfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
-                id_pfPassword.setText(newValue);
-            });
-
-            eyebool = !eyebool;
-            if (eyebool) {
-                id_ivEye.setImage(ImageCache.getImageUnEyeDark());
-                id_tfPassword.setVisible(true);
-                id_pfPassword.setVisible(false);
-            } else {
+            eyeBool = !eyeBool;
+            if (eyeBool) {
                 id_ivEye.setImage(ImageCache.getImageEyeDark());
-                id_tfPassword.setVisible(false);
-                id_pfPassword.setVisible(true);
+                hoverEye();
+            } else {
+                id_ivEye.setImage(ImageCache.getImageUnEyeDark());
+                hoverUnEye();
             }
+            id_tfPassword.setVisible(!eyeBool);
+            id_pfPassword.setVisible(eyeBool);
         });
 
-
-
-
-        id_pfPassword.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (newValue.length() < 6) {
-                    id_tfPassword.setStyle("-fx-text-fill:  RED");
-                    id_pfPassword.setStyle("-fx-text-fill:  RED");
-                } else if (newValue.length() < 17) {
-                    passOld = newValue;
-                    id_tfPassword.setStyle("-fx-text-fill:  #0F2A62");
-                    id_pfPassword.setStyle("-fx-text-fill:  #0F2A62");
-                } else {
-                    id_tfPassword.setText(passOld);
-                    id_pfPassword.setText(passOld);
-                    id_tfPassword.setStyle("-fx-text-fill:  RED");
-                    id_pfPassword.setStyle("-fx-text-fill:  RED");
-                }
-            }
+        id_tfPassword.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            hoverField(newValue);
         });
 
+        id_pfPassword.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            hoverField(newValue);
+        });
 
+        id_btnEnter.setOnAction(e -> {
+            id_btnEnter.setDisable(true);
 
-
-
-
-
-
-
-
-
-
-
+            if (id_tfPassword.getText().equals("qweqwe")) {
+                FXChat.UnLock();
+            } else {
+                id_tfPassword.setStyle("-fx-text-fill:  #ff5c33");
+                id_pfPassword.setStyle("-fx-text-fill:  #ff5c33");
+                id_lnLine.setStyle("-fx-stroke: #ff5c33");
+                id_lblEnteredPassword.setStyle("-fx-text-fill:  #ff5c33");
+                id_lblTextDesc.setVisible(true);
+            }
+            id_btnEnter.setDisable(false);
+        });
 
     }
 
-    private void hover() {
+    private void hoverEye() {
 
         id_ivEye.hoverProperty().addListener(l -> {
             id_ivEye.setImage(ImageCache.getImageEyeDarkHover());
@@ -126,4 +129,34 @@ public class LoginController implements Initializable {
         });
 
     }
+
+    private void hoverUnEye() {
+
+        id_ivEye.hoverProperty().addListener(l -> {
+            id_ivEye.setImage(ImageCache.getImageUnEyeDarkHover());
+        });
+
+        id_ivEye.setOnMouseMoved(m -> {
+            id_ivEye.setImage(ImageCache.getImageUnEyeDark());
+        });
+
+    }
+
+    private void hoverField(String newValue) {
+        if (newValue.length() < LenghtCache.getMinPassword()) {
+            id_tfPassword.setStyle("-fx-text-fill:  #a6a6a6");
+            id_pfPassword.setStyle("-fx-text-fill:  #a6a6a6");
+        } else if (newValue.length() <= LenghtCache.getMaxPassword()) {
+            passOld = newValue;
+            id_tfPassword.setStyle("-fx-text-fill:  #f2f2f2");
+            id_pfPassword.setStyle("-fx-text-fill:  #f2f2f2");
+        } else {
+            id_tfPassword.setText(passOld);
+            id_pfPassword.setText(passOld);
+            id_tfPassword.setStyle("-fx-text-fill:  #a6a6a6");
+            id_pfPassword.setStyle("-fx-text-fill:  #a6a6a6");
+        }
+    }
+
+
 }

@@ -17,6 +17,18 @@
     -fx-opacity: 0.3;
 }
 
+
+#id_spScrollContents {
+    -fx-background-color: #090d10;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+#id_apChatContents{
+    -fx-background-radius: 0 0 10 0;
+    -fx-border-radius: 0 0 10 0;
+}
+
 /********************************************************/
 
 #id_sbScrollContents {

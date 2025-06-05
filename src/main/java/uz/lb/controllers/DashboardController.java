@@ -8,23 +8,28 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import uz.lb.FXChat;
 import uz.lb.caches.ImageCache;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
 
-
+    @FXML
+    private AnchorPane id_apDashboard;
     @FXML
     private StackPane id_spLock;
 
@@ -181,6 +186,32 @@ public class DashboardController implements Initializable {
     }
 
 
+    public void openWindow() {
+        try {
+            // Login.fxml faylini yuklash
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
+            Parent loginRoot = loader.load();
+
+            // Login controllerga murojaat qilish (ixtiyoriy)
+            LoginController loginController = loader.getController();
+
+            // Yangi oynani yaratish
+            Stage loginStage = new Stage();
+            loginStage.setTitle("Login");
+            loginStage.setScene(new Scene(loginRoot));
+
+            // Dashboard oynasini o‘chirib yubormasdan yangi oynani ochamiz
+            loginStage.initOwner(id_apDashboard.getScene().getWindow()); // Dashboard oynasi parent bo‘ladi
+
+            // MODAL EMAS qilish uchun quyidagini **yozmaymiz** yoki WINDOW_MODAL o‘rniga NONE:
+            // loginStage.initModality(Modality.WINDOW_MODAL);
+
+            loginStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

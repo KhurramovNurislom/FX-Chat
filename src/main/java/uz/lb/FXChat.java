@@ -15,8 +15,10 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import uz.lb.controllers.LoginController;
 import uz.lb.utils.ResizableWindowHelper;
 
+import java.io.IOException;
 import java.security.Security;
 
 public class FXChat extends Application {
@@ -65,21 +67,35 @@ public class FXChat extends Application {
         stage.show();
     }
 
-    public static void Lock() {
-        lockPane.setVisible(true);
+    public static void Lock(String fxmlPath) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(FXChat.class.getResource(fxmlPath));
+            Parent loginRoot = loader.load();
+            lockPane.getChildren().setAll(loginRoot);
+            lockPane.setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), lockPane);
+
         fadeIn.setFromValue(0);
         fadeIn.setToValue(1);
         fadeIn.play();
     }
 
-    private void UnLock() {
+    public static void UnLock() {
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), lockPane);
         fadeIn.setFromValue(1);
         fadeIn.setToValue(0);
         fadeIn.setOnFinished(e -> lockPane.setVisible(false));
         fadeIn.play();
     }
+
+
+
+
 
     public static void Minimize() {
         stage.setIconified(true);

@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="id_apLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@/css/login/login-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.LoginController">
     <children>
@@ -24,9 +25,10 @@
             </image>
         </ImageView>
 
-        <JFXButton fx:id="id_btnEnter" buttonType="RAISED" prefHeight="40.0" prefWidth="150.0" text="KIRISH" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="200.0" />
-        <Label fx:id="id_lblText" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="90.0" prefHeight="30.0" prefWidth="180.0" text="DASTURGA KIRISH" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="50.0" />
+        <JFXButton fx:id="id_btnEnter" buttonType="RAISED" defaultButton="true" prefHeight="40.0" prefWidth="150.0" text="KIRISH" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="200.0" />
+        <Label fx:id="id_lblText" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="90.0" prefHeight="30.0" prefWidth="270.0" text="ASSALOMU ALEYKUM" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0" />
         <Label fx:id="id_lblTextDesc" contentDisplay="CENTER" layoutX="76.0" layoutY="90.0" prefHeight="20.0" prefWidth="180.0" text="kiritilgan parol xato" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="165.0" />
-      <Label fx:id="id_lblEnteredPassword" contentDisplay="CENTER" layoutX="76.0" layoutY="98.0" prefHeight="20.0" prefWidth="180.0" text="Parolni kiriting" AnchorPane.topAnchor="100.0" />
+        <Label fx:id="id_lblEnteredPassword" contentDisplay="CENTER" layoutX="76.0" layoutY="98.0" prefHeight="20.0" prefWidth="180.0" text="Parolni kiriting" AnchorPane.topAnchor="100.0" />
+      <Text fx:id="id_txtRegistration" layoutX="77.0" layoutY="268.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Ro'yhatdan o'tish" textAlignment="CENTER" wrappingWidth="180.0" AnchorPane.topAnchor="280.0" />
     </children>
 </AnchorPane>

@@ -6,6 +6,10 @@
     -fx-button-color-hover: #212e3b;
 }
 
+#id_ivEye {
+    -fx-cursor: HAND;
+}
+
 #id_pfPassword, #id_tfPassword {
     -fx-background-color: #121A21;
     -fx-text-fill: -fx-text-color;
@@ -13,7 +17,13 @@
     -fx-font-family: "Segoe UI";
 }
 
+#id_apLogin {
+    -fx-background-radius: 10 10 10 10;
+    -fx-boder-radius: 10 10 10 10;
+}
+
 #id_btnEnter {
+    -fx-cursor: HAND;
     -fx-background-color: #2a5389;
     -fx-text-fill: -fx-text-color;
     -fx-font-size: 16px;
@@ -24,7 +34,6 @@
 }
 
 #id_btnEnter:hover {
-    /*-fx-background-color: #212e3b;*/
     -fx-background-color: #366bb0;
 }
 
@@ -33,8 +42,8 @@
     -fx-stroke-width: 2;
 }
 
-#id_lblEnteredPassword{
-    -fx-text-fill:  #366bb0;
+#id_lblEnteredPassword {
+    -fx-text-fill: #4f84c9;
     -fx-font-family: "Segoe UI";
     -fx-font-size: 14px;
 }
@@ -43,24 +52,28 @@
 #id_lblText {
     -fx-background-color: #121A21;
     -fx-text-fill: -fx-text-color;
-    /*-fx-text-fill: #4f84c9;*/
     -fx-font-size: 20px;
     -fx-font-family: "Segoe UI";
     -fx-font-weight: BOLD;
 }
 
-
 #id_lblTextDesc {
     -fx-background-color: #121A21;
-    -fx-text-fill: RED;
+    -fx-text-fill: #ff5c33;
     -fx-font-size: 14px;
     -fx-font-family: "Segoe UI";
 }
 
-/*#id_lnLine {*/
-/*    !*-fx-stroke: -fx-text-color;*!*/
-/*    -fx-stroke: RED;*/
-/*    -fx-stroke-width: 2;*/
-/*}*/
+#id_txtRegistration {
+    -fx-fill: #4f84c9;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14px;
+    -fx-cursor: HAND;
+    -fx-font-style: Italic;
+}
+
+#id_txtRegistration:hover {
+    -fx-fill: #6392cf;
+}
 
 

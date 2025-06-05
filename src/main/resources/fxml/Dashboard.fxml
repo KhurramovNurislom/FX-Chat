@@ -152,7 +152,7 @@
         <StackPane fx:id="id_spLock" visible="false" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="8.0"
                    AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="33.0"
         style="-fx-background-color: #121A21">
-            <fx:include fx:id="id_apLock" source="Login.fxml"/>
+
         </StackPane>
 
     </children>
