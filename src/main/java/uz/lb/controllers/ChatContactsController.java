@@ -59,7 +59,7 @@ public class ChatContactsController implements Initializable {
         for (int i = 0; i < 100; i++) {
             Contact contact = new Contact();
             contact.setName(contact.getName() + "132456kbj " + i);
-            contact.setMessage(contact.getMessage() + " " + i);
+            contact.setMessage(contact.getMessage() + " " + i + "132456kbj132456kbj132456kbj132456kbj132456kbj");
             contactList.add(contact);
         }
 
