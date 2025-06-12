@@ -2,24 +2,25 @@ package uz.lb.controllers;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
+import javafx.animation.Interpolator;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
-import javafx.scene.Node;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import uz.lb.FXChat;
-import uz.lb.caches.ImageCache;
+import uz.lb.caches.ImageCacheDark;
+import uz.lb.caches.ImageCacheLight;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,6 +28,17 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
+
+    public HBox id_hbCountAllChats;
+    public AnchorPane id_apRoot;
+    public StackPane stackPane;
+    public Pane id_pnSettingsContainer;
+    @FXML
+    private Label id_lblChatPerson;
+    @FXML
+    private Label id_lblAllChats;
+    @FXML
+    private Label id_lblUnreadChats;
 
     @FXML
     private AnchorPane id_apDashboard;
@@ -83,6 +95,7 @@ public class DashboardController implements Initializable {
 
     public DashboardController() {
         slide = new TranslateTransition(Duration.seconds(0.25));
+        slide.setInterpolator(Interpolator.EASE_BOTH);
         fade = new FadeTransition(Duration.seconds(0.25));
     }
 
@@ -90,6 +103,21 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        Rectangle clip = new Rectangle();
+        clip.setWidth(id_pnSettingsContainer.getWidth());
+        clip.setHeight(id_pnSettingsContainer.getHeight());
+        id_pnSettingsContainer.setClip(clip);
+
+// Dinamik o'zgartirish uchun listener qo'shish mumkin:
+        id_pnSettingsContainer.widthProperty().addListener((obs, oldVal, newVal) -> clip.setWidth(newVal.doubleValue()));
+        id_pnSettingsContainer.heightProperty().addListener((obs, oldVal, newVal) -> clip.setHeight(newVal.doubleValue()));
+
+
+
+
+        id_lblChatPerson.setVisible(true);
+        id_lblChatPerson.setText("1111");
+        
         FXChat.setTitlePane(id_apTitlePane);
         FXChat.setLockPane(id_spLock);
 
@@ -98,6 +126,8 @@ public class DashboardController implements Initializable {
         fade.setNode(id_apShadow);
 
         titleHover();
+        settingHover();
+
         setupWindowControls();
 
         id_btnMenu.setOnAction(e -> toggleSettingsPane());
@@ -116,8 +146,8 @@ public class DashboardController implements Initializable {
     }
 
     private void toggleSettingsPane() {
-        slide.setFromX(-2);
-        slide.setToX(280);
+        slide.setFromX(0);
+        slide.setToX(270);
         slide.play();
 
         id_apShadow.setVisible(true);
@@ -133,11 +163,11 @@ public class DashboardController implements Initializable {
     private void backSettingPage() {
         id_apShadow.setOnMouseClicked(e -> {
 
-            slide.setFromX(280);
-            slide.setToX(-2);
+            slide.setFromX(270);
+            slide.setToX(0);
             slide.play();
 
-            fade.setFromValue(0.4);
+            fade.setFromValue(0.5);
             fade.setToValue(0.0);
             fade.play();
 
@@ -145,43 +175,94 @@ public class DashboardController implements Initializable {
         });
     }
 
+
     private void hoverFullScreen() {
         isFullScreen = !isFullScreen;
 
         if (!isFullScreen) {
             id_ivFullScreen.setOnMouseMoved(m -> {
-                id_ivFullScreen.setImage(ImageCache.getImageFullScreenDark());
+                id_ivFullScreen.setImage(ImageCacheDark.getImageFullScreenDark());
+
             });
         } else {
             id_ivFullScreen.setOnMouseMoved(m -> {
-                id_ivFullScreen.setImage(ImageCache.getImageUnFullScreenDark());
+                id_ivFullScreen.setImage(ImageCacheDark.getImageUnFullScreenDark());
             });
         }
     }
 
+    private void settingHover() {
+        id_btnMenu.setOnMouseExited(l -> {
+            id_ivMenu.setImage(ImageCacheDark.getImageMenu());
+        });
+
+        id_btnMenu.setOnMouseEntered(m -> {
+            id_ivMenu.setImage(ImageCacheDark.getImageMenuHover());
+        });
+
+        id_btnPersonalChat.setOnMouseExited(l -> {
+            id_lblChatPerson.getStyleClass().remove("count-label-hover");
+            id_lblChatPerson.getStyleClass().add("count-label");
+            id_ivPersonalChat.setImage(ImageCacheDark.getImageCirclePerson());
+        });
+
+        id_btnPersonalChat.setOnMouseEntered(m -> {
+            id_lblChatPerson.getStyleClass().remove("count-label");
+            id_lblChatPerson.getStyleClass().add("count-label-hover");
+            id_ivPersonalChat.setImage(ImageCacheDark.getImageCirclePersonHover());
+        });
+
+
+        id_btnAllChats.setOnMouseExited(l -> {
+            id_lblAllChats.getStyleClass().remove("count-label");
+            id_lblAllChats.getStyleClass().add("count-label-hover");
+            id_ivAllChats.setImage(ImageCacheDark.getImageAllChats());
+        });
+
+        id_btnAllChats.setOnMouseEntered(m -> {
+            id_lblAllChats.getStyleClass().add("count-label-hover");
+            id_lblAllChats.getStyleClass().remove("count-label");
+            id_ivAllChats.setImage(ImageCacheDark.getImageAllChatsHover());
+        });
+
+
+        id_btnUnreadChats.setOnMouseExited(l -> {
+            id_lblUnreadChats.getStyleClass().remove("count-label");
+            id_lblUnreadChats.getStyleClass().add("count-label-hover");
+            id_ivUnreadChats.setImage(ImageCacheDark.getImageChat());
+        });
+
+        id_btnUnreadChats.setOnMouseEntered(m -> {
+            id_lblUnreadChats.getStyleClass().add("count-label-hover");
+            id_lblUnreadChats.getStyleClass().remove("count-label");
+            id_ivUnreadChats.setImage(ImageCacheDark.getImageChatHover());
+        });
+
+    }
+
     private void titleHover() {
-        id_ivFullScreen.hoverProperty().addListener(l -> {
-            id_ivFullScreen.setImage(ImageCache.getImageDefaultDark());
+        id_ivFullScreen.setOnMouseExited(l -> {
+            id_ivFullScreen.setImage(ImageCacheDark.getImageDefaultDark());
         });
 
-        id_ivFullScreen.setOnMouseMoved(m -> {
-            id_ivFullScreen.setImage(ImageCache.getImageFullScreenDark());
+        id_ivFullScreen.setOnMouseEntered(m -> {
+            id_ivFullScreen.setImage(ImageCacheDark.getImageFullScreenDark());
         });
 
-        id_ivClose.hoverProperty().addListener(l -> {
-            id_ivClose.setImage(ImageCache.getImageDefaultDark());
+        id_ivClose.setOnMouseExited(l -> {
+            id_ivClose.setImage(ImageCacheDark.getImageDefaultDark());
         });
 
-        id_ivClose.setOnMouseMoved(m -> {
-            id_ivClose.setImage(ImageCache.getImageCloseRed());
+        id_ivClose.setOnMouseEntered(m -> {
+            id_ivClose.setImage(ImageCacheDark.getImageCloseRed());
         });
 
-        id_ivMinimize.hoverProperty().addListener(l -> {
-            id_ivMinimize.setImage(ImageCache.getImageDefaultDark());
+        id_ivMinimize.setOnMouseExited(l -> {
+            id_ivMinimize.setImage(ImageCacheDark.getImageDefaultDark());
         });
 
-        id_ivMinimize.setOnMouseMoved(m -> {
-            id_ivMinimize.setImage(ImageCache.getImageMinimizeDark());
+        id_ivMinimize.setOnMouseEntered(m -> {
+            id_ivMinimize.setImage(ImageCacheDark.getImageMinimizeDark());
         });
     }
 
@@ -212,7 +293,6 @@ public class DashboardController implements Initializable {
             e.printStackTrace();
         }
     }
-
 
 
 }

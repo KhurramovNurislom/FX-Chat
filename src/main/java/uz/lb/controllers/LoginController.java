@@ -3,10 +3,7 @@ package uz.lb.controllers;
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -14,13 +11,10 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import uz.lb.FXChat;
-import uz.lb.caches.ImageCache;
+import uz.lb.caches.ImageCacheLight;
 import uz.lb.caches.LenghtCache;
-import uz.lb.utils.WindowUtil;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -83,10 +77,10 @@ public class LoginController implements Initializable {
         id_ivEye.setOnMouseClicked(e -> {
             eyeBool = !eyeBool;
             if (eyeBool) {
-                id_ivEye.setImage(ImageCache.getImageEyeDark());
+                id_ivEye.setImage(ImageCacheLight.getImageEyeDark());
                 hoverEye();
             } else {
-                id_ivEye.setImage(ImageCache.getImageUnEyeDark());
+                id_ivEye.setImage(ImageCacheLight.getImageUnEyeDark());
                 hoverUnEye();
             }
             id_tfPassword.setVisible(!eyeBool);
@@ -121,11 +115,11 @@ public class LoginController implements Initializable {
     private void hoverEye() {
 
         id_ivEye.hoverProperty().addListener(l -> {
-            id_ivEye.setImage(ImageCache.getImageEyeDarkHover());
+            id_ivEye.setImage(ImageCacheLight.getImageEyeDarkHover());
         });
 
         id_ivEye.setOnMouseMoved(m -> {
-            id_ivEye.setImage(ImageCache.getImageEyeDark());
+            id_ivEye.setImage(ImageCacheLight.getImageEyeDark());
         });
 
     }
@@ -133,11 +127,11 @@ public class LoginController implements Initializable {
     private void hoverUnEye() {
 
         id_ivEye.hoverProperty().addListener(l -> {
-            id_ivEye.setImage(ImageCache.getImageUnEyeDarkHover());
+            id_ivEye.setImage(ImageCacheLight.getImageUnEyeDarkHover());
         });
 
         id_ivEye.setOnMouseMoved(m -> {
-            id_ivEye.setImage(ImageCache.getImageUnEyeDark());
+            id_ivEye.setImage(ImageCacheLight.getImageUnEyeDark());
         });
 
     }
