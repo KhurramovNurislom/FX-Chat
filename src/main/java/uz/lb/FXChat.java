@@ -1,8 +1,5 @@
 package uz.lb;
 
-
-import com.sun.jna.platform.win32.User32;
-import com.sun.jna.platform.win32.WinDef;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.beans.property.DoubleProperty;
@@ -10,26 +7,16 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Polygon;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import uz.lb.controllers.LoginController;
 import uz.lb.utils.ResizableWindowHelper;
 import uz.lb.utils.SystemThemeDetector;
 
-import javax.swing.*;
-import java.awt.geom.FlatteningPathIterator;
 import java.io.IOException;
 import java.security.Security;
 
@@ -60,10 +47,8 @@ public class FXChat extends Application {
 
         Security.addProvider(new BouncyCastleProvider());
 
-
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"));
         Parent root = loader.load();
-
 
 //        stage.getIcons().add(new Image("/images/icon.png"));
 

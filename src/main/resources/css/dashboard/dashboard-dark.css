@@ -91,6 +91,10 @@
     -fx-padding: 2;
 }
 
+#id_apSettings {
+    -fx-background-color: #090d10;
+}
+
 .count-label {
     -fx-background-color: #ADBED2;
     -fx-text-fill: #121a21;

@@ -1,9 +1,10 @@
 package uz.lb.controllers;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.animation.FadeTransition;
-import javafx.animation.Interpolator;
-import javafx.animation.TranslateTransition;
+import com.jfoenix.controls.JFXClippedPane;
+import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXDrawersStack;
+import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -29,17 +30,24 @@ import java.util.ResourceBundle;
 public class DashboardController implements Initializable {
 
 
-    public HBox id_hbCountAllChats;
-    public AnchorPane id_apRoot;
-    public StackPane stackPane;
-    public Pane id_pnSettingsContainer;
+    @FXML
+    private JFXDrawersStack id_dsSettings;
+    @FXML
+    private JFXDrawer id_drSettings;
+
+    @FXML
+    private VBox id_vbSettings;
+    @FXML
+    private HBox id_hbCountAllChats;
+    @FXML
+    private AnchorPane id_apRoot;
+
     @FXML
     private Label id_lblChatPerson;
     @FXML
     private Label id_lblAllChats;
     @FXML
     private Label id_lblUnreadChats;
-
     @FXML
     private AnchorPane id_apDashboard;
     @FXML
@@ -60,9 +68,6 @@ public class DashboardController implements Initializable {
     @FXML
     private AnchorPane id_apShadow;
 
-
-    @FXML
-    private VBox id_vbSettings;
 
     @FXML
     private JFXButton id_btnMenu;
@@ -89,48 +94,38 @@ public class DashboardController implements Initializable {
     private ImageView id_ivMinimize;
 
     private boolean isFullScreen = false;
-    private final TranslateTransition slide;
     private final FadeTransition fade;
 
 
     public DashboardController() {
-        slide = new TranslateTransition(Duration.seconds(0.25));
-        slide.setInterpolator(Interpolator.EASE_BOTH);
-        fade = new FadeTransition(Duration.seconds(0.25));
+        fade = new FadeTransition(Duration.millis(250));
     }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        Rectangle clip = new Rectangle();
-        clip.setWidth(id_pnSettingsContainer.getWidth());
-        clip.setHeight(id_pnSettingsContainer.getHeight());
-        id_pnSettingsContainer.setClip(clip);
-
-// Dinamik o'zgartirish uchun listener qo'shish mumkin:
-        id_pnSettingsContainer.widthProperty().addListener((obs, oldVal, newVal) -> clip.setWidth(newVal.doubleValue()));
-        id_pnSettingsContainer.heightProperty().addListener((obs, oldVal, newVal) -> clip.setHeight(newVal.doubleValue()));
-
-
-
-
         id_lblChatPerson.setVisible(true);
         id_lblChatPerson.setText("1111");
-        
+
         FXChat.setTitlePane(id_apTitlePane);
         FXChat.setLockPane(id_spLock);
-
-        slide.setNode(id_vbSettings);
 
         fade.setNode(id_apShadow);
 
         titleHover();
+
         settingHover();
 
         setupWindowControls();
 
-        id_btnMenu.setOnAction(e -> toggleSettingsPane());
+        id_drSettings.setMouseTransparent(true);
+        id_dsSettings.setMouseTransparent(true);
+
+        id_btnMenu.setOnAction(e -> {
+
+            openDrawer();
+        });
 
     }
 
@@ -145,11 +140,22 @@ public class DashboardController implements Initializable {
         id_ivMinimize.setOnMouseClicked(e -> FXChat.Minimize());
     }
 
-    private void toggleSettingsPane() {
-        slide.setFromX(0);
-        slide.setToX(270);
-        slide.play();
+    public void openDrawer() {
+        TranslateTransition open = new TranslateTransition(Duration.millis(250), id_drSettings);
+        open.setToX(0);
+        open.play();
+        toggleSettingsPane();
+    }
 
+
+    public void closeDrawer() {
+        TranslateTransition close = new TranslateTransition(Duration.millis(250), id_drSettings);
+        close.setToX(-272);
+        close.play();
+    }
+
+
+    private void toggleSettingsPane() {
         id_apShadow.setVisible(true);
         fade.setFromValue(0.0);
         fade.setToValue(0.5);
@@ -162,15 +168,10 @@ public class DashboardController implements Initializable {
 
     private void backSettingPage() {
         id_apShadow.setOnMouseClicked(e -> {
-
-            slide.setFromX(270);
-            slide.setToX(0);
-            slide.play();
-
             fade.setFromValue(0.5);
             fade.setToValue(0.0);
             fade.play();
-
+            closeDrawer();
             fade.setOnFinished(ev -> id_apShadow.setVisible(false));
         });
     }
