@@ -1,38 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ScrollBar?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="id_apChatContents" prefHeight="775.0" prefWidth="705.0"
-            stylesheets="@/css/chat-contents/chat-contents-dark.css" AnchorPane.topAnchor="25.0"
-            BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="uz.lb.controllers.ChatContentsController">
-    <children>
-        <AnchorPane fx:id="id_pnInterlocutorProperties" layoutX="89.0" layoutY="61.0" prefHeight="55.0"
-                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
-        <StackPane fx:id="id_spBackground" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="45.0"
-                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
-            <children>
-                <ImageView fx:id="id_ivBackground" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true"
-                           preserveRatio="true">
-                    <image>
-                        <Image url="@../images/mv-mono.png"/>
-                    </image>
-                </ImageView>
-            </children>
-        </StackPane>
-        <VBox fx:id="id_vbChatContent" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0"
-              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0"/>
+<AnchorPane fx:id="id_apChatContents" prefHeight="775.0" prefWidth="705.0" stylesheets="@/css/chat-contents/chat-contents-dark.css" AnchorPane.topAnchor="25.0" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.ChatContentsController">
 
-        <ScrollBar fx:id="id_sbScrollContents" orientation="VERTICAL" visible="false" AnchorPane.bottomAnchor="100.0"
-                   AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="100.0">
-        </ScrollBar>
-        <AnchorPane fx:id="id_pnMessageTypes" layoutX="14.0" layoutY="582.0" prefHeight="45.0" prefWidth="390.0"
-                    AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"/>
+    <children>
+        <BorderPane fx:id="id_bpChatContents" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <top>
+
+                <AnchorPane fx:id="id_pnInterlocutorProperties" prefHeight="55.0" BorderPane.alignment="CENTER" />
+            </top>
+            <bottom>
+
+
+                <HBox fx:id="id_hbTypingMessage" prefHeight="45.0" spacing="10.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <VBox alignment="BOTTOM_CENTER">
+                            <children>
+                                <ImageView fx:id="id_ivFileChooser" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/dashboard/chat-contents/add-files-dark.png" />
+                                    </image>
+                                    <VBox.margin>
+                                        <Insets bottom="7.0" />
+                                    </VBox.margin>
+                                </ImageView>
+                            </children>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                            <opaqueInsets>
+                                <Insets />
+                            </opaqueInsets>
+                        </VBox>
+                        <JFXTextArea fx:id="id_taMessageContent" prefHeight="45.0" prefWidth="607.0" unFocusColor="WHITE" wrapText="true" HBox.hgrow="SOMETIMES" />
+                        <VBox alignment="BOTTOM_CENTER">
+                            <children>
+                                <ImageView fx:id="id_ivSticker" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/dashboard/chat-contents/sticker-dark.png" />
+                                    </image>
+                                    <VBox.margin>
+                                        <Insets bottom="7.0" />
+                                    </VBox.margin>
+                                </ImageView>
+                            </children>
+                        </VBox>
+                        <VBox alignment="BOTTOM_CENTER">
+                            <children>
+                                <ImageView fx:id="id_ivMicAndSend" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/dashboard/chat-contents/mic-dark.png" />
+                                    </image>
+                                    <VBox.margin>
+                                        <Insets bottom="7.0" />
+                                    </VBox.margin>
+                                </ImageView>
+                            </children>
+                            <HBox.margin>
+                                <Insets right="10.0" />
+                            </HBox.margin>
+                        </VBox>
+                    </children>
+                </HBox>
+            </bottom>
+            <center>
+
+                <StackPane fx:id="id_spBackground" style="-fx-background-color: transparent;" BorderPane.alignment="CENTER">
+                    <children>
+
+                        <!-- ScrollPane ichida VBox -->
+                        <ScrollPane fx:id="id_spMessages" fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent;">
+                            <content>
+                                <VBox fx:id="id_vbMessages" style="-fx-background-color: transparent;" />
+                            </content>
+                        </ScrollPane>
+                        <!-- Rasm -->
+                        <ImageView fx:id="id_ivBackground" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                            <image>
+                                <Image url="@../images/mv-mono.png" />
+                            </image>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </ImageView>
+                    </children>
+                </StackPane>
+            </center>
+        </BorderPane>
     </children>
 </AnchorPane>

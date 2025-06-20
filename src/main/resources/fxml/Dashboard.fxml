@@ -196,12 +196,14 @@
                 <AnchorPane fx:id="id_apShadow" visible="false" AnchorPane.bottomAnchor="0.0"
                             AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0"/>
 
-                <JFXDrawersStack fx:id="id_dsSettings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                <JFXDrawersStack fx:id="id_dsSettings" mouseTransparent="true" AnchorPane.bottomAnchor="0.0"
+                                 AnchorPane.leftAnchor="0.0"
                                  AnchorPane.topAnchor="25.0">
 
                     <JFXDrawer fx:id="id_drSettings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
                                AnchorPane.topAnchor="25.0"
                                overLayVisible="true" resizableOnDrag="false" translateX="-272">
+
                         <children>
 
                             <AnchorPane fx:id="id_apSettings" prefWidth="0">
@@ -211,6 +213,7 @@
                             </AnchorPane>
 
                         </children>
+
                     </JFXDrawer>
 
                 </JFXDrawersStack>

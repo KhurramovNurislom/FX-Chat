@@ -17,6 +17,10 @@
     -fx-opacity: 0.3;
 }
 
+#id_vbMessages {
+    -fx-background-color: transparent;
+}
+
 
 #id_spScrollContents {
     -fx-background-color: #090d10;
@@ -24,40 +28,61 @@
     -fx-border-radius: 15;
 }
 
-#id_apChatContents{
+#id_apChatContents {
     -fx-background-radius: 0 0 10 0;
     -fx-border-radius: 0 0 10 0;
 }
 
-/********************************************************/
 
-#id_sbScrollContents {
+#id_bpChatContents {
+    -fx-background-color: #121a21;
+    -fx-border-color: #121a21;
+    -fx-border-width: 1
+}
+
+/****************/
+
+#id_spMessages {
+    -fx-background-color: #121a21;
+    -fx-border-color: #121a21;
+}
+
+#id_spMessages > .thumb {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#id_spMessages > .track {
+    -fx-effect: none;
+    -fx-background-color: transparent;
+}
+
+#id_spMessages > .scroll-bar {
     -fx-background-color: #090d10;
+    -fx-pref-width: 9;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
 }
 
-
-#id_sbScrollContents:vertical > .thumb {
+#id_spMessages > .scroll-bar:vertical > .thumb {
     -fx-background-color: #253341;
     -fx-background-radius: 15;
-    -fx-min-height: 50px;
-    -fx-max-height: 80px;
     -fx-cursor: HAND;
 }
 
-#id_sbScrollContents:vertical > .thumb:hover {
+#id_spMessages > .scroll-bar:vertical > .thumb:hover {
     -fx-background-color: #2f4051;
 }
 
 
-#id_sbScrollContents:vertical > .track {
+#id_spMessages > .scroll-bar:vertical > .track {
     -fx-background-color: #090d10;
     -fx-background-radius: 10;
 }
 
-#id_sbScrollContents:vertical > .decrement-button,
-#id_sbScrollContents:vertical > .increment-button {
+#id_spMessages > .scroll-bar:vertical > .decrement-button,
+#id_spMessages > .scroll-bar:vertical > .increment-button {
     -fx-background-color: #090d10;
     -fx-cursor: HAND;
 }
+

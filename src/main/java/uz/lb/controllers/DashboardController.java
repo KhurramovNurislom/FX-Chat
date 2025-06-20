@@ -119,13 +119,10 @@ public class DashboardController implements Initializable {
 
         setupWindowControls();
 
-        id_drSettings.setMouseTransparent(true);
-        id_dsSettings.setMouseTransparent(true);
-
         id_btnMenu.setOnAction(e -> {
-
             openDrawer();
         });
+
 
     }
 
@@ -145,6 +142,8 @@ public class DashboardController implements Initializable {
         open.setToX(0);
         open.play();
         toggleSettingsPane();
+
+        id_dsSettings.setMouseTransparent(false);
     }
 
 
@@ -152,6 +151,8 @@ public class DashboardController implements Initializable {
         TranslateTransition close = new TranslateTransition(Duration.millis(250), id_drSettings);
         close.setToX(-272);
         close.play();
+
+        id_dsSettings.setMouseTransparent(true);
     }
 
 

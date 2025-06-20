@@ -100,15 +100,6 @@ public class ImageCacheDark {
     }
 
 
-    /***     Chat-content-background      */
-    private static Image imageBackgroundMono;
-
-    public static Image getImageBackgroundMono() {
-        if (imageBackgroundMono == null) {
-            imageBackgroundMono = new Image(ImageCacheDark.class.getResource("/images/mv-mono.png").toExternalForm());
-        }
-        return imageBackgroundMono;
-    }
 
 
     /***      Setting page      */

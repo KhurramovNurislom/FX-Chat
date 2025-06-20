@@ -22,6 +22,7 @@ import java.security.Security;
 
 public class FXChat extends Application {
 
+
     private static Stage stage;
     private static Pane titlePane;
     private static Pane lockPane;
@@ -45,6 +46,8 @@ public class FXChat extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
+
+
         Security.addProvider(new BouncyCastleProvider());
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"));
@@ -55,6 +58,7 @@ public class FXChat extends Application {
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
         stage.initStyle(StageStyle.TRANSPARENT);
+
         stage.centerOnScreen();
         stage.setScene(scene);
         stage.setMinHeight(500);
@@ -72,6 +76,7 @@ public class FXChat extends Application {
             System.out.println("light-theme");
 //            scene.getStylesheets().add(getClass().getResource("/css/light-theme.css").toExternalForm());
         }
+
 
     }
 
@@ -125,7 +130,7 @@ public class FXChat extends Application {
     }
 
     public void setStage(Stage stage, Scene scene) {
-        this.stage = stage;
+        FXChat.stage = stage;
         titlePane.setOnMousePressed(this::onMousePressed);
         titlePane.setOnMouseDragged(this::onMouseDragged);
         ResizableWindowHelper.makeResizable(stage);
