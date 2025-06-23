@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import uz.lb.FXChat;
-import uz.lb.caches.ImageCacheLight;
+import uz.lb.caches.ImageCacheLoginDark;
 import uz.lb.caches.LenghtCache;
 
 import java.net.URL;
@@ -77,10 +77,10 @@ public class LoginController implements Initializable {
         id_ivEye.setOnMouseClicked(e -> {
             eyeBool = !eyeBool;
             if (eyeBool) {
-                id_ivEye.setImage(ImageCacheLight.getImageEyeDark());
+                id_ivEye.setImage(ImageCacheLoginDark.getImageEyeDark());
                 hoverEye();
             } else {
-                id_ivEye.setImage(ImageCacheLight.getImageUnEyeDark());
+                id_ivEye.setImage(ImageCacheLoginDark.getImageUnEyeDark());
                 hoverUnEye();
             }
             id_tfPassword.setVisible(!eyeBool);
@@ -107,6 +107,7 @@ public class LoginController implements Initializable {
                 id_lblEnteredPassword.setStyle("-fx-text-fill:  #ff5c33");
                 id_lblTextDesc.setVisible(true);
             }
+
             id_btnEnter.setDisable(false);
         });
 
@@ -115,11 +116,11 @@ public class LoginController implements Initializable {
     private void hoverEye() {
 
         id_ivEye.hoverProperty().addListener(l -> {
-            id_ivEye.setImage(ImageCacheLight.getImageEyeDarkHover());
+            id_ivEye.setImage(ImageCacheLoginDark.getImageEyeDarkHover());
         });
 
         id_ivEye.setOnMouseMoved(m -> {
-            id_ivEye.setImage(ImageCacheLight.getImageEyeDark());
+            id_ivEye.setImage(ImageCacheLoginDark.getImageEyeDark());
         });
 
     }
@@ -127,11 +128,11 @@ public class LoginController implements Initializable {
     private void hoverUnEye() {
 
         id_ivEye.hoverProperty().addListener(l -> {
-            id_ivEye.setImage(ImageCacheLight.getImageUnEyeDarkHover());
+            id_ivEye.setImage(ImageCacheLoginDark.getImageUnEyeDarkHover());
         });
 
         id_ivEye.setOnMouseMoved(m -> {
-            id_ivEye.setImage(ImageCacheLight.getImageUnEyeDark());
+            id_ivEye.setImage(ImageCacheLoginDark.getImageUnEyeDark());
         });
 
     }

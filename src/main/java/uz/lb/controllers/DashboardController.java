@@ -1,27 +1,23 @@
 package uz.lb.controllers;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXClippedPane;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXDrawersStack;
 import javafx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import uz.lb.FXChat;
-import uz.lb.caches.ImageCacheDark;
-import uz.lb.caches.ImageCacheLight;
+import uz.lb.caches.ImageCacheSettingDark;
+import uz.lb.caches.ImageCacheTitleDark;
 
 import java.io.IOException;
 import java.net.URL;
@@ -179,92 +175,93 @@ public class DashboardController implements Initializable {
 
 
     private void hoverFullScreen() {
+
         isFullScreen = !isFullScreen;
 
         if (!isFullScreen) {
             id_ivFullScreen.setOnMouseMoved(m -> {
-                id_ivFullScreen.setImage(ImageCacheDark.getImageFullScreenDark());
-
+                id_ivFullScreen.setImage(ImageCacheTitleDark.getImageFullScreenDark());
+                System.out.println("");
             });
         } else {
             id_ivFullScreen.setOnMouseMoved(m -> {
-                id_ivFullScreen.setImage(ImageCacheDark.getImageUnFullScreenDark());
+                id_ivFullScreen.setImage(ImageCacheTitleDark.getImageUnFullScreenDark());
             });
         }
     }
 
     private void settingHover() {
         id_btnMenu.setOnMouseExited(l -> {
-            id_ivMenu.setImage(ImageCacheDark.getImageMenu());
+            id_ivMenu.setImage(ImageCacheSettingDark.getImageMenu());
         });
 
         id_btnMenu.setOnMouseEntered(m -> {
-            id_ivMenu.setImage(ImageCacheDark.getImageMenuHover());
+            id_ivMenu.setImage(ImageCacheSettingDark.getImageMenuHover());
         });
 
         id_btnPersonalChat.setOnMouseExited(l -> {
             id_lblChatPerson.getStyleClass().remove("count-label-hover");
             id_lblChatPerson.getStyleClass().add("count-label");
-            id_ivPersonalChat.setImage(ImageCacheDark.getImageCirclePerson());
+            id_ivPersonalChat.setImage(ImageCacheSettingDark.getImageCirclePerson());
         });
 
         id_btnPersonalChat.setOnMouseEntered(m -> {
             id_lblChatPerson.getStyleClass().remove("count-label");
             id_lblChatPerson.getStyleClass().add("count-label-hover");
-            id_ivPersonalChat.setImage(ImageCacheDark.getImageCirclePersonHover());
+            id_ivPersonalChat.setImage(ImageCacheSettingDark.getImageCirclePersonHover());
         });
 
 
         id_btnAllChats.setOnMouseExited(l -> {
             id_lblAllChats.getStyleClass().remove("count-label");
             id_lblAllChats.getStyleClass().add("count-label-hover");
-            id_ivAllChats.setImage(ImageCacheDark.getImageAllChats());
+            id_ivAllChats.setImage(ImageCacheSettingDark.getImageAllChats());
         });
 
         id_btnAllChats.setOnMouseEntered(m -> {
             id_lblAllChats.getStyleClass().add("count-label-hover");
             id_lblAllChats.getStyleClass().remove("count-label");
-            id_ivAllChats.setImage(ImageCacheDark.getImageAllChatsHover());
+            id_ivAllChats.setImage(ImageCacheSettingDark.getImageAllChatsHover());
         });
 
 
         id_btnUnreadChats.setOnMouseExited(l -> {
             id_lblUnreadChats.getStyleClass().remove("count-label");
             id_lblUnreadChats.getStyleClass().add("count-label-hover");
-            id_ivUnreadChats.setImage(ImageCacheDark.getImageChat());
+            id_ivUnreadChats.setImage(ImageCacheSettingDark.getImageChat());
         });
 
         id_btnUnreadChats.setOnMouseEntered(m -> {
             id_lblUnreadChats.getStyleClass().add("count-label-hover");
             id_lblUnreadChats.getStyleClass().remove("count-label");
-            id_ivUnreadChats.setImage(ImageCacheDark.getImageChatHover());
+            id_ivUnreadChats.setImage(ImageCacheSettingDark.getImageChatHover());
         });
 
     }
 
     private void titleHover() {
         id_ivFullScreen.setOnMouseExited(l -> {
-            id_ivFullScreen.setImage(ImageCacheDark.getImageDefaultDark());
+            id_ivFullScreen.setImage(ImageCacheTitleDark.getImageDefaultDark());
         });
 
         id_ivFullScreen.setOnMouseEntered(m -> {
-            id_ivFullScreen.setImage(ImageCacheDark.getImageFullScreenDark());
+            id_ivFullScreen.setImage(ImageCacheTitleDark.getImageFullScreenDark());
         });
 
         id_ivClose.setOnMouseExited(l -> {
-            id_ivClose.setImage(ImageCacheDark.getImageDefaultDark());
+            id_ivClose.setImage(ImageCacheTitleDark.getImageDefaultDark());
         });
 
         id_ivClose.setOnMouseEntered(m -> {
-            id_ivClose.setImage(ImageCacheDark.getImageCloseRed());
+            id_ivClose.setImage(ImageCacheTitleDark.getImageCloseRed());
         });
 
         id_ivMinimize.setOnMouseExited(l -> {
-            id_ivMinimize.setImage(ImageCacheDark.getImageDefaultDark());
+            id_ivMinimize.setImage(ImageCacheTitleDark.getImageDefaultDark());
         });
 
         id_ivMinimize.setOnMouseEntered(m -> {
-            id_ivMinimize.setImage(ImageCacheDark.getImageMinimizeDark());
+            id_ivMinimize.setImage(ImageCacheTitleDark.getImageMinimizeDark());
         });
     }
 

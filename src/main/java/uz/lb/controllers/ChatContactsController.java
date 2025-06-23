@@ -12,7 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import uz.lb.FXChat;
-import uz.lb.caches.ImageCacheLight;
+import uz.lb.caches.ImageCacheContactsDark;
+import uz.lb.caches.ImageCacheContactsDark;
 import uz.lb.models.Contact;
 
 import java.io.IOException;
@@ -49,7 +50,7 @@ public class ChatContactsController implements Initializable {
                 FXChat.Lock("/fxml/Login.fxml");
             } else {
                 id_tfSearch.clear();
-                id_ivSearchClose.setImage(ImageCacheLight.getImageCircleUnLockDark());
+                id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleUnLockDark());
             }
         });
 
@@ -59,6 +60,7 @@ public class ChatContactsController implements Initializable {
         for (int i = 0; i < 100; i++) {
             Contact contact = new Contact();
             contact.setName(contact.getName() + "132456kbj " + i);
+            
             contact.setMessage(contact.getMessage() + " " + i + "132456kbj132456kbj132456kbj132456kbj132456kbj");
             contactList.add(contact);
         }
@@ -99,11 +101,11 @@ public class ChatContactsController implements Initializable {
         id_tfSearch.textProperty().addListener((obs, oldText, newText) -> updateCloseIcon());
 
         id_ivSearchClose.hoverProperty().addListener(l -> {
-            id_ivSearchClose.setImage(ImageCacheLight.getImageCircleUnLockDarkHover());
+            id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleUnLockDarkHover());
         });
 
         id_ivSearchClose.setOnMouseMoved(m -> {
-            id_ivSearchClose.setImage(ImageCacheLight.getImageCircleUnLockDark());
+            id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleUnLockDark());
         });
 
     }
@@ -111,23 +113,23 @@ public class ChatContactsController implements Initializable {
     private void updateCloseIcon() {
         if (!id_tfSearch.getText().isEmpty()) {
             isUnlock = false;
-            id_ivSearchClose.setImage(ImageCacheLight.getImageCircleCloseDarkHover());
+            id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleCloseDarkHover());
 
             id_ivSearchClose.hoverProperty().addListener(l -> {
-                id_ivSearchClose.setImage(ImageCacheLight.getImageCircleCloseDarkHover());
+                id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleCloseDarkHover());
             });
 
             id_ivSearchClose.setOnMouseMoved(m -> {
-                id_ivSearchClose.setImage(ImageCacheLight.getImageCircleCloseDark());
+                id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleCloseDark());
             });
         } else {
             isUnlock = true;
             id_ivSearchClose.hoverProperty().addListener(l -> {
-                id_ivSearchClose.setImage(ImageCacheLight.getImageCircleUnLockDarkHover());
+                id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleUnLockDarkHover());
             });
 
             id_ivSearchClose.setOnMouseMoved(m -> {
-                id_ivSearchClose.setImage(ImageCacheLight.getImageCircleUnLockDark());
+                id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleUnLockDark());
             });
         }
     }

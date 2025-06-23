@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -98,5 +99,14 @@
                 </StackPane>
             </center>
         </BorderPane>
+      <AnchorPane fx:id="id_apNoThinks" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <StackPane fx:id="id_spNoThinks" prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="id_lblNoThinks" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="280.0" text="Kimga yozmoqchi ekanligingizni tanlang" textAlignment="CENTER" />
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

@@ -12,15 +12,43 @@
     -fx-background-radius: 0 0 10 0;
     -fx-border-color: transparent transparent transparent #090d10;
 }
+#id_spBackground{
+    -fx-background-color: #090d10;
+}
+
+
+#id_spMessages{
+    -fx-background-color: #090d10;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+#id_spMessages .viewport {
+    -fx-background-color: transparent;
+}
+
+#id_vbMessages {
+    -fx-background-color: #090d10;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+}
+
+#id_hbTypingMessage {
+    -fx-background-color: #121a21;
+    -fx-text-fill: #f2f2f2;
+    -fx-border-color: transparent transparent transparent #090d10;
+    -fx-background-radius: 0 0 10 0;
+    -fx-border-radius: 0 0 10 0;
+}
+
+
+
+
+
+
 
 #id_ivBackground {
     -fx-opacity: 0.3;
 }
-
-#id_vbMessages {
-    -fx-background-color: transparent;
-}
-
 
 #id_spScrollContents {
     -fx-background-color: #090d10;
@@ -29,22 +57,39 @@
 }
 
 #id_apChatContents {
+    -fx-background-color: #090d10;
     -fx-background-radius: 0 0 10 0;
     -fx-border-radius: 0 0 10 0;
 }
 
 
-#id_bpChatContents {
-    -fx-background-color: #121a21;
-    -fx-border-color: #121a21;
-    -fx-border-width: 1
+
+#id_apNoThinks{
+    -fx-background-color: #090d10;
+    -fx-background-radius: 0 0 10 0;
+    -fx-border-radius: 0 0 10 0;
+}
+
+
+#id_lblNoThinks{
+    -fx-background-color:  #121a21;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-text-fill: #d9d9d9;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 14;
+}
+
+#id_taMessageContent{
+    -fx-text-fill: #f2f2f2;
 }
 
 /****************/
 
 #id_spMessages {
-    -fx-background-color: #121a21;
     -fx-border-color: #121a21;
+    -fx-background-radius: 0 0 10 0;
+    -fx-border-radius: 0 0 10 0;
 }
 
 #id_spMessages > .thumb {
@@ -85,4 +130,48 @@
     -fx-background-color: #090d10;
     -fx-cursor: HAND;
 }
+
+
+
+/*!****************!*/
+
+
+/*#id_taMessageContent > .thumb {*/
+/*    -fx-background-insets: 0;*/
+/*    -fx-background-radius: 0;*/
+/*}*/
+
+/*#id_taMessageContent > .track {*/
+/*    -fx-effect: none;*/
+/*    -fx-background-color: transparent;*/
+/*}*/
+
+/*#id_taMessageContent > .scroll-bar {*/
+/*    -fx-background-color: #090d10;*/
+/*    -fx-pref-width: 9;*/
+/*    -fx-background-radius: 15;*/
+/*    -fx-border-radius: 15;*/
+/*}*/
+
+/*#id_taMessageContent > .scroll-bar:vertical > .thumb {*/
+/*    -fx-background-color: #253341;*/
+/*    -fx-background-radius: 15;*/
+/*    -fx-cursor: HAND;*/
+/*}*/
+
+/*#id_taMessageContent > .scroll-bar:vertical > .thumb:hover {*/
+/*    -fx-background-color: #2f4051;*/
+/*}*/
+
+
+/*#id_taMessageContent > .scroll-bar:vertical > .track {*/
+/*    -fx-background-color: #090d10;*/
+/*    -fx-background-radius: 10;*/
+/*}*/
+
+/*#id_taMessageContent > .scroll-bar:vertical > .decrement-button,*/
+/*#id_taMessageContent > .scroll-bar:vertical > .increment-button {*/
+/*    -fx-background-color: #090d10;*/
+/*    -fx-cursor: HAND;*/
+/*}*/
 

@@ -35,15 +35,13 @@
 <!--    </children>-->
 <!--</HBox>-->
 
-<HBox fx:id="id_hbContactCard" prefHeight="60.0" prefWidth="265.0" spacing="5.0" style="-fx-padding: 5;"
-      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="uz.lb.controllers.ContactCardController">
+<HBox fx:id="id_hbContactCard" prefHeight="60.0" prefWidth="265.0" spacing="5.0" style="-fx-padding: 5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.ContactCardController">
 
     <children>
         <!-- Avatar -->
         <Circle fx:id="id_crAvatar" fill="DODGERBLUE" radius="25.0" stroke="BLACK" strokeType="INSIDE">
             <HBox.margin>
-                <Insets left="7.0"/>
+                <Insets left="7.0" />
             </HBox.margin>
         </Circle>
 
@@ -51,17 +49,15 @@
             <children>
                 <HBox fx:id="id_hbUserInfo" alignment="CENTER_LEFT" spacing="3.0">
                     <children>
-                        <Label fx:id="id_lblName" prefWidth="250.0" style="-fx-font-weight: bold; -fx-font-size: 14;"
-                               text="Ism Familya"/>
-                        <ImageView fx:id="id_ivCheck" fitHeight="20.0" pickOnBounds="true" preserveRatio="true"/>
-                        <Text fx:id="id_txtTime" text="Text"/>
+                        <Label fx:id="id_lblName" prefWidth="250.0" style="-fx-font-weight: bold; -fx-font-size: 14;" text="Ism Familya" />
+                        <ImageView fx:id="id_ivCheck" fitHeight="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <Text fx:id="id_txtTime" />
                     </children>
                 </HBox>
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Label fx:id="id_lblLastMessage" prefWidth="250.0" style="-fx-text-fill: gray;"
-                               text="Oxirgi xabar..."/>
-                        <Label fx:id="id_lblMessageCount" alignment="CENTER" text="1"/>
+                        <Label fx:id="id_lblLastMessage" prefWidth="250.0" style="-fx-text-fill: gray;" text="Oxirgi xabar..." />
+                        <Label fx:id="id_lblMessageCount" alignment="CENTER" text="1" />
                     </children>
                 </HBox>
             </children>

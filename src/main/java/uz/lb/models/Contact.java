@@ -4,10 +4,12 @@ public class Contact {
     public Contact() {
 
     }
-    public Contact(String name, String avatar, String message) {
+
+    public Contact(String name, String avatar, String message, Boolean isRead) {
         this.name = name;
         this.avatar = avatar;
         this.message = message;
+        this.isRead = isRead;
     }
 
     public String getName() {
@@ -37,4 +39,6 @@ public class Contact {
     String name = "suer name";
     String avatar = "avatar";
     String message = "message";
+
+    Boolean isRead = false;
 }

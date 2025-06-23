@@ -1,56 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.image.Image?>
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
+
+<!--<?import javafx.scene.control.ComboBox?>-->
+<!--<?import javafx.scene.control.Button?>-->
+<!--<AnchorPane prefHeight="300" prefWidth="400" styleClass="dark-root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" >-->
+<!--    &lt;!&ndash; Sarlavha &ndash;&gt;-->
+<!--    <Label layoutX="30" layoutY="20" styleClass="title-label" text="Ваш номер телефона" />-->
+<!--    &lt;!&ndash; Kichik izoh &ndash;&gt;-->
+<!--    <Label layoutX="30" layoutY="50" styleClass="subtitle-label" text="Проверьте код страны и введите свой номер телефона." />-->
+<!--    &lt;!&ndash; Mamlakat tanlash &ndash;&gt;-->
+<!--    <ComboBox fx:id="countryComboBox" layoutX="30" layoutY="90" prefWidth="340" />-->
+<!--    &lt;!&ndash; Telefon kodi &ndash;&gt;-->
+<!--    <TextField fx:id="codeField" editable="false" layoutX="30" layoutY="130" prefWidth="60" styleClass="code-field" text="+998" />-->
+<!--    &lt;!&ndash; Telefon raqami &ndash;&gt;-->
+<!--    <TextField fx:id="phoneField" layoutX="100" layoutY="130" prefWidth="270" promptText="## ### ## ##" styleClass="phone-field" />-->
+<!--    &lt;!&ndash; Davom etish tugmasi &ndash;&gt;-->
+<!--    <Button fx:id="continueButton" layoutX="30" layoutY="180" prefWidth="340" styleClass="continue-button" text="Продолжить" />-->
+<!--    &lt;!&ndash; QR orqali tez kirish &ndash;&gt;-->
+<!--    <Label layoutX="120" layoutY="240" styleClass="qr-label" text="Быстрый вход по QR-коду" />-->
+<!--</AnchorPane>-->
+
 <AnchorPane fx:id="id_apLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@/css/login/login-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.LoginController">
     <children>
-        <TextField fx:id="id_tfPassword" layoutX="189.0" layoutY="155.0" prefHeight="40.0" prefWidth="150.0" promptText="Parolni kiriting" visible="false" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="120.0" />
-        <PasswordField fx:id="id_pfPassword" layoutX="190.0" layoutY="114.0" prefHeight="40.0" prefWidth="150.0" promptText="Parolni kiriting" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="120.0" />
-        <Line fx:id="id_lnLine" endX="180.0" layoutX="75.0" layoutY="150.0" strokeWidth="2.0" AnchorPane.leftAnchor="74.5" AnchorPane.rightAnchor="74.5" AnchorPane.topAnchor="162.0" />
-        <ImageView fx:id="id_ivEye" fitHeight="30.0" fitWidth="30.0" layoutX="230.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="71.0" AnchorPane.topAnchor="125.0">
+        <TextField fx:id="id_tfPassword" layoutX="189.0" layoutY="155.0" prefHeight="40.0" prefWidth="185.0" promptText="Parolni kiriting" visible="false" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="120.0" />
+        <PasswordField fx:id="id_pfPassword" layoutX="190.0" layoutY="114.0" prefHeight="40.0" prefWidth="185.0" promptText="Parolni kiriting" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="120.0" />
+        <Line fx:id="id_lnLine" endX="210.0" layoutX="75.0" layoutY="150.0" strokeWidth="2.0" AnchorPane.leftAnchor="74.5" AnchorPane.rightAnchor="74.5" AnchorPane.topAnchor="162.0" />
+        <ImageView fx:id="id_ivEye" fitHeight="30.0" fitWidth="30.0" layoutX="230.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="125.0">
             <image>
                 <Image url="@../images/login/eye-dark-hover.png" />
             </image>
         </ImageView>
-        <JFXButton fx:id="id_btnEnter" buttonType="RAISED" defaultButton="true" prefHeight="40.0" prefWidth="150.0" text="KIRISH" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="200.0" />
-        <Label fx:id="id_lblText" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="90.0" prefHeight="30.0" prefWidth="270.0" text="ASSALOMU ALEYKUM" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0" />
+        <JFXButton fx:id="id_btnEnter" buttonType="RAISED" defaultButton="true" prefHeight="40.0" prefWidth="210.0" text="KIRISH" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="200.0" />
+        <Label fx:id="id_lblText" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="90.0" prefHeight="30.0" prefWidth="270.0" text="ASSALOMU ALEYKUM" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font></Label>
         <Label fx:id="id_lblTextDesc" contentDisplay="CENTER" layoutX="76.0" layoutY="90.0" prefHeight="20.0" prefWidth="180.0" text="kiritilgan parol xato" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="165.0" />
         <Label fx:id="id_lblEnteredPassword" contentDisplay="CENTER" layoutX="76.0" layoutY="98.0" prefHeight="20.0" prefWidth="180.0" text="Parolni kiriting" AnchorPane.topAnchor="100.0" />
       <Text fx:id="id_txtRegistration" layoutX="77.0" layoutY="268.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Ro'yhatdan o'tish" textAlignment="CENTER" wrappingWidth="180.0" AnchorPane.topAnchor="280.0" />
     </children>
 </AnchorPane>
-
-<!--<?import javafx.scene.control.ComboBox?>-->
-<!--<?import javafx.scene.control.Button?>-->
-<!--<AnchorPane prefHeight="300" prefWidth="400" styleClass="dark-root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" >-->
-
-<!--    &lt;!&ndash; Sarlavha &ndash;&gt;-->
-<!--    <Label layoutX="30" layoutY="20" styleClass="title-label" text="Ваш номер телефона" />-->
-
-<!--    &lt;!&ndash; Kichik izoh &ndash;&gt;-->
-<!--    <Label layoutX="30" layoutY="50" styleClass="subtitle-label" text="Проверьте код страны и введите свой номер телефона." />-->
-
-<!--    &lt;!&ndash; Mamlakat tanlash &ndash;&gt;-->
-<!--    <ComboBox fx:id="countryComboBox" layoutX="30" layoutY="90" prefWidth="340" />-->
-
-<!--    &lt;!&ndash; Telefon kodi &ndash;&gt;-->
-<!--    <TextField fx:id="codeField" editable="false" layoutX="30" layoutY="130" prefWidth="60" styleClass="code-field" text="+998" />-->
-
-<!--    &lt;!&ndash; Telefon raqami &ndash;&gt;-->
-<!--    <TextField fx:id="phoneField" layoutX="100" layoutY="130" prefWidth="270" promptText="## ### ## ##" styleClass="phone-field" />-->
-
-<!--    &lt;!&ndash; Davom etish tugmasi &ndash;&gt;-->
-<!--    <Button fx:id="continueButton" layoutX="30" layoutY="180" prefWidth="340" styleClass="continue-button" text="Продолжить" />-->
-
-<!--    &lt;!&ndash; QR orqali tez kirish &ndash;&gt;-->
-<!--    <Label layoutX="120" layoutY="240" styleClass="qr-label" text="Быстрый вход по QR-коду" />-->
-
-<!--</AnchorPane>-->
