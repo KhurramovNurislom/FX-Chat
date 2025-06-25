@@ -126,6 +126,22 @@ public class DashboardController implements Initializable {
         id_ivFullScreen.setOnMouseClicked(e -> {
             FXChat.FullScreen();
             hoverFullScreen();
+
+            if (isFullScreen) {
+                id_apDashboard.setTopAnchor(id_apRoot, 0.0);
+                id_apDashboard.setRightAnchor(id_apRoot, 0.0);
+                id_apDashboard.setLeftAnchor(id_apRoot, 0.0);
+                id_apDashboard.setBottomAnchor(id_apRoot, 0.0);
+                id_apTitlePane.setStyle("-fx-background-radius: 0");
+                id_vbSettings.setStyle("-fx-background-radius: 0");
+            } else {
+                id_apDashboard.setTopAnchor(id_apRoot, 8.0);
+                id_apDashboard.setRightAnchor(id_apRoot, 8.0);
+                id_apDashboard.setLeftAnchor(id_apRoot, 8.0);
+                id_apDashboard.setBottomAnchor(id_apRoot, 8.0);
+                id_apTitlePane.setStyle("-fx-background-radius: 10 10 0 0;");
+                id_vbSettings.setStyle("-fx-background-radius: 0 0 0 10;");
+            }
         });
 
         id_ivClose.setOnMouseClicked(e -> System.exit(1));
@@ -176,18 +192,22 @@ public class DashboardController implements Initializable {
 
     private void hoverFullScreen() {
 
+
         isFullScreen = !isFullScreen;
 
         if (!isFullScreen) {
             id_ivFullScreen.setOnMouseMoved(m -> {
                 id_ivFullScreen.setImage(ImageCacheTitleDark.getImageFullScreenDark());
                 System.out.println("");
+
             });
         } else {
             id_ivFullScreen.setOnMouseMoved(m -> {
                 id_ivFullScreen.setImage(ImageCacheTitleDark.getImageUnFullScreenDark());
+
             });
         }
+
     }
 
     private void settingHover() {

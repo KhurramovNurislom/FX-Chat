@@ -1,5 +1,10 @@
 package uz.lb.controllers;
 
+import javafx.application.Platform;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -43,6 +48,7 @@ public class ChatContactsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
         searchFieldHover();
 
         id_ivSearchClose.setOnMouseClicked(e -> {
@@ -54,13 +60,12 @@ public class ChatContactsController implements Initializable {
             }
         });
 
-
         List<Contact> contactList = new ArrayList<>();
 
         for (int i = 0; i < 100; i++) {
             Contact contact = new Contact();
             contact.setName(contact.getName() + "132456kbj " + i);
-            
+
             contact.setMessage(contact.getMessage() + " " + i + "132456kbj132456kbj132456kbj132456kbj132456kbj");
             contactList.add(contact);
         }
@@ -83,15 +88,22 @@ public class ChatContactsController implements Initializable {
             }
         }
 
+        id_spContacts.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
-//
-//        id_spContacts.hoverProperty().addListener(l -> {
-//            id_spContacts.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-//        });
-//
-//        id_spContacts.setOnMouseMoved(m -> {
-//            id_spContacts.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
-//        });
+
+        id_spContacts.setOnMouseEntered(l -> {
+            id_spContacts.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+        });
+
+        id_spContacts.setOnMouseExited(m -> {
+            id_spContacts.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        });
+
+        Platform.runLater(() -> {
+            if (id_spContacts.isHover()) {
+                id_spContacts.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+            }
+        });
 
     }
 

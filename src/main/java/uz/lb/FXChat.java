@@ -27,7 +27,7 @@ public class FXChat extends Application {
     private static Pane titlePane;
     private static Pane lockPane;
 
-    private static final DoubleProperty x = new SimpleDoubleProperty();
+    public static final DoubleProperty x = new SimpleDoubleProperty();
     private static final DoubleProperty y = new SimpleDoubleProperty();
     private static final DoubleProperty x_point = new SimpleDoubleProperty();
     private static final DoubleProperty y_point = new SimpleDoubleProperty();
@@ -63,7 +63,7 @@ public class FXChat extends Application {
         stage.setScene(scene);
         stage.setMinHeight(500);
         stage.setMinWidth(700);
-        setStage(stage, scene);
+        setStage(stage);
 
         stage.show();
 
@@ -129,7 +129,7 @@ public class FXChat extends Application {
 
     }
 
-    public void setStage(Stage stage, Scene scene) {
+    private void setStage(Stage stage) {
         FXChat.stage = stage;
         titlePane.setOnMousePressed(this::onMousePressed);
         titlePane.setOnMouseDragged(this::onMouseDragged);
