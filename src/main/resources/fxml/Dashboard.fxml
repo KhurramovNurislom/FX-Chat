@@ -10,7 +10,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
@@ -23,22 +22,37 @@
 
                 <VBox fx:id="id_vbDashboardItems" prefWidth="75.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
                     <children>
-                        <JFXButton fx:id="id_btnMenu" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" textAlignment="CENTER" wrapText="true">
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                            <graphic>
-                                <ImageView fx:id="id_ivMenu" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../images/dashboard/setting/menu-dark.png" />
-                                    </image>
-                                    <cursor>
-                                        <Cursor fx:constant="HAND" />
-                                    </cursor>
-                                </ImageView>
-                            </graphic>
-                        </JFXButton>
-                        <AnchorPane prefHeight="60.0" prefWidth="753.0">
+                  <AnchorPane prefHeight="60.0" prefWidth="75.0">
+                     <children>
+                              <JFXButton fx:id="id_btnMenu" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" textAlignment="CENTER" wrapText="true">
+                                  <cursor>
+                                      <Cursor fx:constant="HAND" />
+                                  </cursor>
+                                  <graphic>
+                                      <ImageView fx:id="id_ivMenu" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                          <image>
+                                              <Image url="@../images/dashboard/setting/has-count/menu-dark-count.png" />
+                                          </image>
+                                          <cursor>
+                                              <Cursor fx:constant="HAND" />
+                                          </cursor>
+                                      </ImageView>
+                                  </graphic>
+                              </JFXButton>
+                        <Label fx:id="id_lblMenu" alignment="CENTER" layoutX="10.0" layoutY="10.0" minWidth="15.0" prefHeight="15.0" styleClass="count-label" visible="false" AnchorPane.leftAnchor="42.5" AnchorPane.topAnchor="12.0">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <opaqueInsets>
+                              <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="2.0" right="2.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                        <AnchorPane prefHeight="60.0" prefWidth="75.0">
                             <children>
                                 <JFXButton fx:id="id_btnPersonalChat" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" text="shaxsiy" textAlignment="CENTER" wrapText="true">
                                     <cursor>
@@ -47,7 +61,7 @@
                                     <graphic>
                                         <ImageView fx:id="id_ivPersonalChat" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../images/dashboard/setting/circle-person-dark.png" />
+                                                <Image url="@../images/dashboard/setting/has-count/circle-person-dark-count.png" />
                                             </image>
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -55,13 +69,16 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <Label fx:id="id_lblChatPerson" styleClass="count-label" visible="false" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="2.0">
+                                <Label fx:id="id_lblChatPerson" alignment="CENTER" minWidth="15.0" prefHeight="15.0" styleClass="count-label" visible="false" AnchorPane.leftAnchor="43.0" AnchorPane.topAnchor="2.5">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                     <opaqueInsets>
                                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                     </opaqueInsets>
+                           <padding>
+                              <Insets left="2.0" right="2.0" />
+                           </padding>
                                 </Label>
                             </children>
                         </AnchorPane>
@@ -74,7 +91,7 @@
                                     <graphic>
                                         <ImageView fx:id="id_ivAllChats" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../images/dashboard/setting/all-chats-dark.png" />
+                                                <Image url="@../images/dashboard/setting/has-count/all-chats-dark-count.png" />
                                             </image>
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -82,8 +99,10 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <Label fx:id="id_lblAllChats" alignment="CENTER" styleClass="count-label" visible="false" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="2.0" />
-                                <HBox fx:id="id_hbCountAllChats" alignment="CENTER" layoutX="-47.0" layoutY="-36.0" minHeight="20.0" spacing="2.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0" />
+                                <Label fx:id="id_lblAllChats" alignment="CENTER" contentDisplay="CENTER" minWidth="15.0" prefHeight="15.0" styleClass="count-label" visible="false" AnchorPane.leftAnchor="43.0" AnchorPane.topAnchor="2.5">
+                           <padding>
+                              <Insets left="2.0" right="2.0" />
+                           </padding></Label>
                             </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="60.0" prefWidth="75.0">
@@ -95,7 +114,7 @@
                                     <graphic>
                                         <ImageView fx:id="id_ivUnreadChats" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../images/dashboard/setting/chat-dark.png" />
+                                                <Image url="@../images/dashboard/setting/has-count/chat-dark-count-2.png" />
                                             </image>
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
@@ -103,7 +122,10 @@
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <Label fx:id="id_lblUnreadChats" alignment="CENTER" layoutX="44.0" layoutY="3.0" styleClass="count-label" visible="false" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="2.0" />
+                                <Label fx:id="id_lblUnreadChats" alignment="CENTER" contentDisplay="CENTER" layoutX="44.0" layoutY="3.0" minWidth="15.0" prefHeight="15.0" styleClass="count-label" visible="false" AnchorPane.leftAnchor="43.0" AnchorPane.topAnchor="2.5">
+                           <padding>
+                              <Insets left="2.0" right="2.0" />
+                           </padding></Label>
                             </children>
                         </AnchorPane>
                     </children>
@@ -159,23 +181,23 @@
                 </SplitPane>
 
                 <AnchorPane fx:id="id_apShadow" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
-
-                <JFXDrawersStack fx:id="id_dsSettings" mouseTransparent="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
-
+      
+                <JFXDrawersStack fx:id="id_dsSettings" mouseTransparent="true" prefHeight="775.0" prefWidth="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
+      
                     <JFXDrawer fx:id="id_drSettings" overLayVisible="true" resizableOnDrag="false" translateX="-272" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0">
-
+      
                         <children>
-
+      
                             <AnchorPane fx:id="id_apSettings" prefWidth="0">
                                 <children>
                                     <fx:include fx:id="id_vbSettings" source="Settings.fxml" />
                                 </children>
                             </AnchorPane>
-
+      
                         </children>
-
+      
                     </JFXDrawer>
-
+      
                 </JFXDrawersStack>
 
                 <StackPane fx:id="id_spLock" style="-fx-background-color: #121A21" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">

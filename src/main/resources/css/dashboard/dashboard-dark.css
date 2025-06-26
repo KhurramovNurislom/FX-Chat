@@ -95,28 +95,13 @@
     -fx-background-color: #090d10;
 }
 
-.count-label {
+
+#id_lblChatPerson, #id_lblMenu, #id_lblAllChats, #id_lblUnreadChats {
     -fx-background-color: #ADBED2;
     -fx-text-fill: #121a21;
     -fx-background-radius: 13;
-    -fx-border-radius: 12;
-    -fx-border-width: 2;
-    -fx-border-color: #121a21;
-    -fx-font-size: 9;
-    -fx-pref-hight: 20;
-
-}
-
-.count-label-hover {
-    -fx-background-color: #00ACE6;
-    -fx-text-fill: #121a21;
-    -fx-background-radius: 13;
-    -fx-border-radius: 12;
-
-    -fx-pref-hight: 20;
-    -fx-font-size: 9;
-    -fx-border-width: 2;
-    -fx-border-color: #121a21;
+    -fx-font-size: 10;
+    -fx-wrap-text: BOLD;
 }
 
 

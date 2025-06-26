@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXDrawersStack;
 import javafx.animation.*;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,7 +26,6 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
-
     @FXML
     private JFXDrawersStack id_dsSettings;
     @FXML
@@ -44,6 +44,10 @@ public class DashboardController implements Initializable {
     private Label id_lblAllChats;
     @FXML
     private Label id_lblUnreadChats;
+    @FXML
+    private Label id_lblMenu;
+
+
     @FXML
     private AnchorPane id_apDashboard;
     @FXML
@@ -103,6 +107,18 @@ public class DashboardController implements Initializable {
 
         id_lblChatPerson.setVisible(true);
         id_lblChatPerson.setText("1111");
+
+
+        id_lblMenu.setVisible(true);
+        id_lblMenu.setText("123");
+
+
+        id_lblAllChats.setVisible(true);
+        id_lblAllChats.setText("1");
+
+
+        id_lblUnreadChats.setVisible(true);
+        id_lblUnreadChats.setText("15");
 
         FXChat.setTitlePane(id_apTitlePane);
         FXChat.setLockPane(id_spLock);

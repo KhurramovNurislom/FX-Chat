@@ -41,5 +41,7 @@ public class SettingsController implements Initializable {
             isNightMode = !isNightMode;
         });
 
+
+
     }
 }
