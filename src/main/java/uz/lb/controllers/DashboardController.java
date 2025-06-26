@@ -3,8 +3,8 @@ package uz.lb.controllers;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXDrawersStack;
-import javafx.animation.*;
-import javafx.application.Platform;
+import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
@@ -227,50 +228,67 @@ public class DashboardController implements Initializable {
     }
 
     private void settingHover() {
-        id_btnMenu.setOnMouseExited(l -> {
-            id_ivMenu.setImage(ImageCacheSettingDark.getImageMenu());
-        });
 
-        id_btnMenu.setOnMouseEntered(m -> {
-            id_ivMenu.setImage(ImageCacheSettingDark.getImageMenuHover());
-        });
+        if (id_lblMenu.isVisible()) {
+            settingButtonHover(id_btnMenu, id_ivMenu, ImageCacheSettingDark.getImageMenu(), ImageCacheSettingDark.getImageMenuHover(), id_lblMenu, );
+            id_btnMenu.setOnMouseExited(l -> {
+
+                id_ivMenu.setImage(ImageCacheSettingDark.getImageMenu());
+            });
+
+            id_btnMenu.setOnMouseEntered(m -> {
+                id_ivMenu.setImage(ImageCacheSettingDark.getImageMenuHover());
+            });
+        } else {
+            id_btnMenu.setOnMouseExited(l -> {
+                id_ivMenu.setImage(ImageCacheSettingDark.getImageMenu());
+            });
+
+            id_btnMenu.setOnMouseEntered(m -> {
+                id_ivMenu.setImage(ImageCacheSettingDark.getImageMenuHover());
+            });
+        }
+
 
         id_btnPersonalChat.setOnMouseExited(l -> {
-            id_lblChatPerson.getStyleClass().remove("count-label-hover");
-            id_lblChatPerson.getStyleClass().add("count-label");
             id_ivPersonalChat.setImage(ImageCacheSettingDark.getImageCirclePerson());
         });
 
         id_btnPersonalChat.setOnMouseEntered(m -> {
-            id_lblChatPerson.getStyleClass().remove("count-label");
-            id_lblChatPerson.getStyleClass().add("count-label-hover");
             id_ivPersonalChat.setImage(ImageCacheSettingDark.getImageCirclePersonHover());
         });
 
 
         id_btnAllChats.setOnMouseExited(l -> {
-            id_lblAllChats.getStyleClass().remove("count-label");
-            id_lblAllChats.getStyleClass().add("count-label-hover");
             id_ivAllChats.setImage(ImageCacheSettingDark.getImageAllChats());
         });
 
         id_btnAllChats.setOnMouseEntered(m -> {
-            id_lblAllChats.getStyleClass().add("count-label-hover");
-            id_lblAllChats.getStyleClass().remove("count-label");
             id_ivAllChats.setImage(ImageCacheSettingDark.getImageAllChatsHover());
         });
 
 
         id_btnUnreadChats.setOnMouseExited(l -> {
-            id_lblUnreadChats.getStyleClass().remove("count-label");
-            id_lblUnreadChats.getStyleClass().add("count-label-hover");
             id_ivUnreadChats.setImage(ImageCacheSettingDark.getImageChat());
         });
 
         id_btnUnreadChats.setOnMouseEntered(m -> {
-            id_lblUnreadChats.getStyleClass().add("count-label-hover");
-            id_lblUnreadChats.getStyleClass().remove("count-label");
             id_ivUnreadChats.setImage(ImageCacheSettingDark.getImageChatHover());
+        });
+
+    }
+
+    private void settingButtonHover(JFXButton btn, ImageView imageView, Image image, Image imageHover, Label lbl, String color, String colorHover) {
+
+        btn.setOnMouseExited(l -> {
+            imageView.setImage(image);
+            lbl.setStyle("-fx-background-color: " + color);
+        });
+
+        btn.setOnMouseEntered(l -> {
+            imageView.setImage(imageHover);
+            lbl.setStyle("-fx-background-color: " + colorHover);
+
         });
 
     }
