@@ -96,7 +96,7 @@
 }
 
 
-#id_lblChatPerson, #id_lblMenu, #id_lblAllChats, #id_lblUnreadChats {
+#id_lblPersonalChat, #id_lblMenu, #id_lblAllChats, #id_lblUnreadChats {
     -fx-background-color: #ADBED2;
     -fx-text-fill: #121a21;
     -fx-background-radius: 13;

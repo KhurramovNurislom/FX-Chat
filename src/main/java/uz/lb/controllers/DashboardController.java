@@ -18,6 +18,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import uz.lb.FXChat;
+import uz.lb.caches.ColorCache;
 import uz.lb.caches.ImageCacheSettingDark;
 import uz.lb.caches.ImageCacheTitleDark;
 
@@ -27,6 +28,7 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
+    public AnchorPane id_apMenu;
     @FXML
     private JFXDrawersStack id_dsSettings;
     @FXML
@@ -40,7 +42,7 @@ public class DashboardController implements Initializable {
     private AnchorPane id_apRoot;
 
     @FXML
-    private Label id_lblChatPerson;
+    private Label id_lblPersonalChat;
     @FXML
     private Label id_lblAllChats;
     @FXML
@@ -106,21 +108,6 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        id_lblChatPerson.setVisible(true);
-        id_lblChatPerson.setText("1111");
-
-
-        id_lblMenu.setVisible(true);
-        id_lblMenu.setText("123");
-
-
-        id_lblAllChats.setVisible(true);
-        id_lblAllChats.setText("1");
-
-
-        id_lblUnreadChats.setVisible(true);
-        id_lblUnreadChats.setText("15");
-
         FXChat.setTitlePane(id_apTitlePane);
         FXChat.setLockPane(id_spLock);
 
@@ -130,12 +117,46 @@ public class DashboardController implements Initializable {
 
         settingHover();
 
+
         setupWindowControls();
 
         id_btnMenu.setOnAction(e -> {
             openDrawer();
         });
 
+        id_btnPersonalChat.setOnAction(e -> {
+
+            id_lblPersonalChat.setVisible(true);
+            id_lblPersonalChat.setText("1111");
+            id_ivPersonalChat.setImage(ImageCacheSettingDark.getImagePersonHasCount());
+
+            id_lblMenu.setVisible(true);
+            id_lblMenu.setText("123");
+            id_ivMenu.setImage(ImageCacheSettingDark.getImageMenuHasCount());
+
+            id_lblAllChats.setVisible(true);
+            id_lblAllChats.setText("1");
+            id_ivAllChats.setImage(ImageCacheSettingDark.getImageAllChatsHasCount());
+
+            id_lblUnreadChats.setVisible(true);
+            id_lblUnreadChats.setText("15");
+            id_ivUnreadChats.setImage(ImageCacheSettingDark.getImageUnreadChatHasCount());
+
+        });
+
+        id_btnUnreadChats.setOnAction(e -> {
+            id_lblMenu.setVisible(false);
+            id_ivMenu.setImage(ImageCacheSettingDark.getImageMenu());
+
+            id_lblPersonalChat.setVisible(false);
+            id_ivPersonalChat.setImage(ImageCacheSettingDark.getImagePerson());
+
+            id_lblAllChats.setVisible(false);
+            id_ivAllChats.setImage(ImageCacheSettingDark.getImageAllChats());
+
+            id_lblUnreadChats.setVisible(false);
+            id_ivUnreadChats.setImage(ImageCacheSettingDark.getImageUnreadChat());
+        });
 
     }
 
@@ -229,66 +250,58 @@ public class DashboardController implements Initializable {
 
     private void settingHover() {
 
-        if (id_lblMenu.isVisible()) {
-            settingButtonHover(id_btnMenu, id_ivMenu, ImageCacheSettingDark.getImageMenu(), ImageCacheSettingDark.getImageMenuHover(), id_lblMenu, );
-            id_btnMenu.setOnMouseExited(l -> {
+        settingButtonHover(id_btnMenu, id_ivMenu,
+                ImageCacheSettingDark.getImageMenu(),
+                ImageCacheSettingDark.getImageMenuHover(),
+                ImageCacheSettingDark.getImageMenuHasCount(),
+                ImageCacheSettingDark.getImageMenuHoverHasCount(),
+                id_lblMenu, ColorCache.getColor(), ColorCache.getColorHover());
 
-                id_ivMenu.setImage(ImageCacheSettingDark.getImageMenu());
-            });
+        settingButtonHover(id_btnPersonalChat, id_ivPersonalChat,
+                ImageCacheSettingDark.getImagePerson(),
+                ImageCacheSettingDark.getImagePersonHover(),
+                ImageCacheSettingDark.getImagePersonHasCount(),
+                ImageCacheSettingDark.getImagePersonHoverHasCount(),
+                id_lblPersonalChat, ColorCache.getColor(), ColorCache.getColorHover());
 
-            id_btnMenu.setOnMouseEntered(m -> {
-                id_ivMenu.setImage(ImageCacheSettingDark.getImageMenuHover());
-            });
-        } else {
-            id_btnMenu.setOnMouseExited(l -> {
-                id_ivMenu.setImage(ImageCacheSettingDark.getImageMenu());
-            });
+        settingButtonHover(id_btnAllChats, id_ivAllChats,
+                ImageCacheSettingDark.getImageAllChats(),
+                ImageCacheSettingDark.getImageAllChatsHover(),
+                ImageCacheSettingDark.getImageAllChatsHasCount(),
+                ImageCacheSettingDark.getImageAllChatsHoverHasCount(),
+                id_lblAllChats, ColorCache.getColor(), ColorCache.getColorHover());
 
-            id_btnMenu.setOnMouseEntered(m -> {
-                id_ivMenu.setImage(ImageCacheSettingDark.getImageMenuHover());
-            });
-        }
+        settingButtonHover(id_btnUnreadChats, id_ivUnreadChats,
+                ImageCacheSettingDark.getImageUnreadChat(),
+                ImageCacheSettingDark.getImageUnreadChatHover(),
+                ImageCacheSettingDark.getImageUnreadChatHasCount(),
+                ImageCacheSettingDark.getImageUnreadChatHoverHasCount(),
+                id_lblUnreadChats, ColorCache.getColor(), ColorCache.getColorHover());
 
-
-        id_btnPersonalChat.setOnMouseExited(l -> {
-            id_ivPersonalChat.setImage(ImageCacheSettingDark.getImageCirclePerson());
-        });
-
-        id_btnPersonalChat.setOnMouseEntered(m -> {
-            id_ivPersonalChat.setImage(ImageCacheSettingDark.getImageCirclePersonHover());
-        });
-
-
-        id_btnAllChats.setOnMouseExited(l -> {
-            id_ivAllChats.setImage(ImageCacheSettingDark.getImageAllChats());
-        });
-
-        id_btnAllChats.setOnMouseEntered(m -> {
-            id_ivAllChats.setImage(ImageCacheSettingDark.getImageAllChatsHover());
-        });
-
-
-        id_btnUnreadChats.setOnMouseExited(l -> {
-            id_ivUnreadChats.setImage(ImageCacheSettingDark.getImageChat());
-        });
-
-        id_btnUnreadChats.setOnMouseEntered(m -> {
-            id_ivUnreadChats.setImage(ImageCacheSettingDark.getImageChatHover());
-        });
 
     }
 
-    private void settingButtonHover(JFXButton btn, ImageView imageView, Image image, Image imageHover, Label lbl, String color, String colorHover) {
+    private void settingButtonHover(JFXButton btn, ImageView imageView, Image image, Image imageHover, Image imageHasCount,
+                                    Image imageHoverHasCount, Label lbl, String color, String colorHover) {
 
-        btn.setOnMouseExited(l -> {
-            imageView.setImage(image);
-            lbl.setStyle("-fx-background-color: " + color);
+        btn.setOnMouseEntered(e -> {
+            if (lbl.isVisible()) {
+                imageView.setImage(imageHoverHasCount);
+                lbl.setStyle("-fx-background-color: " + colorHover);
+            } else {
+                imageView.setImage(imageHover);
+                lbl.setStyle("-fx-background-color: " + colorHover);
+            }
         });
 
-        btn.setOnMouseEntered(l -> {
-            imageView.setImage(imageHover);
-            lbl.setStyle("-fx-background-color: " + colorHover);
-
+        btn.setOnMouseExited(e -> {
+            if (lbl.isVisible()) {
+                imageView.setImage(imageHasCount);
+                lbl.setStyle("-fx-background-color: " + color);
+            } else {
+                imageView.setImage(image);
+                lbl.setStyle("-fx-background-color: " + color);
+            }
         });
 
     }
