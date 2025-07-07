@@ -28,7 +28,6 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
 
-    public AnchorPane id_apMenu;
     @FXML
     private JFXDrawersStack id_dsSettings;
     @FXML
