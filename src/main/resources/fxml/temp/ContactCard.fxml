@@ -27,7 +27,7 @@
 
                 <HBox fx:id="id_hbUserInfo" alignment="CENTER_LEFT" spacing="3.0">
                     <children>
-                        <Label fx:id="id_lblName" prefWidth="250.0" style="-fx-font-weight: bold; -fx-font-size: 14;"
+                        <Label fx:id="id_lblName" prefWidth="250.0"
                                text="Ism Familya"/>
                         <ImageView fx:id="id_ivCheck" fitHeight="20.0" pickOnBounds="true" preserveRatio="true"/>
                         <Text fx:id="id_txtTime"/>
@@ -36,7 +36,7 @@
 
                 <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
                     <children>
-                        <Label fx:id="id_lblLastMessage" prefWidth="250.0" style="-fx-text-fill: gray;"
+                        <Label fx:id="id_lblLastMessage" prefWidth="250.0"
                                text="Oxirgi xabar..."/>
                         <Label fx:id="id_lblMessageCount" alignment="CENTER" text="1"/>
                     </children>

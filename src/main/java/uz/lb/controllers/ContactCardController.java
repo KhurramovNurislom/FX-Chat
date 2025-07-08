@@ -11,7 +11,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import uz.lb.utils.ImageCompressor;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.URL;
@@ -62,12 +64,19 @@ public class ContactCardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        id_crAvatar.setFill(new ImagePattern(new Image(new File("E:\\avatar-test.jpg").toURI().toString())));
+        File file = ImageCompressor.saveProfileAvatar("E:\\test.jpg", 0.4f);
+        Image image = new Image(file.toURI().toString());
+
+
+        id_crAvatar.setFill(new ImagePattern(image));
+
 
 
         id_hbContactCard.setOnMouseEntered(e -> {
 
         });
+
+
 
         id_hbContactCard.setOnMouseExited(e -> {
 
