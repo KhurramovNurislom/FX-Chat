@@ -1,7 +1,7 @@
 .root {
-    -fx-main-color: #121a21;
-    -fx-text-color: #f2f2f2;
-    -fx-main-color-hover: #243442;
+    -fx-main-color: WHITE;
+    -fx-text-color: DARK;
+    -fx-main-color-hover: LIME;
 
 
 }

@@ -8,139 +8,173 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 
-<VBox fx:id="id_vbSettings" alignment="TOP_CENTER" prefHeight="560.0" prefWidth="270.0" stylesheets="@/css/settings/settings-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane>
-         <children>
-            <Circle fx:id="id_crlProfileImage" fill="DODGERBLUE" layoutX="65.0" layoutY="65.0" radius="40.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Circle>
-         </children>
-      </AnchorPane>
-      <Label fx:id="id_lblUserName" prefHeight="25.0" prefWidth="270.0" styleClass="no-hover" text="Label">
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-         <padding>
-            <Insets left="25.0" />
-         </padding>
-      </Label>
-      <TitledPane fx:id="id_tpAccounts" cache="true" expanded="false" text="Profillar">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </TitledPane>
-      <Line endX="270.0" />
-      <Label fx:id="id_lblMyProfile" prefHeight="50.0" prefWidth="270.0" text="Mening profilim">
-         <padding>
-            <Insets left="10.0" />
-         </padding>
-         <graphic>
-            <ImageView fx:id="id_ivMyProfile" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/dashboard/setting-pane/person-2.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Label>
-      <Line endX="270.0" />
-      <Label fx:id="id_lblContacts" prefHeight="50.0" prefWidth="270.0" text="Kontaktlar">
-         <padding>
-            <Insets left="10.0" />
-         </padding>
-         <graphic>
-            <ImageView fx:id="id_ivContacts" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/dashboard/setting-pane/contacts.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Label>
-      <Label fx:id="id_lblCalls" prefHeight="50.0" prefWidth="270.0" text="Qo'ng'iroqlar">
-         <padding>
-            <Insets left="10.0" />
-         </padding>
-         <graphic>
-            <ImageView fx:id="id_ivCalls" fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/dashboard/setting-pane/call.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Label>
-      <Label fx:id="id_lblSaveMessages" prefHeight="50.0" prefWidth="270.0" text="Saqlangan xabarlar">
-         <padding>
-            <Insets left="15.0" right="2.0" />
-         </padding>
-         <graphic>
-            <ImageView fx:id="id_ivSaveMessages" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/dashboard/setting-pane/save-message.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-      </Label>
-      <Label fx:id="id_lblSettings" prefHeight="50.0" prefWidth="270.0" text="Sozlamalar">
-         <padding>
-            <Insets left="10.0" />
-         </padding>
-         <graphic>
-            <ImageView fx:id="id_ivSettings" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../images/dashboard/setting-pane/setting.png" />
-               </image>
-            </ImageView>
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Label>
-      <AnchorPane fx:id="id_apNightMode" prefHeight="3.0" prefWidth="271.0" />
-      <Pane prefHeight="50.0" prefWidth="270.0">
-         <children>
-            <Label fx:id="id_lblNightMode" prefHeight="50.0" prefWidth="200.0" text="Kundizgi rejim">
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <graphic>
-                  <ImageView fx:id="id_ivNightMode" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/dashboard/setting-pane/son.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Label>
-            <JFXToggleButton fx:id="id_tglBtnNightMode" alignment="BASELINE_LEFT" contentDisplay="RIGHT" graphicTextGap="0.0" layoutX="200.0" layoutY="-4.0" prefHeight="45.0" prefWidth="72.0" size="9.0" textOverrun="CLIP" toggleColor="#7b9bb7" toggleLineColor="#538cc6" unToggleColor="#c0c8f5" unToggleLineColor="#336699">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXToggleButton>
-         </children>
-      </Pane>
-   </children>
+<VBox fx:id="id_vbSettings" alignment="TOP_CENTER" prefHeight="560.0" prefWidth="270.0"
+      stylesheets="@/css/settings/settings-dark.css" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.SettingsController">
+    <children>
+        <AnchorPane>
+            <children>
+                <Circle fx:id="id_crlProfileImage" fill="DODGERBLUE" layoutX="65.0" layoutY="65.0" radius="40.0"
+                        stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="50.0"
+                        AnchorPane.topAnchor="20.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Circle>
+            </children>
+        </AnchorPane>
+        <Label fx:id="id_lblUserName" prefHeight="25.0" prefWidth="270.0" styleClass="no-hover" text="Label">
+            <VBox.margin>
+                <Insets/>
+            </VBox.margin>
+            <padding>
+                <Insets left="25.0"/>
+            </padding>
+        </Label>
+        <TitledPane fx:id="id_tpAccounts" cache="true" expanded="false" text="Profillar">
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </TitledPane>
+        <Line endX="270.0" stroke="aliceblue"/>
+        <AnchorPane prefHeight="50.0" prefWidth="270.0">
+            <children>
+                <Label fx:id="id_lblMyProfile" layoutY="5.0" prefHeight="50.0" prefWidth="270.0" text="Mening profilim"
+                       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                       AnchorPane.topAnchor="0.0">
+                    <padding>
+                        <Insets left="50.0"/>
+                    </padding>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Label>
+                <ImageView fx:id="id_ivMyProfile" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true"
+                           preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="12.0">
+                    <image>
+                        <Image url="@../images/dashboard/setting-pane/person-2.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <Line endX="270.0" stroke="aliceblue"/>
+        <AnchorPane prefHeight="50.0" prefWidth="270.0">
+            <children>
+                <Label fx:id="id_lblContacts" layoutX="9.0" layoutY="4.0" prefHeight="50.0" prefWidth="270.0"
+                       text="Kontaktlar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <padding>
+                        <Insets left="50.0"/>
+                    </padding>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Label>
+                <ImageView fx:id="id_ivContacts" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true"
+                           preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0">
+                    <image>
+                        <Image url="@../images/dashboard/setting-pane/contacts.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="50.0" prefWidth="270.0">
+            <children>
+                <Label fx:id="id_lblCalls" layoutX="45.0" layoutY="-8.0" prefHeight="50.0" prefWidth="270.0"
+                       text="Qo'ng'iroqlar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <padding>
+                        <Insets left="50.0"/>
+                    </padding>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Label>
+                <ImageView fx:id="id_ivCalls" fitHeight="24.0" fitWidth="24.0" layoutX="16.0" layoutY="12.0"
+                           pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="16.0"
+                           AnchorPane.topAnchor="12.0">
+                    <image>
+                        <Image url="@../images/dashboard/setting-pane/call.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="50.0" prefWidth="270.0">
+            <children>
+                <Label fx:id="id_lblSaveMessages" layoutX="75.0" layoutY="-8.0" prefHeight="50.0" prefWidth="270.0"
+                       text="Saqlangan xabarlar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <padding>
+                        <Insets left="50.0"/>
+                    </padding>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </Label>
+                <ImageView fx:id="id_ivSaveMessages" fitHeight="27.0" fitWidth="27.0" layoutX="14.0" layoutY="4.0"
+                           pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="17.0"
+                           AnchorPane.topAnchor="12.0">
+                    <image>
+                        <Image url="@../images/dashboard/setting-pane/save-message.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <AnchorPane prefHeight="50.0" prefWidth="270.0">
+            <children>
+                <Label fx:id="id_lblSettings" layoutX="33.0" layoutY="9.0" prefHeight="50.0" prefWidth="270.0"
+                       text="Sozlamalar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                       AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                    <padding>
+                        <Insets left="50.0"/>
+                    </padding>
+                </Label>
+                <ImageView fx:id="id_ivSettings" fitHeight="26.0" fitWidth="26.0" layoutX="83.0" layoutY="12.0"
+                           pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0"
+                           AnchorPane.topAnchor="12.0">
+                    <image>
+                        <Image url="@../images/dashboard/setting-pane/setting.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+
+        <AnchorPane prefHeight="50.0" prefWidth="270.0">
+
+            <children>
+                <JFXToggleButton fx:id="id_tglBtnNightMode" alignment="CENTER_LEFT" contentDisplay="RIGHT"
+                                 graphicTextGap="0.0" prefHeight="50.0" prefWidth="270.0" size="9.0"
+                                 text="Kunduzgi rejim               " textOverrun="CLIP" toggleColor="#7b9bb7"
+                                 toggleLineColor="#538cc6" unToggleColor="#c0c8f5" unToggleLineColor="#336699"
+                                 AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+                                 AnchorPane.topAnchor="0.0">
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                    <padding>
+                        <Insets left="50.0"/>
+                    </padding>
+                </JFXToggleButton>
+                <ImageView fx:id="id_ivNightMode" fitHeight="27.0" fitWidth="27.0" layoutX="17.0" layoutY="14.0"
+                           pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0"
+                           AnchorPane.topAnchor="12.0">
+                    <image>
+                        <Image url="@../images/dashboard/setting-pane/son.png"/>
+                    </image>
+                </ImageView>
+            </children>
+
+        </AnchorPane>
+
+    </children>
 </VBox>

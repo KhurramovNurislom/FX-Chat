@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXDrawersStack;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,6 +22,7 @@ import uz.lb.FXChat;
 import uz.lb.caches.ColorCache;
 import uz.lb.caches.ImageCacheSettingDark;
 import uz.lb.caches.ImageCacheTitleDark;
+import uz.lb.utils.ThemeManager;
 
 import java.io.IOException;
 import java.net.URL;

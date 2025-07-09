@@ -1,6 +1,7 @@
 package uz.lb.controllers;
 
 import com.jfoenix.controls.JFXToggleButton;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -8,6 +9,7 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import uz.lb.utils.ThemeManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,8 +39,15 @@ public class SettingsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        id_tglBtnNightMode.setOnAction(e -> {
-            isNightMode = !isNightMode;
+//        id_tglBtnNightMode.setOnAction(e -> {
+//            isNightMode = !isNightMode;
+//            System.out.println("isNightMode => " + isNightMode);
+//        });
+        id_tglBtnNightMode.setSelected(false);
+
+
+        id_tglBtnNightMode.selectedProperty().addListener((obs, oldVal, newVal) -> {
+            ThemeManager.applyTheme(id_vbSettings, newVal); // true bo‘lsa, dark.css ulanadi
         });
 
 
