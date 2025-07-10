@@ -24,7 +24,7 @@
                     <children>
                         <AnchorPane fx:id="id_apMenu" prefHeight="60.0" prefWidth="75.0">
                             <children>
-                                <JFXButton fx:id="id_btnMenu" alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" textAlignment="CENTER" wrapText="true">
+                                <JFXButton fx:id="id_btnMenu" alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" textAlignment="CENTER" wrapText="true">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -54,7 +54,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="60.0" prefWidth="75.0">
                             <children>
-                                <JFXButton fx:id="id_btnPersonalChat" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" text="shaxsiy" textAlignment="CENTER" wrapText="true">
+                                <JFXButton fx:id="id_btnPersonalChat" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" text="shaxsiy" textAlignment="CENTER" wrapText="true">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -84,7 +84,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="60.0" prefWidth="75.0">
                             <children>
-                                <JFXButton fx:id="id_btnAllChats" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" text="barchasi" textAlignment="CENTER" wrapText="true">
+                                <JFXButton fx:id="id_btnAllChats" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" text="barchasi" textAlignment="CENTER" wrapText="true">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -108,7 +108,7 @@
                         </AnchorPane>
                         <AnchorPane prefHeight="60.0" prefWidth="75.0">
                             <children>
-                                <JFXButton fx:id="id_btnUnreadChats" alignment="CENTER" buttonType="RAISED" contentDisplay="TOP" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" text="o'qilmagan" textAlignment="CENTER" wrapText="true">
+                                <JFXButton fx:id="id_btnUnreadChats" alignment="CENTER" contentDisplay="TOP" graphicTextGap="5" prefHeight="60.0" prefWidth="75.0" text="o'qilmagan" textAlignment="CENTER" wrapText="true">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>

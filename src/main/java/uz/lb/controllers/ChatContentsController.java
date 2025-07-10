@@ -12,6 +12,7 @@ import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import uz.lb.caches.ImageCacheMessageContentDark;
 import uz.lb.models.Contact;
+import uz.lb.utils.ThemeBinder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,7 +51,11 @@ public class ChatContentsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        id_ivBackground.setMouseTransparent(true);
+//        ThemeBinder.bind(
+//                id_apDashboard,
+//                "/css/dashboard/dashboard-dark.css",
+//                "/css/dashboard/dashboard-light.css"
+//        );
 
         typingSettings();
         hover();

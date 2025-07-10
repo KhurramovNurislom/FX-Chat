@@ -2,6 +2,7 @@ package uz.lb.controllers;
 
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -9,7 +10,10 @@ import javafx.scene.control.TitledPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
+import uz.lb.config.AppConfig;
+import uz.lb.utils.ThemeBinder;
 import uz.lb.utils.ThemeManager;
+import uz.lb.utils.ThemeState;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,22 +38,24 @@ public class SettingsController implements Initializable {
     @FXML
     private JFXToggleButton id_tglBtnNightMode;
 
-    public boolean isNightMode = true;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        id_tglBtnNightMode.setOnAction(e -> {
-//            isNightMode = !isNightMode;
-//            System.out.println("isNightMode => " + isNightMode);
-//        });
-        id_tglBtnNightMode.setSelected(false);
 
+        id_tglBtnNightMode.setSelected(AppConfig.getBoolean("theme.night"));
 
-        id_tglBtnNightMode.selectedProperty().addListener((obs, oldVal, newVal) -> {
-            ThemeManager.applyTheme(id_vbSettings, newVal); // true bo‘lsa, dark.css ulanadi
+        ThemeBinder.bind(
+                id_vbSettings,
+                "/css/settings/settings-dark.css",
+                "/css/settings/settings-light.css"
+        );
+
+        id_tglBtnNightMode.setSelected(ThemeState.isDarkMode());
+
+        id_tglBtnNightMode.setOnAction(e -> {
+            AppConfig.set("theme.night", String.valueOf(id_tglBtnNightMode.isSelected()));
+            ThemeState.setDarkMode(id_tglBtnNightMode.isSelected());
         });
-
 
 
     }

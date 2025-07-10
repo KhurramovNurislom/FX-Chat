@@ -1,0 +1,105 @@
+.root {
+    -fx-text-color: BLACK;
+    -fx-main-color: #f5f5f5;
+    -fx-main-color-hover: #a1a1a1;
+    -fx-title-color: #b9b9b9;
+    -fx-title-color-hover: #b0b0b0;
+}
+
+#id_apDashboard {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+#id_pnShadow {
+    -fx-background-color: white;
+    -fx-background-radius: 13;
+    -fx-border-radius: 13;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 12, 0, 0, 0);
+}
+
+#id_spChat {
+    -fx-background-radius: 0 0 10 0;
+}
+
+#id_spLock {
+    -fx-background-color: #121A21;
+    -fx-background-radius: 0 0 10 10;
+    -fx-border-radius: 0 0 10 10;
+}
+
+
+#id_apTitlePane {
+    -fx-background-color: -fx-title-color;
+    -fx-background-radius: 10 10 0 0;
+}
+
+#id_apTitlePane:hover {
+    -fx-background-color: -fx-title-color-hover;
+}
+
+#id_lblAppName {
+    -fx-text-fill: -fx-text-color;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: BOLD;
+}
+
+#id_apShadow {
+    -fx-background-color: -fx-main-color;
+    -fx-background-radius: 0 0 10 10;
+    -fx-border-radius: 0 0 10 10;
+}
+
+#id_vbDashboardItems {
+    -fx-background-color: -fx-main-color;
+    -fx-background-radius: 0 0 0 10;
+    -fx-border-radius: 0 0 0 10;
+}
+
+
+#id_vbDashboardItems > JFXButton {
+    -fx-background-color: -fx-main-color;
+}
+
+#id_vbDashboardItems > JFXButton:hover {
+    -fx-background-color: -fx-main-color-hover;
+}
+
+#id_vbDashboardItems > AnchorPane > JFXButton {
+    -fx-background-color: -fx-main-color;
+    -fx-text-fill: #ADBED2;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: BOLD;
+    -fx-font-size: 11;
+}
+
+#id_vbDashboardItems > AnchorPane > JFXButton:hover {
+    -fx-background-color: -fx-main-color-hover;
+    -fx-text-fill: #00ACE6;
+
+}
+
+
+#id_spChat {
+    -fx-background-color: #121a21;
+    -fx-cursor: DEFAULT;
+}
+
+#id_spChat:horizontal > .split-pane-divider {
+    -fx-background-color: #121a21;
+    -fx-padding: 2;
+}
+
+#id_apSettings {
+    -fx-background-color: #090d10;
+}
+
+
+#id_lblPersonalChat, #id_lblMenu, #id_lblAllChats, #id_lblUnreadChats {
+    -fx-background-color: #ADBED2;
+    -fx-text-fill: #121a21;
+    -fx-background-radius: 13;
+    -fx-font-size: 10;
+    -fx-wrap-text: BOLD;
+}

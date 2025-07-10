@@ -14,14 +14,16 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import uz.lb.config.AppConfig;
 import uz.lb.utils.ResizableWindowHelper;
-import uz.lb.utils.SystemThemeDetector;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.security.Security;
 
 public class FXChat extends Application {
-
 
     private static Stage stage;
     private static Pane titlePane;
@@ -46,8 +48,7 @@ public class FXChat extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-
-
+        AppConfig.config();
         Security.addProvider(new BouncyCastleProvider());
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"));
@@ -66,17 +67,6 @@ public class FXChat extends Application {
         setStage(stage);
 
         stage.show();
-
-
-        if (SystemThemeDetector.isDarkTheme()) {
-            System.out.println("Dark-theme");
-//            scene.getStylesheets().add(getClass().getResource("/css/dark-theme.css").toExternalForm());
-        } else {
-
-            System.out.println("light-theme");
-//            scene.getStylesheets().add(getClass().getResource("/css/light-theme.css").toExternalForm());
-        }
-
 
     }
 
@@ -145,6 +135,7 @@ public class FXChat extends Application {
         stage.setX(e.getScreenX() - x.get());
         stage.setY(e.getScreenY() - y.get());
     }
+
 
 
     public static void main(String[] args) {

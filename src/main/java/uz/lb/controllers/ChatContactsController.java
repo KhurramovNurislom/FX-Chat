@@ -20,6 +20,7 @@ import uz.lb.FXChat;
 import uz.lb.caches.ImageCacheContactsDark;
 import uz.lb.caches.ImageCacheContactsDark;
 import uz.lb.models.Contact;
+import uz.lb.utils.ThemeBinder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -48,6 +49,11 @@ public class ChatContactsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+//        ThemeBinder.bind(
+//                id_apDashboard,
+//                "/css/dashboard/dashboard-dark.css",
+//                "/css/dashboard/dashboard-light.css"
+//        );
 
         searchFieldHover();
 

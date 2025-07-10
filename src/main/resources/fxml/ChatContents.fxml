@@ -87,7 +87,7 @@
                             </content>
                         </ScrollPane>
                         <!-- Rasm -->
-                        <ImageView fx:id="id_ivBackground" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
+                        <ImageView fx:id="id_ivBackground" fitHeight="300.0" fitWidth="300.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                             <image>
                                 <Image url="@../images/mv-mono.png" />
                             </image>

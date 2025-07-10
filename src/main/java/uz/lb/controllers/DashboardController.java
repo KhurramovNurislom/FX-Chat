@@ -5,7 +5,6 @@ import com.jfoenix.controls.JFXDrawer;
 import com.jfoenix.controls.JFXDrawersStack;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,7 +21,7 @@ import uz.lb.FXChat;
 import uz.lb.caches.ColorCache;
 import uz.lb.caches.ImageCacheSettingDark;
 import uz.lb.caches.ImageCacheTitleDark;
-import uz.lb.utils.ThemeManager;
+import uz.lb.utils.ThemeBinder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -108,6 +107,12 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        ThemeBinder.bind(
+                id_apDashboard,
+                "/css/dashboard/dashboard-dark.css",
+                "/css/dashboard/dashboard-light.css"
+        );
 
         FXChat.setTitlePane(id_apTitlePane);
         FXChat.setLockPane(id_spLock);
@@ -236,13 +241,13 @@ public class DashboardController implements Initializable {
 
         if (!isFullScreen) {
             id_ivFullScreen.setOnMouseMoved(m -> {
-                id_ivFullScreen.setImage(ImageCacheTitleDark.getImageFullScreenDark());
+                id_ivFullScreen.setImage(ImageCacheTitleDark.getImageFullScreen());
                 System.out.println("");
 
             });
         } else {
             id_ivFullScreen.setOnMouseMoved(m -> {
-                id_ivFullScreen.setImage(ImageCacheTitleDark.getImageUnFullScreenDark());
+                id_ivFullScreen.setImage(ImageCacheTitleDark.getImageUnFullScreen());
 
             });
         }
@@ -309,15 +314,15 @@ public class DashboardController implements Initializable {
 
     private void titleHover() {
         id_ivFullScreen.setOnMouseExited(l -> {
-            id_ivFullScreen.setImage(ImageCacheTitleDark.getImageDefaultDark());
+            id_ivFullScreen.setImage(ImageCacheTitleDark.getImageDefault());
         });
 
         id_ivFullScreen.setOnMouseEntered(m -> {
-            id_ivFullScreen.setImage(ImageCacheTitleDark.getImageFullScreenDark());
+            id_ivFullScreen.setImage(ImageCacheTitleDark.getImageFullScreen());
         });
 
         id_ivClose.setOnMouseExited(l -> {
-            id_ivClose.setImage(ImageCacheTitleDark.getImageDefaultDark());
+            id_ivClose.setImage(ImageCacheTitleDark.getImageDefault());
         });
 
         id_ivClose.setOnMouseEntered(m -> {
@@ -325,11 +330,11 @@ public class DashboardController implements Initializable {
         });
 
         id_ivMinimize.setOnMouseExited(l -> {
-            id_ivMinimize.setImage(ImageCacheTitleDark.getImageDefaultDark());
+            id_ivMinimize.setImage(ImageCacheTitleDark.getImageDefault());
         });
 
         id_ivMinimize.setOnMouseEntered(m -> {
-            id_ivMinimize.setImage(ImageCacheTitleDark.getImageMinimizeDark());
+            id_ivMinimize.setImage(ImageCacheTitleDark.getImageMinimize());
         });
     }
 

@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import uz.lb.FXChat;
 import uz.lb.caches.ImageCacheLoginDark;
 import uz.lb.caches.LenghtCache;
+import uz.lb.utils.ThemeBinder;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -56,6 +57,12 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+//
+//        ThemeBinder.bind(
+//                id_apDashboard,
+//                "/css/dashboard/dashboard-dark.css",
+//                "/css/dashboard/dashboard-light.css"
+//        );
 
         hoverEye();
 

@@ -3,32 +3,32 @@ package uz.lb.caches;
 import javafx.scene.image.Image;
 
 public class ImageCacheTitleDark {
-    private static Image imageFullScreenDark;
-    private static Image imageUnFullScreenDark;
-    private static Image imageMinimizeDark;
+    private static Image imageFullScreen;
+    private static Image imageUnFullScreen;
+    private static Image imageMinimize;
     private static Image imageCloseRed;
-    private static Image imageDefaultDark;
+    private static Image imageDefault;
     private static Image imageCloseRedDefault;
 
-    public static Image getImageFullScreenDark() {
-        if (imageFullScreenDark == null) {
-            imageFullScreenDark = new Image(ImageCacheSettingDark.class.getResource("/images/dashboard/title-pane/full-screen-dark.png").toExternalForm());
+    public static Image getImageFullScreen() {
+        if (imageFullScreen == null) {
+            imageFullScreen = new Image(ImageCacheSettingDark.class.getResource("/images/dashboard/title-pane/full-screen-dark.png").toExternalForm());
         }
-        return imageFullScreenDark;
+        return imageFullScreen;
     }
 
-    public static Image getImageUnFullScreenDark() {
-        if (imageUnFullScreenDark == null) {
-            imageUnFullScreenDark = new Image(ImageCacheSettingDark.class.getResource("/images/dashboard/title-pane/un-full-screen-dark.png").toExternalForm());
+    public static Image getImageUnFullScreen() {
+        if (imageUnFullScreen == null) {
+            imageUnFullScreen = new Image(ImageCacheSettingDark.class.getResource("/images/dashboard/title-pane/un-full-screen-dark.png").toExternalForm());
         }
-        return imageUnFullScreenDark;
+        return imageUnFullScreen;
     }
 
-    public static Image getImageMinimizeDark() {
-        if (imageMinimizeDark == null) {
-            imageMinimizeDark = new Image(ImageCacheSettingDark.class.getResource("/images/dashboard/title-pane/minimize-dark.png").toExternalForm());
+    public static Image getImageMinimize() {
+        if (imageMinimize == null) {
+            imageMinimize = new Image(ImageCacheSettingDark.class.getResource("/images/dashboard/title-pane/minimize-dark.png").toExternalForm());
         }
-        return imageMinimizeDark;
+        return imageMinimize;
     }
 
     public static Image getImageCloseRed() {
@@ -45,10 +45,10 @@ public class ImageCacheTitleDark {
         return imageCloseRedDefault;
     }
 
-    public static Image getImageDefaultDark() {
-        if (imageDefaultDark == null) {
-            imageDefaultDark = new Image(ImageCacheSettingDark.class.getResource("/images/dashboard/title-pane/default-dark.png").toExternalForm());
+    public static Image getImageDefault() {
+        if (imageDefault == null) {
+            imageDefault = new Image(ImageCacheSettingDark.class.getResource("/images/dashboard/title-pane/default-dark.png").toExternalForm());
         }
-        return imageDefaultDark;
+        return imageDefault;
     }
 }

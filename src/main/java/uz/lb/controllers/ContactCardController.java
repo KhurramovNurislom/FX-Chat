@@ -12,6 +12,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import uz.lb.utils.ImageCompressor;
+import uz.lb.utils.ThemeBinder;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -63,6 +64,13 @@ public class ContactCardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+//        ThemeBinder.bind(
+//                id_apDashboard,
+//                "/css/dashboard/dashboard-dark.css",
+//                "/css/dashboard/dashboard-light.css"
+//        );
+
 
         File file = ImageCompressor.saveProfileAvatar("E:\\test.jpg", 0.4f);
         Image image = new Image(file.toURI().toString());

@@ -1,39 +1,81 @@
 package uz.lb.config;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+
+import uz.lb.utils.OSIdentifier;
+import uz.lb.utils.WindowsThemeDetector;
+
+import java.io.*;
 import java.util.Properties;
+
 
 public class AppConfig {
     private static final Properties properties = new Properties();
-    private static final String CONFIG_PATH = "/config/config.properties";
+    private static final String CONFIG_PATH = "config/config.properties";
 
-    static {
-        try (InputStream input = AppConfig.class.getResourceAsStream(CONFIG_PATH)) {
-            if (input != null) {
-                properties.load(input);
+    public static void config() {
+        File configFile = new File(CONFIG_PATH);
+        if (!configFile.exists()) {
+            if (OSIdentifier.getOSName().equals("Windows")) {
+                System.out.println(WindowsThemeDetector.isNightTheme());
+                properties.setProperty("theme.night", String.valueOf(WindowsThemeDetector.isNightTheme()));
             } else {
-                System.err.println("config.properties topilmadi!");
+                properties.setProperty("theme.night", "true");
             }
-        } catch (IOException e) {
-            System.err.println("Konfiguratsiyani o‘qishda xatolik: " + e.getMessage());
+            saveProperties();
         }
     }
 
-    public static boolean isDarkThemeEnabled() {
-        return Boolean.parseBoolean(properties.getProperty("theme.dark", "false"));
+    public static void add(String key, String value) {
+        loadProperties();
+        if (!properties.containsKey(key)) {
+            properties.setProperty(key, value);
+            saveProperties();
+        }
     }
 
-    public static void setDarkTheme(boolean enabled) {
+    public static void remove(String key) {
+        if (properties.containsKey(key)) {
+            properties.remove(key);
+            saveProperties();
+        }
+    }
 
-        properties.setProperty("theme.dark", String.valueOf(enabled));
+    public static boolean contains(String key) {
+        return properties.containsKey(key);
+    }
 
-        /** Jar fayl bo'lsa bu yo'l ishlamaydi, faqat develop vaqtida */
+    public static String get(String key) {
+        return properties.getProperty(key);
+    }
 
-        try (OutputStream out = new FileOutputStream("config/config.properties")) {
-            properties.store(out, "Updated theme");
+    public static void set(String key, String value) {
+        properties.setProperty(key, value);
+        saveProperties();
+    }
+
+    public static boolean getBoolean(String key) {
+        return Boolean.parseBoolean(get(key));
+    }
+
+    private static void loadProperties() {
+        File file = new File(CONFIG_PATH);
+        if (file.exists()) {
+            try (FileInputStream fis = new FileInputStream(file)) {
+                properties.load(fis);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    private static void saveProperties() {
+        try {
+            File file = new File(CONFIG_PATH);
+            file.getParentFile().mkdirs();
+            try (FileOutputStream fos = new FileOutputStream(file)) {
+                properties.store(fos, "Application Configuration");
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
