@@ -1,0 +1,25 @@
+#id_hbContactCard {
+    -fx-padding: 5;
+}
+
+#id_lblName {
+    -fx-text-fill: #cccccc;
+    -fx-font-weight: bold;
+    -fx-font-size: 14;
+}
+
+#id_hbUserInfo {
+
+}
+
+#id_txtTime {
+
+}
+
+#id_lblLastMessage {
+    -fx-text-fill: #b3cce6;
+}
+
+#id_lblMessageCount {
+
+}

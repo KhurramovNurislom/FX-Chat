@@ -1,54 +1,50 @@
-.root {
-    -fx-text-color: #f2f2f2;
-    -fx-main-color: #3A78BF;
-    -fx-main-color-hover: #243442;
-    -fx-title-color: #1d2933;
-    -fx-title-color-hover: #212e3b;
+.root{
+    -fx-main-color:#4D83F0;
+
 }
 
-#id_apSetting {
-    -fx-background-color: RED;
-}
-
-.label {
-    -fx-font-family: "Segoe UI";
-    -fx-font-color: -fx-text-color;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-}
-
-#id_tglBtnNightMode {
-    -fx-font-family: "Segoe UI";
-    -fx-text-fill: -fx-text-color;
-    -fx-font-size: 14px;
-    -fx-font-weight: bold;
-}
-
-#id_lblUserName {
-    -fx-font-family: "Segoe UI";
-    -fx-font-color: -fx-text-color;
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-}
 
 #id_vbSettings {
     -fx-background-color: -fx-main-color;
     -fx-background-radius: 0 0 0 10;
 }
 
+
+.label {
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #F1F1F1;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+#id_tglBtnNightMode {
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #F1F1F1;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+#id_lblUserName {
+    -fx-font-family: "Segoe UI";
+    -fx-text-fill: #F1F1F1;
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+
 #id_vbSettings .label {
     -fx-background-color: -fx-main-color;
-    -fx-text-fill: -fx-text-color;
-    -fx-font-family: -fx-main-font-family;
+    -fx-text-fill: #F1F1F1;
+    -fx-font-family: "Segoe UI";
 }
 
 
 #id_vbSettings .label:hover {
-    -fx-background-color: -fx-main-color-hover;
+    -fx-background-color: #568cdc;
 }
 
 
 #id_tglBtnNightMode:hover {
-    -fx-background-color: -fx-main-color-hover;
+    -fx-background-color: #568cdc;
 }
 

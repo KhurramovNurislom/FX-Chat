@@ -1,8 +1,8 @@
 .root {
-    -fx-main-color: #121a21;
-    -fx-text-color: #f2f2f2;
+    -fx-main-color: #F1F1F1;
+    -fx-text-color: #1b2731;
     /*-fx-main-color-hover: #1b2731;*/
-    -fx-main-color-hover: #243442;
+    -fx-main-color-hover: #A1A1A1;
     -fx-main-font-family: "Segoe UI Bold";
     -fx-main-font-size: 14px;
     -fx-main-font-weight: normal;

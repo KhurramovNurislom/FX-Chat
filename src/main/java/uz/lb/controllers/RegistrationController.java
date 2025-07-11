@@ -2,7 +2,6 @@ package uz.lb.controllers;
 
 import javafx.fxml.Initializable;
 import org.junit.platform.commons.logging.LoggerFactory;
-import uz.lb.utils.ThemeBinder;
 
 import java.net.URL;
 import java.util.ResourceBundle;

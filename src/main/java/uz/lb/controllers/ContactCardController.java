@@ -5,18 +5,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import uz.lb.utils.ImageCompressor;
-import uz.lb.utils.ThemeBinder;
+import uz.lb.utils.theme.ThemeBinder;
 
-import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -65,11 +61,12 @@ public class ContactCardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        ThemeBinder.bind(
-//                id_apDashboard,
-//                "/css/dashboard/dashboard-dark.css",
-//                "/css/dashboard/dashboard-light.css"
-//        );
+        ThemeBinder.bind(
+                id_hbContactCard,
+                "/css/dashboard/dashboard-dark.css",
+                "/css/dashboard/dashboard-light.css",
+                null
+        );
 
 
         File file = ImageCompressor.saveProfileAvatar("E:\\test.jpg", 0.4f);

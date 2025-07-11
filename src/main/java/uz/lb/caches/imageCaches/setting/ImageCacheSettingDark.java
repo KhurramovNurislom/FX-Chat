@@ -1,4 +1,4 @@
-package uz.lb.caches;
+package uz.lb.caches.imageCaches.setting;
 
 import javafx.scene.image.Image;
 

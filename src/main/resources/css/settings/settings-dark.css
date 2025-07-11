@@ -6,10 +6,6 @@
     -fx-title-color-hover: #212e3b;
 }
 
-#id_apSetting {
-    -fx-background-color: RED;
-}
-
 .label {
     -fx-font-family: "Segoe UI";
     -fx-font-color: -fx-text-color;

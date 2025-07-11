@@ -19,13 +19,17 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import uz.lb.FXChat;
 import uz.lb.caches.ColorCache;
-import uz.lb.caches.ImageCacheSettingDark;
-import uz.lb.caches.ImageCacheTitleDark;
-import uz.lb.utils.ThemeBinder;
+import uz.lb.caches.imageCaches.setting.ImageCacheSettingDark;
+import uz.lb.caches.imageCaches.ImageCacheManager;
+import uz.lb.utils.theme.ThemeBinder;
+import uz.lb.utils.theme.ThemeState;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
 public class DashboardController implements Initializable {
 
@@ -99,6 +103,8 @@ public class DashboardController implements Initializable {
     private boolean isFullScreen = false;
     private final FadeTransition fade;
 
+    Map<ImageView, Supplier<Image>> imageMap = new HashMap<>();
+
 
     public DashboardController() {
         fade = new FadeTransition(Duration.millis(250));
@@ -108,11 +114,17 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        imageMap.put(id_ivMinimize,() -> ImageCacheManager.getImageCacheTitle().getImageDefaultMinimize());
+        imageMap.put(id_ivFullScreen,() -> ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
+        imageMap.put(id_ivClose,() -> ImageCacheManager.getImageCacheTitle().getImageDefaultClose());
+
         ThemeBinder.bind(
                 id_apDashboard,
                 "/css/dashboard/dashboard-dark.css",
-                "/css/dashboard/dashboard-light.css"
+                "/css/dashboard/dashboard-light.css",
+                imageMap
         );
+
 
         FXChat.setTitlePane(id_apTitlePane);
         FXChat.setLockPane(id_spLock);
@@ -241,13 +253,13 @@ public class DashboardController implements Initializable {
 
         if (!isFullScreen) {
             id_ivFullScreen.setOnMouseMoved(m -> {
-                id_ivFullScreen.setImage(ImageCacheTitleDark.getImageFullScreen());
+                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageFullScreen());
                 System.out.println("");
 
             });
         } else {
             id_ivFullScreen.setOnMouseMoved(m -> {
-                id_ivFullScreen.setImage(ImageCacheTitleDark.getImageUnFullScreen());
+                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageUnFullScreen());
 
             });
         }
@@ -312,29 +324,29 @@ public class DashboardController implements Initializable {
 
     }
 
-    private void titleHover() {
+    public void titleHover() {
         id_ivFullScreen.setOnMouseExited(l -> {
-            id_ivFullScreen.setImage(ImageCacheTitleDark.getImageDefault());
+            id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
         });
 
         id_ivFullScreen.setOnMouseEntered(m -> {
-            id_ivFullScreen.setImage(ImageCacheTitleDark.getImageFullScreen());
+            id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageFullScreen());
         });
 
         id_ivClose.setOnMouseExited(l -> {
-            id_ivClose.setImage(ImageCacheTitleDark.getImageDefault());
+            id_ivClose.setImage(ImageCacheManager.getImageCacheTitle().getImageDefaultClose());
         });
 
         id_ivClose.setOnMouseEntered(m -> {
-            id_ivClose.setImage(ImageCacheTitleDark.getImageCloseRed());
+            id_ivClose.setImage(ImageCacheManager.getImageCacheTitle().getImageClose());
         });
 
         id_ivMinimize.setOnMouseExited(l -> {
-            id_ivMinimize.setImage(ImageCacheTitleDark.getImageDefault());
+            id_ivMinimize.setImage(ImageCacheManager.getImageCacheTitle().getImageDefaultMinimize());
         });
 
         id_ivMinimize.setOnMouseEntered(m -> {
-            id_ivMinimize.setImage(ImageCacheTitleDark.getImageMinimize());
+            id_ivMinimize.setImage(ImageCacheManager.getImageCacheTitle().getImageMinimize());
         });
     }
 

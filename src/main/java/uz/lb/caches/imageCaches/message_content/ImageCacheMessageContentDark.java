@@ -1,6 +1,7 @@
-package uz.lb.caches;
+package uz.lb.caches.imageCaches.message_content;
 
 import javafx.scene.image.Image;
+import uz.lb.caches.imageCaches.setting.ImageCacheSettingDark;
 
 public class ImageCacheMessageContentDark {
     private ImageCacheMessageContentDark() {

@@ -1,4 +1,4 @@
-package uz.lb.utils;
+package uz.lb.utils.theme;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;

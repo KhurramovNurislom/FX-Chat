@@ -1,6 +1,7 @@
-package uz.lb.caches;
+package uz.lb.caches.imageCaches.login;
 
 import javafx.scene.image.Image;
+import uz.lb.caches.imageCaches.setting.ImageCacheSettingDark;
 
 public class ImageCacheLoginDark {
     private static Image imageEyeDark;

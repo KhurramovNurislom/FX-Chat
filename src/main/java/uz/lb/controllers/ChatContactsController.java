@@ -1,10 +1,6 @@
 package uz.lb.controllers;
 
 import javafx.application.Platform;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -17,10 +13,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import uz.lb.FXChat;
-import uz.lb.caches.ImageCacheContactsDark;
-import uz.lb.caches.ImageCacheContactsDark;
+import uz.lb.caches.imageCaches.contact.ImageCacheContactsDark;
 import uz.lb.models.Contact;
-import uz.lb.utils.ThemeBinder;
+import uz.lb.utils.theme.ThemeBinder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,11 +44,12 @@ public class ChatContactsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        ThemeBinder.bind(
-//                id_apDashboard,
-//                "/css/dashboard/dashboard-dark.css",
-//                "/css/dashboard/dashboard-light.css"
-//        );
+        ThemeBinder.bind(
+                id_apContacts,
+                "/css/chat-contacts/chat-contacts-dark.css",
+                "/css/chat-contacts/chat-contacts-light.css",
+                null
+        );
 
         searchFieldHover();
 

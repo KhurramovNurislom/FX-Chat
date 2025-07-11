@@ -10,9 +10,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
-import uz.lb.caches.ImageCacheMessageContentDark;
+import uz.lb.caches.imageCaches.message_content.ImageCacheMessageContentDark;
 import uz.lb.models.Contact;
-import uz.lb.utils.ThemeBinder;
+import uz.lb.utils.theme.ThemeBinder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -52,7 +52,7 @@ public class ChatContentsController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
 //        ThemeBinder.bind(
-//                id_apDashboard,
+//                id_apBackground,
 //                "/css/dashboard/dashboard-dark.css",
 //                "/css/dashboard/dashboard-light.css"
 //        );

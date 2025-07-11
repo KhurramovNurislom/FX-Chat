@@ -1,8 +1,8 @@
 package uz.lb.config;
 
 
-import uz.lb.utils.OSIdentifier;
-import uz.lb.utils.WindowsThemeDetector;
+import uz.lb.utils.theme.OSIdentifier;
+import uz.lb.utils.theme.WindowsThemeDetector;
 
 import java.io.*;
 import java.util.Properties;

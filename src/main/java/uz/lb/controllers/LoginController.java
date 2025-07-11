@@ -12,9 +12,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import uz.lb.FXChat;
-import uz.lb.caches.ImageCacheLoginDark;
+import uz.lb.caches.imageCaches.login.ImageCacheLoginDark;
 import uz.lb.caches.LenghtCache;
-import uz.lb.utils.ThemeBinder;
+import uz.lb.utils.theme.ThemeBinder;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -57,12 +57,13 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-//
-//        ThemeBinder.bind(
-//                id_apDashboard,
-//                "/css/dashboard/dashboard-dark.css",
-//                "/css/dashboard/dashboard-light.css"
-//        );
+
+        ThemeBinder.bind(
+                id_apLogin,
+                "/css/login/login-dark.css",
+                "/css/login/login-light.css",
+                null
+        );
 
         hoverEye();
 

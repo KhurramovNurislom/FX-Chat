@@ -1,4 +1,4 @@
-package uz.lb.utils;
+package uz.lb.utils.theme;
 
 public class OSIdentifier {
     public static String getOSName() {
