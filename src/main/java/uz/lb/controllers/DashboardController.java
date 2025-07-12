@@ -146,34 +146,34 @@ public class DashboardController implements Initializable {
 
             id_lblPersonalChat.setVisible(true);
             id_lblPersonalChat.setText("1111");
-            id_ivPersonalChat.setImage(ImageCacheSettingDark.getImagePersonHasCount());
+            id_ivPersonalChat.setImage(ImageCacheManager.getImageCacheSetting().getImagePersonHasCount());
 
             id_lblMenu.setVisible(true);
             id_lblMenu.setText("123");
-            id_ivMenu.setImage(ImageCacheSettingDark.getImageMenuHasCount());
+            id_ivMenu.setImage(ImageCacheManager.getImageCacheSetting().getImageMenuHasCount());
 
             id_lblAllChats.setVisible(true);
             id_lblAllChats.setText("1");
-            id_ivAllChats.setImage(ImageCacheSettingDark.getImageAllChatsHasCount());
+            id_ivAllChats.setImage(ImageCacheManager.getImageCacheSetting().getImageAllChatsHasCount());
 
             id_lblUnreadChats.setVisible(true);
             id_lblUnreadChats.setText("15");
-            id_ivUnreadChats.setImage(ImageCacheSettingDark.getImageUnreadChatHasCount());
+            id_ivUnreadChats.setImage(ImageCacheManager.getImageCacheSetting().getImageUnreadChatHasCount());
 
         });
 
         id_btnUnreadChats.setOnAction(e -> {
             id_lblMenu.setVisible(false);
-            id_ivMenu.setImage(ImageCacheSettingDark.getImageMenu());
+            id_ivMenu.setImage(ImageCacheManager.getImageCacheSetting().getImageMenu());
 
             id_lblPersonalChat.setVisible(false);
-            id_ivPersonalChat.setImage(ImageCacheSettingDark.getImagePerson());
+            id_ivPersonalChat.setImage(ImageCacheManager.getImageCacheSetting().getImagePerson());
 
             id_lblAllChats.setVisible(false);
-            id_ivAllChats.setImage(ImageCacheSettingDark.getImageAllChats());
+            id_ivAllChats.setImage(ImageCacheManager.getImageCacheSetting().getImageAllChats());
 
             id_lblUnreadChats.setVisible(false);
-            id_ivUnreadChats.setImage(ImageCacheSettingDark.getImageUnreadChat());
+            id_ivUnreadChats.setImage(ImageCacheManager.getImageCacheSetting().getImageUnreadChat());
         });
 
     }
@@ -248,7 +248,6 @@ public class DashboardController implements Initializable {
 
     private void hoverFullScreen() {
 
-
         isFullScreen = !isFullScreen;
 
         if (!isFullScreen) {
@@ -269,31 +268,31 @@ public class DashboardController implements Initializable {
     private void settingHover() {
 
         settingButtonHover(id_btnMenu, id_ivMenu,
-                ImageCacheSettingDark.getImageMenu(),
-                ImageCacheSettingDark.getImageMenuHover(),
-                ImageCacheSettingDark.getImageMenuHasCount(),
-                ImageCacheSettingDark.getImageMenuHoverHasCount(),
+                ImageCacheManager.getImageCacheSetting().getImageMenu(),
+                ImageCacheManager.getImageCacheSetting().getImageMenuHover(),
+                ImageCacheManager.getImageCacheSetting().getImageMenuHasCount(),
+                ImageCacheManager.getImageCacheSetting().getImageMenuHoverHasCount(),
                 id_lblMenu, ColorCache.getColor(), ColorCache.getColorHover());
 
         settingButtonHover(id_btnPersonalChat, id_ivPersonalChat,
-                ImageCacheSettingDark.getImagePerson(),
-                ImageCacheSettingDark.getImagePersonHover(),
-                ImageCacheSettingDark.getImagePersonHasCount(),
-                ImageCacheSettingDark.getImagePersonHoverHasCount(),
+                ImageCacheManager.getImageCacheSetting().getImagePerson(),
+                ImageCacheManager.getImageCacheSetting().getImagePersonHover(),
+                ImageCacheManager.getImageCacheSetting().getImagePersonHasCount(),
+                ImageCacheManager.getImageCacheSetting().getImagePersonHoverHasCount(),
                 id_lblPersonalChat, ColorCache.getColor(), ColorCache.getColorHover());
 
         settingButtonHover(id_btnAllChats, id_ivAllChats,
-                ImageCacheSettingDark.getImageAllChats(),
-                ImageCacheSettingDark.getImageAllChatsHover(),
-                ImageCacheSettingDark.getImageAllChatsHasCount(),
-                ImageCacheSettingDark.getImageAllChatsHoverHasCount(),
+                ImageCacheManager.getImageCacheSetting().getImageAllChats(),
+                ImageCacheManager.getImageCacheSetting().getImageAllChatsHover(),
+                ImageCacheManager.getImageCacheSetting().getImageAllChatsHasCount(),
+                ImageCacheManager.getImageCacheSetting().getImageAllChatsHoverHasCount(),
                 id_lblAllChats, ColorCache.getColor(), ColorCache.getColorHover());
 
         settingButtonHover(id_btnUnreadChats, id_ivUnreadChats,
-                ImageCacheSettingDark.getImageUnreadChat(),
-                ImageCacheSettingDark.getImageUnreadChatHover(),
-                ImageCacheSettingDark.getImageUnreadChatHasCount(),
-                ImageCacheSettingDark.getImageUnreadChatHoverHasCount(),
+                ImageCacheManager.getImageCacheSetting().getImageUnreadChat(),
+                ImageCacheManager.getImageCacheSetting().getImageUnreadChatHover(),
+                ImageCacheManager.getImageCacheSetting().getImageUnreadChatHasCount(),
+                ImageCacheManager.getImageCacheSetting().getImageUnreadChatHoverHasCount(),
                 id_lblUnreadChats, ColorCache.getColor(), ColorCache.getColorHover());
 
 
@@ -348,34 +347,6 @@ public class DashboardController implements Initializable {
         id_ivMinimize.setOnMouseEntered(m -> {
             id_ivMinimize.setImage(ImageCacheManager.getImageCacheTitle().getImageMinimize());
         });
-    }
-
-
-    public void openWindow() {
-        try {
-            // Login.fxml faylini yuklash
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
-            Parent loginRoot = loader.load();
-
-            // Login controllerga murojaat qilish (ixtiyoriy)
-            LoginController loginController = loader.getController();
-
-            // Yangi oynani yaratish
-            Stage loginStage = new Stage();
-            loginStage.setTitle("Login");
-            loginStage.setScene(new Scene(loginRoot));
-
-            // Dashboard oynasini o‘chirib yubormasdan yangi oynani ochamiz
-            loginStage.initOwner(id_apDashboard.getScene().getWindow()); // Dashboard oynasi parent bo‘ladi
-
-            // MODAL EMAS qilish uchun quyidagini **yozmaymiz** yoki WINDOW_MODAL o‘rniga NONE:
-            // loginStage.initModality(Modality.WINDOW_MODAL);
-
-            loginStage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 

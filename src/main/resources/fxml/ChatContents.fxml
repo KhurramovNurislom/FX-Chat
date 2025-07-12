@@ -89,7 +89,7 @@
                         <!-- Rasm -->
                         <ImageView fx:id="id_ivBackground" fitHeight="300.0" fitWidth="300.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER">
                             <image>
-                                <Image url="@../images/mv-mono.png" />
+                                <Image url="@../images/logo-dark.png" />
                             </image>
                             <cursor>
                                 <Cursor fx:constant="HAND" />

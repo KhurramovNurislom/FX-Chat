@@ -63,8 +63,8 @@ public class ContactCardController implements Initializable {
 
         ThemeBinder.bind(
                 id_hbContactCard,
-                "/css/dashboard/dashboard-dark.css",
-                "/css/dashboard/dashboard-light.css",
+                "/css/chat-contacts/contact-card/contact-card-dark.css",
+                "/css/chat-contacts/contact-card/contact-card-light.css",
                 null
         );
 
@@ -76,11 +76,9 @@ public class ContactCardController implements Initializable {
         id_crAvatar.setFill(new ImagePattern(image));
 
 
-
         id_hbContactCard.setOnMouseEntered(e -> {
 
         });
-
 
 
         id_hbContactCard.setOnMouseExited(e -> {

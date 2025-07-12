@@ -51,11 +51,12 @@ public class ChatContentsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-//        ThemeBinder.bind(
-//                id_apBackground,
-//                "/css/dashboard/dashboard-dark.css",
-//                "/css/dashboard/dashboard-light.css"
-//        );
+        ThemeBinder.bind(
+                id_apChatContents,
+                "/css/chat-contents/chat-contents-dark.css",
+                "/css/chat-contents/chat-contents-light.css",
+                null
+        );
 
         typingSettings();
         hover();

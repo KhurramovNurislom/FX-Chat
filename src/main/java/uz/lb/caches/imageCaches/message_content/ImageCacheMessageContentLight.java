@@ -3,8 +3,8 @@ package uz.lb.caches.imageCaches.message_content;
 import javafx.scene.image.Image;
 import uz.lb.caches.imageCaches.setting.ImageCacheSettingDark;
 
-public class ImageCacheMessageContentDark {
-    private ImageCacheMessageContentDark() {
+public class ImageCacheMessageContentLight {
+    private ImageCacheMessageContentLight() {
     }
 
     private static Image imageAddFiles;
@@ -75,13 +75,13 @@ public class ImageCacheMessageContentDark {
     }
 
     /***     Chat-content-background      */
-    private static Image imageBackground;
+    private static Image imageBackgroundMono;
 
-    public static Image getImageBackground() {
-        if (imageBackground == null) {
-            imageBackground = new Image(ImageCacheSettingDark.class.getResource("/images/logo-dark.png").toExternalForm());
+    public static Image getImageBackgroundMono() {
+        if (imageBackgroundMono == null) {
+            imageBackgroundMono = new Image(ImageCacheSettingDark.class.getResource("/images/logo-dark.png").toExternalForm());
         }
-        return imageBackground;
+        return imageBackgroundMono;
     }
 
 
