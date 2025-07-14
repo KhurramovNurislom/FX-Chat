@@ -1,7 +1,6 @@
 package uz.lb.caches.imageCaches.setting;
 
 import javafx.scene.image.Image;
-import uz.lb.caches.imageCaches.title.ImageCacheTitleDark;
 
 public class ImageCacheSettingDark implements ImageCacheSetting {
     private ImageCacheSettingDark() {

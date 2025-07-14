@@ -1,6 +1,12 @@
 package uz.lb.caches.imageCaches;
 
 
+import uz.lb.caches.imageCaches.contact.ImageCacheContacts;
+import uz.lb.caches.imageCaches.contact.ImageCacheContactsDark;
+import uz.lb.caches.imageCaches.contact.ImageCacheContactsLight;
+import uz.lb.caches.imageCaches.login.ImageCacheLogin;
+import uz.lb.caches.imageCaches.login.ImageCacheLoginDark;
+import uz.lb.caches.imageCaches.login.ImageCacheLoginLight;
 import uz.lb.caches.imageCaches.setting.ImageCacheSetting;
 import uz.lb.caches.imageCaches.setting.ImageCacheSettingDark;
 import uz.lb.caches.imageCaches.setting.ImageCacheSettingLight;
@@ -16,11 +22,15 @@ public class ImageCacheManager {
     private static ImageCacheTitle titleCache;
     private static ImageCacheSettingPane settingPaneCache;
     private static ImageCacheSetting settingCache;
+    private static ImageCacheContacts contactsCache;
+    private static ImageCacheLogin loginCache;
 
     public static void init(boolean isDark) {
         titleCache = isDark ? ImageCacheTitleDark.getInstance() : ImageCacheTitleLight.getInstance();
         settingPaneCache = isDark ? ImageCacheSettingPaneDark.getInstance() : ImageCacheSettingPaneLight.getInstance();
         settingCache = isDark ? ImageCacheSettingDark.getInstance() : ImageCacheSettingLight.getInstance();
+        contactsCache = isDark ? ImageCacheContactsDark.getInstance() : ImageCacheContactsLight.getInstance();
+        loginCache = isDark ? ImageCacheLoginDark.getInstance() : ImageCacheLoginLight.getInstance();
     }
 
     public static ImageCacheTitle getImageCacheTitle() {
@@ -42,5 +52,19 @@ public class ImageCacheManager {
             throw new IllegalStateException("ImageCacheManager not initialized!");
         }
         return settingCache;
+    }
+
+    public static ImageCacheContacts getImageCacheContacts() {
+        if (contactsCache == null) {
+            throw new IllegalStateException("ImageCacheManager not initialized!");
+        }
+        return contactsCache;
+    }
+
+    public static ImageCacheLogin getImageCacheLogin() {
+        if (loginCache == null) {
+            throw new IllegalStateException("ImageCacheManager not initialized!");
+        }
+        return loginCache;
     }
 }

@@ -202,7 +202,7 @@
 
                 </JFXDrawersStack>
 
-                <StackPane fx:id="id_spLock" style="-fx-background-color: #121A21" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+                <StackPane fx:id="id_spLock" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
 
                 </StackPane>
             </children>

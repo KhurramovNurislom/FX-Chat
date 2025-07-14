@@ -13,15 +13,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import uz.lb.FXChat;
-import uz.lb.caches.imageCaches.contact.ImageCacheContactsDark;
+import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.models.Contact;
 import uz.lb.utils.theme.ThemeBinder;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
+import java.util.function.Supplier;
 
 public class ChatContactsController implements Initializable {
     @FXML
@@ -40,16 +39,15 @@ public class ChatContactsController implements Initializable {
     private VBox id_vbContacts;
 
     private boolean isUnlock = true;
+    Map<ImageView, Supplier<Image>> imageMap = new HashMap<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        ThemeBinder.bind(
-                id_apContacts,
-                "/css/chat-contacts/chat-contacts-dark.css",
-                "/css/chat-contacts/chat-contacts-light.css",
-                null
-        );
+
+        imageMap.put(id_ivSearchClose, () -> ImageCacheManager.getImageCacheContacts().getImageUnLock());
+
+        ThemeBinder.bind(id_apContacts, "/css/chat-contacts/chat-contacts-dark.css", "/css/chat-contacts/chat-contacts-light.css", imageMap);
 
         searchFieldHover();
 
@@ -57,10 +55,16 @@ public class ChatContactsController implements Initializable {
             if (isUnlock) {
                 FXChat.Lock("/fxml/Login.fxml");
             } else {
+
                 id_tfSearch.clear();
-                id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleUnLockDark());
+                if (id_ivSearchClose.isHover()) {
+                    id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageUnLockHover());
+                } else {
+                    id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageUnLock());
+                }
             }
         });
+
 
         List<Contact> contactList = new ArrayList<>();
 
@@ -109,41 +113,44 @@ public class ChatContactsController implements Initializable {
 
     }
 
+
     private void searchFieldHover() {
 
         id_tfSearch.focusedProperty().addListener((obs, oldVal, newVal) -> updateCloseIcon());
         id_tfSearch.textProperty().addListener((obs, oldText, newText) -> updateCloseIcon());
 
         id_ivSearchClose.hoverProperty().addListener(l -> {
-            id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleUnLockDarkHover());
+            id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageUnLock());
         });
 
         id_ivSearchClose.setOnMouseMoved(m -> {
-            id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleUnLockDark());
+            id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageUnLockHover());
         });
 
     }
 
+
     private void updateCloseIcon() {
         if (!id_tfSearch.getText().isEmpty()) {
             isUnlock = false;
-            id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleCloseDarkHover());
+            id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageClose());
 
             id_ivSearchClose.hoverProperty().addListener(l -> {
-                id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleCloseDarkHover());
+
+                id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageClose());
             });
 
             id_ivSearchClose.setOnMouseMoved(m -> {
-                id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleCloseDark());
+                id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageCloseHover());
             });
         } else {
             isUnlock = true;
             id_ivSearchClose.hoverProperty().addListener(l -> {
-                id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleUnLockDarkHover());
+                id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageUnLock());
             });
 
             id_ivSearchClose.setOnMouseMoved(m -> {
-                id_ivSearchClose.setImage(ImageCacheContactsDark.getImageCircleUnLockDark());
+                id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageUnLockHover());
             });
         }
     }

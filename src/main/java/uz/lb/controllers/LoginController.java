@@ -7,20 +7,26 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import uz.lb.FXChat;
-import uz.lb.caches.imageCaches.login.ImageCacheLoginDark;
+import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.caches.LenghtCache;
+import uz.lb.config.AppConfig;
 import uz.lb.utils.theme.ThemeBinder;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
 public class LoginController implements Initializable {
 
+    public ImageView id_ivLogo;
     @FXML
     private Text id_txtRegistration;
 
@@ -54,18 +60,22 @@ public class LoginController implements Initializable {
     private boolean eyeBool = true;
 
     private String passOld = "";
+    Map<ImageView, Supplier<Image>> imageMap = new HashMap<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        imageMap.put(id_ivEye, () -> ImageCacheManager.getImageCacheLogin().getImageEyeHover());
+        imageMap.put(id_ivLogo, () -> ImageCacheManager.getImageCacheLogin().getImageLogo());
 
         ThemeBinder.bind(
                 id_apLogin,
                 "/css/login/login-dark.css",
                 "/css/login/login-light.css",
-                null
+                imageMap
         );
 
         hoverEye();
+
 
         id_txtRegistration.setOnMouseClicked(e -> {
             FXChat.Lock("/fxml/Registration.fxml");
@@ -85,10 +95,10 @@ public class LoginController implements Initializable {
         id_ivEye.setOnMouseClicked(e -> {
             eyeBool = !eyeBool;
             if (eyeBool) {
-                id_ivEye.setImage(ImageCacheLoginDark.getImageEyeDark());
+                id_ivEye.setImage(ImageCacheManager.getImageCacheLogin().getImageEye());
                 hoverEye();
             } else {
-                id_ivEye.setImage(ImageCacheLoginDark.getImageUnEyeDark());
+                id_ivEye.setImage(ImageCacheManager.getImageCacheLogin().getImageUnEye());
                 hoverUnEye();
             }
             id_tfPassword.setVisible(!eyeBool);
@@ -124,11 +134,11 @@ public class LoginController implements Initializable {
     private void hoverEye() {
 
         id_ivEye.hoverProperty().addListener(l -> {
-            id_ivEye.setImage(ImageCacheLoginDark.getImageEyeDarkHover());
+            id_ivEye.setImage(ImageCacheManager.getImageCacheLogin().getImageEyeHover());
         });
 
         id_ivEye.setOnMouseMoved(m -> {
-            id_ivEye.setImage(ImageCacheLoginDark.getImageEyeDark());
+            id_ivEye.setImage(ImageCacheManager.getImageCacheLogin().getImageEye());
         });
 
     }
@@ -136,28 +146,38 @@ public class LoginController implements Initializable {
     private void hoverUnEye() {
 
         id_ivEye.hoverProperty().addListener(l -> {
-            id_ivEye.setImage(ImageCacheLoginDark.getImageUnEyeDarkHover());
+            id_ivEye.setImage(ImageCacheManager.getImageCacheLogin().getImageUnEyeHover());
         });
 
         id_ivEye.setOnMouseMoved(m -> {
-            id_ivEye.setImage(ImageCacheLoginDark.getImageUnEyeDark());
+            id_ivEye.setImage(ImageCacheManager.getImageCacheLogin().getImageUnEye());
         });
 
     }
 
     private void hoverField(String newValue) {
+
+        if (AppConfig.getBoolean("theme.night")) {
+            hover(newValue, "#a6a6a6", "#f2f2f2");
+        } else {
+            hover(newValue, "#366bb0", "#2a5389");
+        }
+
+    }
+
+    private void hover(String newValue, String color, String colorHover) {
         if (newValue.length() < LenghtCache.getMinPassword()) {
-            id_tfPassword.setStyle("-fx-text-fill:  #a6a6a6");
-            id_pfPassword.setStyle("-fx-text-fill:  #a6a6a6");
+            id_tfPassword.setStyle("-fx-text-fill:  " + color);
+            id_pfPassword.setStyle("-fx-text-fill:  " + color);
         } else if (newValue.length() <= LenghtCache.getMaxPassword()) {
             passOld = newValue;
-            id_tfPassword.setStyle("-fx-text-fill:  #f2f2f2");
-            id_pfPassword.setStyle("-fx-text-fill:  #f2f2f2");
+            id_tfPassword.setStyle("-fx-text-fill:  " + colorHover);
+            id_pfPassword.setStyle("-fx-text-fill:  " + colorHover);
         } else {
             id_tfPassword.setText(passOld);
             id_pfPassword.setText(passOld);
-            id_tfPassword.setStyle("-fx-text-fill:  #a6a6a6");
-            id_pfPassword.setStyle("-fx-text-fill:  #a6a6a6");
+            id_tfPassword.setStyle("-fx-text-fill:  " + color);
+            id_pfPassword.setStyle("-fx-text-fill:  " + color);
         }
     }
 

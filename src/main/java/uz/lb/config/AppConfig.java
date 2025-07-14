@@ -23,6 +23,7 @@ public class AppConfig {
             }
             saveProperties();
         }
+
     }
 
     public static void add(String key, String value) {

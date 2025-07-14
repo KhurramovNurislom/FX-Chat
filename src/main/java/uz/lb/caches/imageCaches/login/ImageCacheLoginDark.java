@@ -3,37 +3,60 @@ package uz.lb.caches.imageCaches.login;
 import javafx.scene.image.Image;
 import uz.lb.caches.imageCaches.setting.ImageCacheSettingDark;
 
-public class ImageCacheLoginDark {
-    private static Image imageEyeDark;
-    private static Image imageEyeDarkHover;
-    private static Image imageUnEyeDark;
-    private static Image imageUnEyeDarkHover;
+public class ImageCacheLoginDark implements ImageCacheLogin {
 
-    public static Image getImageEyeDark() {
-        if (imageEyeDark == null) {
-            imageEyeDark = new Image(ImageCacheSettingDark.class.getResource("/images/login/eye-dark.png").toExternalForm());
-        }
-        return imageEyeDark;
+    private ImageCacheLoginDark() {
     }
 
-    public static Image getImageEyeDarkHover() {
-        if (imageEyeDarkHover == null) {
-            imageEyeDarkHover = new Image(ImageCacheSettingDark.class.getResource("/images/login/eye-dark-hover.png").toExternalForm());
-        }
-        return imageEyeDarkHover;
+    private static final ImageCacheLoginDark INSTANCE = new ImageCacheLoginDark();
+
+    public static ImageCacheLoginDark getInstance() {
+        return INSTANCE;
     }
 
-    public static Image getImageUnEyeDark() {
-        if (imageUnEyeDark == null) {
-            imageUnEyeDark = new Image(ImageCacheSettingDark.class.getResource("/images/login/un-eye-dark.png").toExternalForm());
+
+    private static Image imageEye;
+    private static Image imageEyeHover;
+    private static Image imageUnEye;
+    private static Image imageUnEyeHover;
+    private static Image imageLogo;
+    @Override
+    public Image getImageLogo() {
+        if (imageEye == null) {
+            imageEye = new Image(ImageCacheSettingDark.class.getResource("/images/login/dark/logo-dark.png").toExternalForm());
         }
-        return imageUnEyeDark;
+        return imageEye;
     }
 
-    public static Image getImageUnEyeDarkHover() {
-        if (imageUnEyeDarkHover == null) {
-            imageUnEyeDarkHover = new Image(ImageCacheSettingDark.class.getResource("/images/login/un-eye-dark-hover.png").toExternalForm());
+    @Override
+    public Image getImageEye() {
+        if (imageEye == null) {
+            imageEye = new Image(ImageCacheSettingDark.class.getResource("/images/login/dark/eye-dark.png").toExternalForm());
         }
-        return imageUnEyeDarkHover;
+        return imageEye;
+    }
+
+    @Override
+    public Image getImageEyeHover() {
+        if (imageEyeHover == null) {
+            imageEyeHover = new Image(ImageCacheSettingDark.class.getResource("/images/login/dark/eye-dark-hover.png").toExternalForm());
+        }
+        return imageEyeHover;
+    }
+
+    @Override
+    public Image getImageUnEye() {
+        if (imageUnEye == null) {
+            imageUnEye = new Image(ImageCacheSettingDark.class.getResource("/images/login/dark/un-eye-dark.png").toExternalForm());
+        }
+        return imageUnEye;
+    }
+
+    @Override
+    public Image getImageUnEyeHover() {
+        if (imageUnEyeHover == null) {
+            imageUnEyeHover = new Image(ImageCacheSettingDark.class.getResource("/images/login/dark/un-eye-dark-hover.png").toExternalForm());
+        }
+        return imageUnEyeHover;
     }
 }

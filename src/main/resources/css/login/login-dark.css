@@ -1,5 +1,5 @@
 .root {
-    -fx-text-color: #f2f2f2;
+    -fx-text-color: #090d10;
     -fx-main-color: #090d10;
     -fx-main-color-hover: #243442;
     -fx-button-color: #1d2933;
@@ -52,7 +52,7 @@
 #id_lblText {
     -fx-background-color: #121A21;
     -fx-text-fill: -fx-text-color;
-    -fx-font-size: 20px;
+    -fx-font-size: 30px;
     -fx-font-family: "Segoe UI";
     -fx-font-weight: BOLD;
 }

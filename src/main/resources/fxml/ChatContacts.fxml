@@ -16,7 +16,7 @@
                 <TextField fx:id="id_tfSearch" prefHeight="35.0" promptText="Search" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="0.0" />
                 <ImageView fx:id="id_ivSearchClose" fitHeight="21.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="7.0">
                     <image>
-                        <Image url="@../images/dashboard/chat-contacts/un-lock-dark-hover.png" />
+                        <Image url="@../images/dashboard/chat-contacts/dark/un-lock-dark-hover.png" />
                     </image>
                     <cursor>
                         <Cursor fx:constant="HAND" />

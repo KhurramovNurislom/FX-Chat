@@ -15,7 +15,7 @@
 }
 
 #id_pnShadow {
-    -fx-background-color: white;
+    -fx-background-color: #ADBED2;
     -fx-background-radius: 13;
     -fx-border-radius: 13;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 12, 0, 0, 0);
@@ -26,7 +26,7 @@
 }
 
 #id_spLock {
-    -fx-background-color: white;
+    -fx-background-color: #F0F3FA;
     -fx-background-radius: 0 0 10 10;
     -fx-border-radius: 0 0 10 10;
 }
@@ -84,12 +84,12 @@
 
 
 #id_spChat {
-    -fx-background-color: #20529E;
+    -fx-background-color: #F0F3FA;
     -fx-cursor: DEFAULT;
 }
 
 #id_spChat:horizontal > .split-pane-divider {
-    -fx-background-color: #20529E;
+    -fx-background-color: #F0F3FA;
     -fx-padding: 2;
 }
 

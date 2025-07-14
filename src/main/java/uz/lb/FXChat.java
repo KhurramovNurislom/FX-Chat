@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.config.AppConfig;
 import uz.lb.utils.ResizableWindowHelper;
 
@@ -49,6 +50,7 @@ public class FXChat extends Application {
     public void start(Stage stage) throws Exception {
 
         AppConfig.config();
+        ImageCacheManager.init(AppConfig.getBoolean("theme.night"));
         Security.addProvider(new BouncyCastleProvider());
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"));
@@ -62,7 +64,7 @@ public class FXChat extends Application {
 
         stage.centerOnScreen();
         stage.setScene(scene);
-        stage.setMinHeight(500);
+        stage.setMinHeight(570);
         stage.setMinWidth(700);
         setStage(stage);
 

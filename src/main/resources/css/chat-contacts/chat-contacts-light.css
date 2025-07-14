@@ -1,11 +1,6 @@
 
-.root {
-    -fx-text-color: BLACK;
-    -fx-main-color: #2b6fd4;
-}
-
 #id_tfSearch {
-    -fx-background-color: #212e3b;
+    -fx-background-color: #d9e0f2;
     -fx-text-fill: -fx-text-color;
     -fx-font-family: "Segoe UI";
     -fx-font-size: 13;
@@ -14,26 +9,27 @@
 }
 
 #id_apSearch {
-    -fx-background-color: #212e3b;
+    -fx-background-color: #d9e0f2;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
+    -fx-border-color: #c6d1ec;
 }
 
 #id_apContacts {
-    -fx-background-color: #121a21;
+    -fx-background-color: #F0F3FA;
 }
 
 #id_vbContacts {
-    -fx-background-color: #121a21;
-    -fx-border-color: #121a21;
+    -fx-background-color: #F0F3FA;
+    -fx-border-color: #F0F3FA;
 }
 
 
 /****************/
 
 #id_spContacts {
-    -fx-background-color: #121a21;
-    -fx-border-color: #121a21;
+    -fx-background-color: #F0F3FA;
+    -fx-border-color: #F0F3FA;
 }
 
 #id_spContacts > .thumb {
