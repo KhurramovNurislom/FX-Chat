@@ -1,10 +1,29 @@
 .root {
     -fx-text-color: BLACK;
-    -fx-main-color: #395886;
+    -fx-main-color: #2b6fd4;
 
 
-    -fx-title-color: #2e466b;
-    -fx-title-color-hover: #36527d;
+    /*-fx-title-color: #2e466b;*/
+    /*-fx-title-color-hover: #36527d;*/
+    -fx-title-color: #20529E;
+    -fx-title-color-hover: #2764be;
+}
+
+
+#id_apNoThinks {
+    -fx-background-color: #d9e0f2;
+    -fx-background-radius: 0 0 10 0;
+    -fx-border-radius: 0 0 10 0;
+}
+
+#id_lblNoThinks {
+    -fx-background-color: #c6d1eb;
+    -fx-text-fill: #4d75b3;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: BOLD;
+    -fx-font-size: 12px;
 }
 
 
@@ -19,10 +38,6 @@
     -fx-background-radius: 13;
     -fx-border-radius: 13;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 12, 0, 0, 0);
-}
-
-#id_spChat {
-    -fx-background-radius: 0 0 10 0;
 }
 
 #id_spLock {
@@ -84,9 +99,19 @@
 
 
 #id_spChat {
-    -fx-background-color: #F0F3FA;
+    /*-fx-background-color: #F0F3FA;*/
+    -fx-background-color: RED;
     -fx-cursor: DEFAULT;
+    -fx-border-insets: 0;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0 0 10 0;
 }
+
+
+
 
 #id_spChat:horizontal > .split-pane-divider {
     -fx-background-color: #F0F3FA;

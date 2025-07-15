@@ -7,6 +7,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -56,7 +57,7 @@ public class FXChat extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"));
         Parent root = loader.load();
 
-//        stage.getIcons().add(new Image("/images/icon.png"));
+        stage.getIcons().add(new Image("/images/logo.png"));
 
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT);
@@ -137,7 +138,6 @@ public class FXChat extends Application {
         stage.setX(e.getScreenX() - x.get());
         stage.setY(e.getScreenY() - y.get());
     }
-
 
 
     public static void main(String[] args) {

@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="id_hbContactCard" prefHeight="60.0" prefWidth="265.0" spacing="5.0" stylesheets="@/css/chat-contacts/contact-card/contact-card-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.ContactCardController">
+<HBox fx:id="id_hbContactCard" prefHeight="60.0" prefWidth="350.0" spacing="5.0" stylesheets="@/css/chat-contacts/contact-card/contact-card-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.ContactCardController">
 
     <children>
 
@@ -18,20 +18,20 @@
             </HBox.margin>
         </Circle>
 
-        <VBox prefHeight="78.0" prefWidth="250.0">
+        <VBox prefHeight="78.0" prefWidth="300.0">
             <children>
 
-                <HBox fx:id="id_hbUserInfo" alignment="CENTER_LEFT" spacing="3.0">
+                <HBox fx:id="id_hbUserInfo" alignment="CENTER_LEFT" prefHeight="30.0" spacing="3.0">
                     <children>
-                        <Label fx:id="id_lblName" prefWidth="250.0" text="Ism Familya" />
-                        <ImageView fx:id="id_ivCheck" fitHeight="20.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label fx:id="id_lblName" prefHeight="25.0" prefWidth="300.0" text="Ism Familya" />
+                        <ImageView fx:id="id_ivCheck" fitHeight="10.0" pickOnBounds="true" preserveRatio="true" />
                         <Text fx:id="id_txtTime" />
                     </children>
                 </HBox>
 
-                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                <HBox alignment="CENTER_LEFT" prefWidth="200.0">
                     <children>
-                        <Label fx:id="id_lblLastMessage" prefWidth="250.0" text="Oxirgi xabar..." />
+                        <Label fx:id="id_lblLastMessage" prefHeight="30.0" prefWidth="300.0" text="Oxirgi xabar..." />
                         <Label fx:id="id_lblMessageCount" alignment="CENTER" text="1" />
                     </children>
                 </HBox>

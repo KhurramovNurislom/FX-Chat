@@ -19,8 +19,21 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 12, 0, 0, 0);
 }
 
-#id_spChat {
+
+#id_apNoThinks{
+    -fx-background-color: -fx-main-color;
     -fx-background-radius: 0 0 10 0;
+    -fx-border-radius: 0 0 10 0;
+}
+
+#id_lblNoThinks{
+    -fx-background-color: #121A21;
+    -fx-text-fill: #b3b3b3;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: BOLD;
+    -fx-font-size: 12px;
 }
 
 #id_spLock {
@@ -81,10 +94,22 @@
 }
 
 
+
+
+
+
+
 #id_spChat {
     -fx-background-color: #121a21;
     -fx-cursor: DEFAULT;
+    -fx-border-insets: 0;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0 0 10 0;
 }
+
 
 #id_spChat:horizontal > .split-pane-divider {
     -fx-background-color: #121a21;

@@ -9,12 +9,16 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.utils.ImageCompressor;
 import uz.lb.utils.theme.ThemeBinder;
 
 import java.io.File;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.function.Supplier;
 
 public class ContactCardController implements Initializable {
 
@@ -58,16 +62,26 @@ public class ContactCardController implements Initializable {
 //        id_ivAvatar.setImage(image);
     }
 
+    Map<ImageView, Supplier<Image>> imageMap = new HashMap<>();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        imageMap.put(id_ivCheck, () -> ImageCacheManager.getImageCacheContactCard().getImageUnReadCheckMessage());
         ThemeBinder.bind(
                 id_hbContactCard,
                 "/css/chat-contacts/contact-card/contact-card-dark.css",
                 "/css/chat-contacts/contact-card/contact-card-light.css",
-                null
+                imageMap
         );
 
+
+        id_ivCheck.setOnMouseClicked(e -> {
+            id_ivCheck.setImage(ImageCacheManager.getImageCacheContactCard().getImageUnReadDoubleCheckMessage());
+            id_ivCheck.setOnMouseClicked(ex -> {
+                id_ivCheck.setImage(ImageCacheManager.getImageCacheContactCard().getImageDoubleCheckMessage());
+            });
+
+        });
 
         File file = ImageCompressor.saveProfileAvatar("E:\\test.jpg", 0.4f);
         Image image = new Image(file.toURI().toString());

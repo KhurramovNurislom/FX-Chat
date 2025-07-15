@@ -36,41 +36,54 @@
     -fx-border-color: #121a21;
 }
 
-#id_spContacts > .thumb {
-    -fx-background-insets: 0;
-    -fx-background-radius: 0;
-}
+/*#id_spContacts > .thumb {*/
+/*    -fx-background-insets: 0;*/
+/*    -fx-background-radius: 0;*/
+/*}*/
 
-#id_spContacts > .track {
-    -fx-effect: none;
-    -fx-background-color: transparent;
-}
+/*#id_spContacts > .track {*/
+/*    -fx-effect: none;*/
+/*    -fx-background-color: transparent;*/
+/*}*/
 
 #id_spContacts > .scroll-bar {
     -fx-background-color: #090d10;
-    -fx-pref-width: 9;
+    -fx-pref-width: 10;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
 }
 
-#id_spContacts > .scroll-bar:vertical > .thumb {
-    -fx-background-color: #253341;
-    -fx-background-radius: 15;
-    -fx-cursor: HAND;
-}
+/*#id_spContacts > .scroll-bar:vertical > .thumb {*/
+/*    -fx-background-color: #253341;*/
+/*    -fx-background-radius: 15;*/
+/*    -fx-cursor: HAND;*/
+/*    -fx-pref-width: 10;*/
+/*    -fx-max-width: 10;*/
+/*    -fx-min-width: 10;*/
+/*}*/
 
-#id_spContacts > .scroll-bar:vertical > .thumb:hover {
-    -fx-background-color: #2f4051;
-}
+/*#id_spContacts > .scroll-bar:vertical > .thumb:hover {*/
+/*    -fx-background-color: #2f4051;*/
+
+/*}*/
 
 
-#id_spContacts > .scroll-bar:vertical > .track {
-    -fx-background-color: #090d10;
-    -fx-background-radius: 10;
-}
+/*#id_spContacts > .scroll-bar:vertical > .track {*/
+/*    -fx-background-color: #090d10;*/
+/*    -fx-background-radius: 10;*/
+/*    -fx-pref-width: 10;*/
+/*    -fx-max-width: 10;*/
+/*    -fx-min-width: 10;*/
+/*}*/
 
-#id_spContacts > .scroll-bar:vertical > .decrement-button,
-#id_spContacts > .scroll-bar:vertical > .increment-button {
-    -fx-background-color: #090d10;
-    -fx-cursor: HAND;
-}
+/*#id_spContacts > .scroll-bar:vertical > .decrement-button,*/
+/*#id_spContacts > .scroll-bar:vertical > .increment-button {*/
+/*    -fx-opacity: 0;*/
+/*    -fx-background-color: #2f4051;*/
+/*    !*-fx-background-color: #090d10;*!*/
+/*    !*-fx-cursor: HAND;*!*/
+/*    !*-fx-pref-width: 10;*!*/
+/*    !*-fx-max-width: 10;*!*/
+/*    !*-fx-min-width: 10;*!*/
+/*    !*-fx-padding: 0;*!*/
+/*}*/

@@ -4,6 +4,9 @@ package uz.lb.caches.imageCaches;
 import uz.lb.caches.imageCaches.contact.ImageCacheContacts;
 import uz.lb.caches.imageCaches.contact.ImageCacheContactsDark;
 import uz.lb.caches.imageCaches.contact.ImageCacheContactsLight;
+import uz.lb.caches.imageCaches.contact.contact_card.ImageCacheContactCard;
+import uz.lb.caches.imageCaches.contact.contact_card.ImageCacheContactCardDark;
+import uz.lb.caches.imageCaches.contact.contact_card.ImageCacheContactCardLight;
 import uz.lb.caches.imageCaches.login.ImageCacheLogin;
 import uz.lb.caches.imageCaches.login.ImageCacheLoginDark;
 import uz.lb.caches.imageCaches.login.ImageCacheLoginLight;
@@ -24,6 +27,7 @@ public class ImageCacheManager {
     private static ImageCacheSetting settingCache;
     private static ImageCacheContacts contactsCache;
     private static ImageCacheLogin loginCache;
+    private static ImageCacheContactCard contactCardCache;
 
     public static void init(boolean isDark) {
         titleCache = isDark ? ImageCacheTitleDark.getInstance() : ImageCacheTitleLight.getInstance();
@@ -31,6 +35,7 @@ public class ImageCacheManager {
         settingCache = isDark ? ImageCacheSettingDark.getInstance() : ImageCacheSettingLight.getInstance();
         contactsCache = isDark ? ImageCacheContactsDark.getInstance() : ImageCacheContactsLight.getInstance();
         loginCache = isDark ? ImageCacheLoginDark.getInstance() : ImageCacheLoginLight.getInstance();
+        contactCardCache = isDark ? ImageCacheContactCardDark.getInstance() : ImageCacheContactCardLight.getInstance();
     }
 
     public static ImageCacheTitle getImageCacheTitle() {
@@ -66,5 +71,12 @@ public class ImageCacheManager {
             throw new IllegalStateException("ImageCacheManager not initialized!");
         }
         return loginCache;
+    }
+
+    public static ImageCacheContactCard getImageCacheContactCard() {
+        if (contactCardCache == null) {
+            throw new IllegalStateException("ImageCacheManager not initialized!");
+        }
+        return contactCardCache;
     }
 }

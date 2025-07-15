@@ -19,18 +19,20 @@
     -fx-background-color: #F0F3FA;
 }
 
-#id_vbContacts {
-    -fx-background-color: #F0F3FA;
-    -fx-border-color: #F0F3FA;
-}
-
 
 /****************/
 
 #id_spContacts {
     -fx-background-color: #F0F3FA;
     -fx-border-color: #F0F3FA;
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-background-color: transparent;
+
 }
+
+
 
 #id_spContacts > .thumb {
     -fx-background-insets: 0;
@@ -43,30 +45,36 @@
 }
 
 #id_spContacts > .scroll-bar {
-    -fx-background-color: #090d10;
+    -fx-background-color: #9db5c8;
     -fx-pref-width: 9;
     -fx-background-radius: 15;
     -fx-border-radius: 15;
 }
 
-#id_spContacts > .scroll-bar:vertical > .thumb {
-    -fx-background-color: #253341;
-    -fx-background-radius: 15;
-    -fx-cursor: HAND;
-}
+/*#id_spContacts > .scroll-bar:vertical > .thumb {*/
+/*    -fx-background-color: #7c9db6;*/
+/*    -fx-background-radius: 15;*/
+/*    -fx-cursor: HAND;*/
+/*    -fx-pref-width: 9;*/
+/*}*/
 
-#id_spContacts > .scroll-bar:vertical > .thumb:hover {
-    -fx-background-color: #2f4051;
-}
+/*#id_spContacts > .scroll-bar:vertical > .thumb:hover {*/
+/*    -fx-background-color: #94acd1;*/
+/*    -fx-pref-width: 9;*/
+/*    -fx-background-radius: 10;*/
+/*}*/
 
 
-#id_spContacts > .scroll-bar:vertical > .track {
-    -fx-background-color: #090d10;
-    -fx-background-radius: 10;
-}
+/*#id_spContacts > .scroll-bar:vertical > .track {*/
+/*    -fx-background-color: #9db5c8;*/
+/*    -fx-background-radius: 10;*/
+/*    -fx-pref-width: 9;*/
+/*}*/
 
-#id_spContacts > .scroll-bar:vertical > .decrement-button,
-#id_spContacts > .scroll-bar:vertical > .increment-button {
-    -fx-background-color: #090d10;
-    -fx-cursor: HAND;
-}
+/*#id_spContacts > .scroll-bar:vertical > .decrement-button,*/
+/*#id_spContacts > .scroll-bar:vertical > .increment-button {*/
+/*    -fx-background-color: #9db5c8;*/
+/*    -fx-cursor: HAND;*/
+/*    -fx-pref-width: 9;*/
+/*    -fx-background-radius: 10;*/
+/*}*/

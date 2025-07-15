@@ -64,8 +64,8 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        imageMap.put(id_ivEye, () -> ImageCacheManager.getImageCacheLogin().getImageEyeHover());
         imageMap.put(id_ivLogo, () -> ImageCacheManager.getImageCacheLogin().getImageLogo());
+        imageMap.put(id_ivEye, () -> ImageCacheManager.getImageCacheLogin().getImageEyeHover());
 
         ThemeBinder.bind(
                 id_apLogin,

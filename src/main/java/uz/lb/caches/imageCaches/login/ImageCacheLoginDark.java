@@ -14,18 +14,18 @@ public class ImageCacheLoginDark implements ImageCacheLogin {
         return INSTANCE;
     }
 
-
+    private static Image imageLogo;
     private static Image imageEye;
     private static Image imageEyeHover;
     private static Image imageUnEye;
     private static Image imageUnEyeHover;
-    private static Image imageLogo;
+
     @Override
     public Image getImageLogo() {
-        if (imageEye == null) {
-            imageEye = new Image(ImageCacheSettingDark.class.getResource("/images/login/dark/logo-dark.png").toExternalForm());
+        if (imageLogo == null) {
+            imageLogo = new Image(ImageCacheSettingDark.class.getResource("/images/login/dark/logo-dark.png").toExternalForm());
         }
-        return imageEye;
+        return imageLogo;
     }
 
     @Override
