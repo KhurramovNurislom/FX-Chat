@@ -75,32 +75,23 @@
 }
 
 
-#id_vbDashboardItems > JFXButton {
-    -fx-background-color: -fx-main-color;
-}
-
-#id_vbDashboardItems > JFXButton:hover {
-    -fx-background-color: #456aa1;
-}
-
 #id_vbDashboardItems > AnchorPane > JFXButton {
     -fx-background-color: -fx-main-color;
-    -fx-text-fill: #ADBED2;
+    -fx-text-fill: #E6E6E6;
     -fx-font-family: "Segoe UI";
     -fx-font-weight: BOLD;
     -fx-font-size: 11;
 }
 
 #id_vbDashboardItems > AnchorPane > JFXButton:hover {
-    -fx-background-color: #456aa1;
-    -fx-text-fill: #E6E6E6;;
+    -fx-background-color: #458EE3;
+    -fx-text-fill: WHITE;;
 
 }
 
 
 #id_spChat {
-    /*-fx-background-color: #F0F3FA;*/
-    -fx-background-color: RED;
+    -fx-background-color: #F0F3FA;
     -fx-cursor: DEFAULT;
     -fx-border-insets: 0;
     -fx-padding: 0;
@@ -109,8 +100,6 @@
     -fx-background-insets: 0;
     -fx-background-radius: 0 0 10 0;
 }
-
-
 
 
 #id_spChat:horizontal > .split-pane-divider {
@@ -126,7 +115,9 @@
 #id_lblPersonalChat, #id_lblMenu, #id_lblAllChats, #id_lblUnreadChats {
     -fx-background-color: #ADBED2;
     -fx-text-fill: #121a21;
-    -fx-background-radius: 13;
+    -fx-background-radius: 14;
+    -fx-border-radius: 13;
+    -fx-border-width: 3;
     -fx-font-size: 10;
     -fx-wrap-text: BOLD;
 }

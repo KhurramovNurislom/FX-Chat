@@ -1,6 +1,8 @@
 package uz.lb.config;
 
 
+import uz.lb.caches.colorCaches.ColorCacheManager;
+import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.utils.theme.OSIdentifier;
 import uz.lb.utils.theme.WindowsThemeDetector;
 
@@ -24,6 +26,7 @@ public class AppConfig {
             saveProperties();
         }
 
+        ManagerInit();
     }
 
     public static void add(String key, String value) {
@@ -80,5 +83,10 @@ public class AppConfig {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private static void ManagerInit(){
+        ImageCacheManager.init(AppConfig.getBoolean("theme.night"));
+        ColorCacheManager.init(AppConfig.getBoolean("theme.night"));
     }
 }

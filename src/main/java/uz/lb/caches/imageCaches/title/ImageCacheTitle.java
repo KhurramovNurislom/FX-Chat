@@ -17,5 +17,6 @@ public interface ImageCacheTitle {
     Image getImageClose();
 
     Image getImageDefaultClose();
+    Image getImageLogo();
 
 }

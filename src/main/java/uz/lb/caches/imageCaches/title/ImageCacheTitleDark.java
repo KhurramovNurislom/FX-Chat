@@ -8,6 +8,7 @@ public class ImageCacheTitleDark implements ImageCacheTitle {
     private static Image imageMinimize;
     private static Image imageClose;
     private static Image imageDefault;
+    private static Image imageLogo;
     private static final ImageCacheTitleDark INSTANCE = new ImageCacheTitleDark();
 
     private ImageCacheTitleDark() {
@@ -15,6 +16,14 @@ public class ImageCacheTitleDark implements ImageCacheTitle {
 
     public static ImageCacheTitleDark getInstance() {
         return INSTANCE;
+    }
+
+    @Override
+    public Image getImageLogo() {
+        if (imageFullScreen == null) {
+            imageFullScreen = new Image(ImageCacheTitleDark.class.getResource("/images/dashboard/title-pane/logo-dark.png").toExternalForm());
+        }
+        return imageFullScreen;
     }
 
     @Override

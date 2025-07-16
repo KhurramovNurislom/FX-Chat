@@ -11,6 +11,7 @@ public class ImageCacheTitleLight implements ImageCacheTitle {
     private static Image imageDefaultMinimize;
     private static Image imageDefaultFullScreen;
     private static Image imageDefaultClose;
+    private static Image imageLogo;
 
     private static final ImageCacheTitleLight INSTANCE = new ImageCacheTitleLight();
 
@@ -21,8 +22,18 @@ public class ImageCacheTitleLight implements ImageCacheTitle {
         return INSTANCE;
     }
 
+
     @Override
-    public  Image getImageFullScreen() {
+    public Image getImageLogo() {
+        if (imageLogo == null) {
+            imageLogo = new Image(ImageCacheTitleLight.class.getResource("/images/dashboard/title-pane/logo-light.png").toExternalForm());
+        }
+        return imageLogo;
+    }
+
+
+    @Override
+    public Image getImageFullScreen() {
         if (imageFullScreen == null) {
             imageFullScreen = new Image(ImageCacheTitleLight.class.getResource("/images/dashboard/title-pane/full-screen-light.png").toExternalForm());
         }
@@ -77,7 +88,6 @@ public class ImageCacheTitleLight implements ImageCacheTitle {
         }
         return imageDefaultMinimize;
     }
-
 
 
 }

@@ -24,8 +24,8 @@ public class ThemeManager {
         }
     }
 
-    public static void switchTheme(boolean light) {
-        AppConfig.set("theme.light", String.valueOf(light));
+    public static void switchTheme(boolean night) {
+        AppConfig.set("theme.night", String.valueOf(night));
         notifyThemeChanged();
     }
 }

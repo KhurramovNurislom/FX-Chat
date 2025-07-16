@@ -6,33 +6,31 @@ import com.jfoenix.controls.JFXDrawersStack;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import uz.lb.FXChat;
-import uz.lb.caches.ColorCache;
-import uz.lb.caches.imageCaches.setting.ImageCacheSettingDark;
+import uz.lb.caches.colorCaches.ColorCacheManager;
 import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.utils.theme.ThemeBinder;
-import uz.lb.utils.theme.ThemeState;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
+import static javafx.scene.paint.Color.BLUE;
+
 public class DashboardController implements Initializable {
 
+    @FXML
+    private ImageView id_ivLogo;
     @FXML
     private JFXDrawersStack id_dsSettings;
     @FXML
@@ -110,13 +108,21 @@ public class DashboardController implements Initializable {
         fade = new FadeTransition(Duration.millis(250));
     }
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        imageMap.put(id_ivMinimize,() -> ImageCacheManager.getImageCacheTitle().getImageDefaultMinimize());
-        imageMap.put(id_ivFullScreen,() -> ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
-        imageMap.put(id_ivClose,() -> ImageCacheManager.getImageCacheTitle().getImageDefaultClose());
+
+        ControllerRegistry.setDashboardController(this);
+
+
+        imageMap.put(id_ivMinimize, () -> ImageCacheManager.getImageCacheTitle().getImageDefaultMinimize());
+        imageMap.put(id_ivFullScreen, () -> ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
+        imageMap.put(id_ivClose, () -> ImageCacheManager.getImageCacheTitle().getImageDefaultClose());
+
+        imageMap.put(id_ivMenu, () -> ImageCacheManager.getImageCacheSetting().getImageMenu());
+        imageMap.put(id_ivPersonalChat, () -> ImageCacheManager.getImageCacheSetting().getImagePerson());
+        imageMap.put(id_ivAllChats, () -> ImageCacheManager.getImageCacheSetting().getImageAllChats());
+        imageMap.put(id_ivUnreadChats, () -> ImageCacheManager.getImageCacheSetting().getImageUnreadChat());
 
         ThemeBinder.bind(
                 id_apDashboard,
@@ -159,7 +165,7 @@ public class DashboardController implements Initializable {
             id_lblUnreadChats.setVisible(true);
             id_lblUnreadChats.setText("15");
             id_ivUnreadChats.setImage(ImageCacheManager.getImageCacheSetting().getImageUnreadChatHasCount());
-
+            settingHover();
         });
 
         id_btnUnreadChats.setOnAction(e -> {
@@ -174,6 +180,7 @@ public class DashboardController implements Initializable {
 
             id_lblUnreadChats.setVisible(false);
             id_ivUnreadChats.setImage(ImageCacheManager.getImageCacheSetting().getImageUnreadChat());
+            settingHover();
         });
 
     }
@@ -205,7 +212,7 @@ public class DashboardController implements Initializable {
         id_ivMinimize.setOnMouseClicked(e -> FXChat.Minimize());
     }
 
-    public void openDrawer() {
+    private void openDrawer() {
         TranslateTransition open = new TranslateTransition(Duration.millis(250), id_drSettings);
         open.setToX(0);
         open.play();
@@ -215,7 +222,7 @@ public class DashboardController implements Initializable {
     }
 
 
-    public void closeDrawer() {
+    private void closeDrawer() {
         TranslateTransition close = new TranslateTransition(Duration.millis(250), id_drSettings);
         close.setToX(-272);
         close.play();
@@ -253,77 +260,84 @@ public class DashboardController implements Initializable {
         if (!isFullScreen) {
             id_ivFullScreen.setOnMouseMoved(m -> {
                 id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageFullScreen());
-                System.out.println("");
-
             });
         } else {
             id_ivFullScreen.setOnMouseMoved(m -> {
                 id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageUnFullScreen());
-
             });
         }
 
     }
 
-    private void settingHover() {
+
+    public void settingHover() {
 
         settingButtonHover(id_btnMenu, id_ivMenu,
                 ImageCacheManager.getImageCacheSetting().getImageMenu(),
                 ImageCacheManager.getImageCacheSetting().getImageMenuHover(),
                 ImageCacheManager.getImageCacheSetting().getImageMenuHasCount(),
                 ImageCacheManager.getImageCacheSetting().getImageMenuHoverHasCount(),
-                id_lblMenu, ColorCache.getColor(), ColorCache.getColorHover());
+                id_lblMenu, ColorCacheManager.getColorCache().getColorCountLabel(), ColorCacheManager.getColorCache().getColorCountLabelHover());
 
         settingButtonHover(id_btnPersonalChat, id_ivPersonalChat,
                 ImageCacheManager.getImageCacheSetting().getImagePerson(),
                 ImageCacheManager.getImageCacheSetting().getImagePersonHover(),
                 ImageCacheManager.getImageCacheSetting().getImagePersonHasCount(),
                 ImageCacheManager.getImageCacheSetting().getImagePersonHoverHasCount(),
-                id_lblPersonalChat, ColorCache.getColor(), ColorCache.getColorHover());
+                id_lblPersonalChat, ColorCacheManager.getColorCache().getColorCountLabel(), ColorCacheManager.getColorCache().getColorCountLabelHover());
 
         settingButtonHover(id_btnAllChats, id_ivAllChats,
                 ImageCacheManager.getImageCacheSetting().getImageAllChats(),
                 ImageCacheManager.getImageCacheSetting().getImageAllChatsHover(),
                 ImageCacheManager.getImageCacheSetting().getImageAllChatsHasCount(),
                 ImageCacheManager.getImageCacheSetting().getImageAllChatsHoverHasCount(),
-                id_lblAllChats, ColorCache.getColor(), ColorCache.getColorHover());
+                id_lblAllChats, ColorCacheManager.getColorCache().getColorCountLabel(), ColorCacheManager.getColorCache().getColorCountLabelHover());
 
         settingButtonHover(id_btnUnreadChats, id_ivUnreadChats,
                 ImageCacheManager.getImageCacheSetting().getImageUnreadChat(),
                 ImageCacheManager.getImageCacheSetting().getImageUnreadChatHover(),
                 ImageCacheManager.getImageCacheSetting().getImageUnreadChatHasCount(),
                 ImageCacheManager.getImageCacheSetting().getImageUnreadChatHoverHasCount(),
-                id_lblUnreadChats, ColorCache.getColor(), ColorCache.getColorHover());
+                id_lblUnreadChats, ColorCacheManager.getColorCache().getColorCountLabel(), ColorCacheManager.getColorCache().getColorCountLabelHover());
 
 
     }
+
 
     private void settingButtonHover(JFXButton btn, ImageView imageView, Image image, Image imageHover, Image imageHasCount,
-                                    Image imageHoverHasCount, Label lbl, String color, String colorHover) {
+                                    Image imageHasCountHover, Label lbl, String color, String colorHover) {
 
-        btn.setOnMouseEntered(e -> {
-            if (lbl.isVisible()) {
-                imageView.setImage(imageHoverHasCount);
-                lbl.setStyle("-fx-background-color: " + colorHover);
-            } else {
-                imageView.setImage(imageHover);
-                lbl.setStyle("-fx-background-color: " + colorHover);
-            }
-        });
+        lbl.setStyle("-fx-background-color: " + color);
 
-        btn.setOnMouseExited(e -> {
-            if (lbl.isVisible()) {
+        if (lbl.isVisible()) {
+            imageView.setImage(imageHasCount);
+
+            btn.setOnMouseExited(l -> {
                 imageView.setImage(imageHasCount);
                 lbl.setStyle("-fx-background-color: " + color);
-            } else {
+            });
+
+            btn.setOnMouseEntered(m -> {
+                imageView.setImage(imageHasCountHover);
+                lbl.setStyle("-fx-background-color: " + colorHover);
+            });
+
+        } else {
+            imageView.setImage(image);
+
+            btn.setOnMouseExited(l -> {
                 imageView.setImage(image);
                 lbl.setStyle("-fx-background-color: " + color);
-            }
-        });
+            });
 
+            btn.setOnMouseEntered(m -> {
+                imageView.setImage(imageHover);
+                lbl.setStyle("-fx-background-color: " + colorHover);
+            });
+        }
     }
 
-    public void titleHover() {
+    private void titleHover() {
         id_ivFullScreen.setOnMouseExited(l -> {
             id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
         });
