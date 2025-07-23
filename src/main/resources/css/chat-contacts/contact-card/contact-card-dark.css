@@ -8,6 +8,12 @@
     -fx-font-size: 14;
 }
 
+#id_hbContactCard:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #2d4252;
+
+}
+
 #id_hbUserInfo {
 
 }
@@ -17,7 +23,7 @@
 }
 
 #id_lblLastMessage {
-    -fx-text-fill: #b3cce6;
+    -fx-text-fill: #8c8c8c;
 }
 
 #id_lblMessageCount {

@@ -12,7 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
-import uz.lb.FXChat;
+import uz.lb.RemusDesktop;
+import uz.lb.caches.ControllerRegistry;
 import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.caches.LenghtCache;
 import uz.lb.config.AppConfig;
@@ -78,7 +79,7 @@ public class LoginController implements Initializable {
 
 
         id_txtRegistration.setOnMouseClicked(e -> {
-            FXChat.Lock("/fxml/Registration.fxml");
+            ControllerRegistry.getDashboardController().Lock("/fxml/Registration.fxml");
 //            Stage currentStage = (Stage) id_apLogin.getScene().getWindow();
 //
 //            WindowUtil.openWindow("/fxml/Registration.fxml", "Registration", currentStage);
@@ -117,7 +118,7 @@ public class LoginController implements Initializable {
             id_btnEnter.setDisable(true);
 
             if (id_tfPassword.getText().equals("qweqwe")) {
-                FXChat.UnLock();
+                ControllerRegistry.getDashboardController().UnLock();
             } else {
                 id_tfPassword.setStyle("-fx-text-fill:  #ff5c33");
                 id_pfPassword.setStyle("-fx-text-fill:  #ff5c33");

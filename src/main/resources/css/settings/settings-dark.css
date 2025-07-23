@@ -2,8 +2,11 @@
     -fx-text-color: #f2f2f2;
     -fx-main-color: #090d10;
     -fx-main-color-hover: #243442;
-    -fx-title-color: #1d2933;
-    -fx-title-color-hover: #212e3b;
+}
+
+#id_vbSettings {
+    -fx-background-color: -fx-main-color;
+    -fx-background-radius: 0 0 0 10;
 }
 
 .label {
@@ -27,15 +30,10 @@
     -fx-font-weight: bold;
 }
 
-#id_vbSettings {
-    -fx-background-color: -fx-main-color;
-    -fx-background-radius: 0 0 0 10;
-}
-
 #id_vbSettings .label {
+    -fx-font-family: "Segoe UI";
     -fx-background-color: -fx-main-color;
     -fx-text-fill: -fx-text-color;
-    -fx-font-family: -fx-main-font-family;
 }
 
 

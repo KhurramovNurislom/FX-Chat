@@ -12,7 +12,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import uz.lb.FXChat;
+import uz.lb.RemusDesktop;
+import uz.lb.caches.ControllerRegistry;
 import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.models.Contact;
 import uz.lb.utils.theme.ThemeBinder;
@@ -53,7 +54,7 @@ public class ChatContactsController implements Initializable {
 
         id_ivSearchClose.setOnMouseClicked(e -> {
             if (isUnlock) {
-                FXChat.Lock("/fxml/Login.fxml");
+                ControllerRegistry.getDashboardController().Lock("/fxml/Login.fxml");
             } else {
 
                 id_tfSearch.clear();

@@ -10,6 +10,9 @@ import uz.lb.caches.imageCaches.contact.contact_card.ImageCacheContactCardLight;
 import uz.lb.caches.imageCaches.login.ImageCacheLogin;
 import uz.lb.caches.imageCaches.login.ImageCacheLoginDark;
 import uz.lb.caches.imageCaches.login.ImageCacheLoginLight;
+import uz.lb.caches.imageCaches.message_content.ImageCacheMessageContent;
+import uz.lb.caches.imageCaches.message_content.ImageCacheMessageContentDark;
+import uz.lb.caches.imageCaches.message_content.ImageCacheMessageContentLight;
 import uz.lb.caches.imageCaches.setting.ImageCacheSetting;
 import uz.lb.caches.imageCaches.setting.ImageCacheSettingDark;
 import uz.lb.caches.imageCaches.setting.ImageCacheSettingLight;
@@ -28,6 +31,7 @@ public class ImageCacheManager {
     private static ImageCacheContacts contactsCache;
     private static ImageCacheLogin loginCache;
     private static ImageCacheContactCard contactCardCache;
+    private static ImageCacheMessageContent messageContentCache;
 
     public static void init(boolean isDark) {
         titleCache = isDark ? ImageCacheTitleDark.getInstance() : ImageCacheTitleLight.getInstance();
@@ -36,6 +40,7 @@ public class ImageCacheManager {
         contactsCache = isDark ? ImageCacheContactsDark.getInstance() : ImageCacheContactsLight.getInstance();
         loginCache = isDark ? ImageCacheLoginDark.getInstance() : ImageCacheLoginLight.getInstance();
         contactCardCache = isDark ? ImageCacheContactCardDark.getInstance() : ImageCacheContactCardLight.getInstance();
+        messageContentCache = isDark ? ImageCacheMessageContentDark.getInstance() : ImageCacheMessageContentLight.getInstance();
     }
 
     public static ImageCacheTitle getImageCacheTitle() {
@@ -78,5 +83,12 @@ public class ImageCacheManager {
             throw new IllegalStateException("ImageCacheManager not initialized!");
         }
         return contactCardCache;
+    }
+
+    public static ImageCacheMessageContent getImageCacheMessageContent() {
+        if (messageContentCache == null) {
+            throw new IllegalStateException("ImageCacheManager not initialized!");
+        }
+        return messageContentCache;
     }
 }

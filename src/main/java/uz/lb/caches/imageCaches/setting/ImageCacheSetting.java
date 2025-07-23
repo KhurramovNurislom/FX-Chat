@@ -3,6 +3,8 @@ package uz.lb.caches.imageCaches.setting;
 import javafx.scene.image.Image;
 
 public interface ImageCacheSetting {
+
+
     Image getImageAllChats();
 
     Image getImageAllChatsHover();

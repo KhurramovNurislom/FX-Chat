@@ -1,10 +1,42 @@
-/*.root {*/
-/*    -fx-main-color: #F1F1F1;*/
-/*    -fx-text-color: #1b2731;*/
-/*    !*-fx-main-color-hover: #1b2731;*!*/
-/*    -fx-main-color-hover: #A1A1A1;*/
-/*    -fx-main-font-family: "Segoe UI Bold";*/
-/*    -fx-main-font-size: 14px;*/
-/*    -fx-main-font-weight: normal;*/
+.root {
+    -fx-main-color: #c0d4f2;
+    -fx-text-color: #1b2731;
+    /*-fx-main-color-hover: #1b2731;*/
+    -fx-main-color-hover: #A1A1A1;
+    -fx-main-font-family: "Segoe UI Bold";
+    -fx-main-font-size: 14px;
+    -fx-main-font-weight: normal;
+}
 
-/*}*/
+#id_hbTypingMessage{
+    -fx-background-color:#d5e2f6;
+}
+
+#id_pnInterlocutorProperties{
+    /*-fx-background-color: #c0d4f2;*/
+    -fx-background-color: #d5e2f6;
+}
+
+#id_taMessageContent {
+    /*-fx-background-color: #c0d4f2;*/
+    -fx-background-color: #d5e2f6;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-prompt-text-fill: WHITE;
+    /*-fx-faint-focus-color: transparent;*/
+    -fx-highlight-fill: RED;
+    /*-fx-highlight-text-fill: -fx-text-inner-color;*/
+    /*-fx-text-box-border: transparent;*/
+}
+
+#id_taMessageContent .content {
+    -fx-background-color: #d5e2f6;
+    -fx-padding: 5;
+}
+
+#id_taMessageContent .scroll-bar:vertical,
+#id_taMessageContent .scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+}

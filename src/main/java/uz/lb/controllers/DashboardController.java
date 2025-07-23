@@ -6,26 +6,25 @@ import com.jfoenix.controls.JFXDrawersStack;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.util.Duration;
-import uz.lb.FXChat;
+import uz.lb.RemusDesktop;
+import uz.lb.caches.ControllerRegistry;
 import uz.lb.caches.colorCaches.ColorCacheManager;
 import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.utils.theme.ThemeBinder;
 
+import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.function.Supplier;
-
-import static javafx.scene.paint.Color.BLUE;
 
 public class DashboardController implements Initializable {
 
@@ -103,6 +102,8 @@ public class DashboardController implements Initializable {
 
     Map<ImageView, Supplier<Image>> imageMap = new HashMap<>();
 
+    private List<JFXButton> settingBtnList = new ArrayList<>();
+
 
     public DashboardController() {
         fade = new FadeTransition(Duration.millis(250));
@@ -111,7 +112,7 @@ public class DashboardController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+        settingBtnList.addAll(List.of(id_btnMenu, id_btnAllChats, id_btnUnreadChats, id_btnPersonalChat));
         ControllerRegistry.setDashboardController(this);
 
 
@@ -132,23 +133,23 @@ public class DashboardController implements Initializable {
         );
 
 
-        FXChat.setTitlePane(id_apTitlePane);
-        FXChat.setLockPane(id_spLock);
+        RemusDesktop.setTitlePane(id_apTitlePane);
 
         fade.setNode(id_apShadow);
 
         titleHover();
-
         settingHover();
-
-
         setupWindowControls();
 
         id_btnMenu.setOnAction(e -> {
+            id_btnMenu.setDisable(true);
             openDrawer();
+            id_btnMenu.setDisable(false);
         });
 
+
         id_btnPersonalChat.setOnAction(e -> {
+            id_btnPersonalChat.setDisable(true);
 
             id_lblPersonalChat.setVisible(true);
             id_lblPersonalChat.setText("1111");
@@ -165,10 +166,21 @@ public class DashboardController implements Initializable {
             id_lblUnreadChats.setVisible(true);
             id_lblUnreadChats.setText("15");
             id_ivUnreadChats.setImage(ImageCacheManager.getImageCacheSetting().getImageUnreadChatHasCount());
+
             settingHover();
+
+            id_btnPersonalChat.setDisable(false);
+        });
+
+        id_btnAllChats.setOnAction(e -> {
+            id_btnAllChats.setDisable(true);
+
+            id_btnAllChats.setDisable(false);
         });
 
         id_btnUnreadChats.setOnAction(e -> {
+            id_btnUnreadChats.setDisable(true);
+
             id_lblMenu.setVisible(false);
             id_ivMenu.setImage(ImageCacheManager.getImageCacheSetting().getImageMenu());
 
@@ -180,14 +192,24 @@ public class DashboardController implements Initializable {
 
             id_lblUnreadChats.setVisible(false);
             id_ivUnreadChats.setImage(ImageCacheManager.getImageCacheSetting().getImageUnreadChat());
+
             settingHover();
+
+            id_btnUnreadChats.setDisable(false);
         });
 
     }
 
+    private void selectButton(JFXButton btn) {
+        for (JFXButton b : settingBtnList) {
+            b.setStyle("-fx-background-color: " + ColorCacheManager.getColorCache().getColorSettingButton());
+        }
+        btn.setStyle("-fx-background-color: " + ColorCacheManager.getColorCache().getColorSelectSettingButton());
+    }
+
     private void setupWindowControls() {
         id_ivFullScreen.setOnMouseClicked(e -> {
-            FXChat.FullScreen();
+            RemusDesktop.FullScreen();
             hoverFullScreen();
 
             if (isFullScreen) {
@@ -209,7 +231,7 @@ public class DashboardController implements Initializable {
 
         id_ivClose.setOnMouseClicked(e -> System.exit(1));
 
-        id_ivMinimize.setOnMouseClicked(e -> FXChat.Minimize());
+        id_ivMinimize.setOnMouseClicked(e -> RemusDesktop.Minimize());
     }
 
     private void openDrawer() {
@@ -230,6 +252,13 @@ public class DashboardController implements Initializable {
         id_dsSettings.setMouseTransparent(true);
     }
 
+    public void closeDrawerForOut() {
+        fade.setFromValue(0.5);
+        fade.setToValue(0.0);
+        fade.play();
+        closeDrawer();
+        fade.setOnFinished(ev -> id_apShadow.setVisible(false));
+    }
 
     private void toggleSettingsPane() {
         id_apShadow.setVisible(true);
@@ -363,6 +392,32 @@ public class DashboardController implements Initializable {
         });
     }
 
+    public void Lock(String fxmlPath) {
+
+
+        try {
+            FXMLLoader loader = new FXMLLoader(RemusDesktop.class.getResource(fxmlPath));
+            Parent loginRoot = loader.load();
+            id_spLock.getChildren().setAll(loginRoot);
+            id_spLock.setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), id_spLock);
+
+        fadeIn.setFromValue(0);
+        fadeIn.setToValue(1);
+        fadeIn.play();
+    }
+
+    public void UnLock() {
+        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), id_spLock);
+        fadeIn.setFromValue(1);
+        fadeIn.setToValue(0);
+        fadeIn.setOnFinished(e -> id_spLock.setVisible(false));
+        fadeIn.play();
+    }
 
 }
 

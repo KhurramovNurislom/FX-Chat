@@ -21,6 +21,10 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Circle>
+            <ImageView fx:id="id_ivCloseSetting" fitHeight="25.0" fitWidth="25.0" layoutX="113.0" layoutY="-30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <image>
+                  <Image url="@../images/dashboard/setting-pane/dark/arrow-close-dark.png" />
+               </image></ImageView>
             </children>
         </AnchorPane>
         <Label fx:id="id_lblUserName" prefHeight="25.0" prefWidth="270.0" styleClass="no-hover" text="Label">
@@ -155,7 +159,7 @@
                 </JFXToggleButton>
                 <ImageView fx:id="id_ivNightMode" fitHeight="27.0" fitWidth="27.0" layoutX="17.0" layoutY="14.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="12.0">
                     <image>
-                        <Image url="@../images/dashboard/setting-pane/night.png" />
+                        <Image url="@../images/dashboard/setting-pane/dark/night.png" />
                     </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

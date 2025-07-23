@@ -1,6 +1,5 @@
 package uz.lb;
 
-import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -13,42 +12,25 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import uz.lb.caches.colorCaches.ColorCacheManager;
-import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.config.AppConfig;
-import uz.lb.controllers.DashboardController;
-import uz.lb.controllers.SettingsController;
 import uz.lb.utils.ResizableWindowHelper;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.security.Security;
 
-public class FXChat extends Application {
+public class RemusDesktop extends Application {
 
     private static Stage stage;
     private static Pane titlePane;
-    private static Pane lockPane;
-
     public static final DoubleProperty x = new SimpleDoubleProperty();
     private static final DoubleProperty y = new SimpleDoubleProperty();
     private static final DoubleProperty x_point = new SimpleDoubleProperty();
     private static final DoubleProperty y_point = new SimpleDoubleProperty();
-
     private static Boolean isFullScreen = false;
 
-    public static void setLockPane(Pane lockPane) {
-        FXChat.lockPane = lockPane;
-    }
-
     public static void setTitlePane(Pane titlePane) {
-        FXChat.titlePane = titlePane;
+        RemusDesktop.titlePane = titlePane;
     }
-
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -73,38 +55,7 @@ public class FXChat extends Application {
         setStage(stage);
 
         stage.show();
-
-
     }
-
-
-    public static void Lock(String fxmlPath) {
-
-
-        try {
-            FXMLLoader loader = new FXMLLoader(FXChat.class.getResource(fxmlPath));
-            Parent loginRoot = loader.load();
-            lockPane.getChildren().setAll(loginRoot);
-            lockPane.setVisible(true);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), lockPane);
-
-        fadeIn.setFromValue(0);
-        fadeIn.setToValue(1);
-        fadeIn.play();
-    }
-
-    public static void UnLock() {
-        FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), lockPane);
-        fadeIn.setFromValue(1);
-        fadeIn.setToValue(0);
-        fadeIn.setOnFinished(e -> lockPane.setVisible(false));
-        fadeIn.play();
-    }
-
 
     public static void Minimize() {
         stage.setIconified(true);
@@ -127,7 +78,7 @@ public class FXChat extends Application {
     }
 
     private void setStage(Stage stage) {
-        FXChat.stage = stage;
+        RemusDesktop.stage = stage;
         titlePane.setOnMousePressed(this::onMousePressed);
         titlePane.setOnMouseDragged(this::onMouseDragged);
         ResizableWindowHelper.makeResizable(stage);
@@ -142,7 +93,6 @@ public class FXChat extends Application {
         stage.setX(e.getScreenX() - x.get());
         stage.setY(e.getScreenY() - y.get());
     }
-
 
     public static void main(String[] args) {
 //        SQLiteUtil.createDatabaseAndTables();

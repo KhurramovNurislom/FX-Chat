@@ -84,14 +84,16 @@
 }
 
 #id_vbDashboardItems > AnchorPane > JFXButton:hover {
-    -fx-background-color: #458EE3;
+    -fx-background-color: #80a7e5;
     -fx-text-fill: WHITE;;
 
 }
 
 
 #id_spChat {
-    -fx-background-color: #F0F3FA;
+    /*-fx-background-color: #F0F3FA;*/
+    -fx-background-color: #80a7e5;
+    /*-fx-background-color: #b3cccc;*/
     -fx-cursor: DEFAULT;
     -fx-border-insets: 0;
     -fx-padding: 0;
@@ -104,7 +106,7 @@
 
 #id_spChat:horizontal > .split-pane-divider {
     -fx-background-color: #F0F3FA;
-    -fx-padding: 2;
+    -fx-padding: 0.5;
 }
 
 #id_apSettings {

@@ -4,7 +4,7 @@
 
 #id_hbContactCard:hover {
     -fx-cursor: hand;
-    -fx-background-color: #80a8e5;
+    -fx-background-color: #c6d8ec;
 
 }
 
@@ -24,7 +24,7 @@
 }
 
 #id_lblLastMessage {
-    -fx-text-fill: #9fbedf;
+    -fx-text-fill: #8c8c8c;
 }
 
 #id_lblMessageCount {

@@ -14,6 +14,9 @@ public class ColorCacheLight implements ColorCache{
     private static String colorCountLabel = "#E6E6E6";
     private static String colorCountLabelHover = "#ffffff";
 
+    private static String colorSettingButton = "#2b6fd4";
+    private static String colorSelectSettingButton = "#2764be";
+
     @Override
     public String getColorCountLabel() {
         return colorCountLabel;
@@ -22,6 +25,16 @@ public class ColorCacheLight implements ColorCache{
     @Override
     public String getColorCountLabelHover() {
         return colorCountLabelHover;
+    }
+
+    @Override
+    public String getColorSettingButton() {
+        return colorSettingButton;
+    }
+
+    @Override
+    public String getColorSelectSettingButton() {
+        return colorSelectSettingButton;
     }
 
 }

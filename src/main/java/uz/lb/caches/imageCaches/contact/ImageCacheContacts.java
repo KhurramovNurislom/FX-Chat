@@ -10,4 +10,7 @@ public interface ImageCacheContacts {
     Image getImageUnLock();
 
     Image getImageUnLockHover();
+
+
+
 }

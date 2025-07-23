@@ -9,6 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
+import uz.lb.caches.ControllerRegistry;
 import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.utils.ImageCompressor;
 import uz.lb.utils.theme.ThemeBinder;
@@ -66,6 +67,11 @@ public class ContactCardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        id_hbContactCard.setOnMouseClicked(e -> {
+            ControllerRegistry.getChatContentsController().openNoThings(123);
+        });
+
         imageMap.put(id_ivCheck, () -> ImageCacheManager.getImageCacheContactCard().getImageUnReadCheckMessage());
         ThemeBinder.bind(
                 id_hbContactCard,
@@ -83,20 +89,12 @@ public class ContactCardController implements Initializable {
 
         });
 
-        File file = ImageCompressor.saveProfileAvatar("E:\\test.jpg", 0.4f);
+        File file = ImageCompressor.saveProfileAvatar("E:\\test.jpg", 0.1f);
         Image image = new Image(file.toURI().toString());
 
 
         id_crAvatar.setFill(new ImagePattern(image));
 
 
-        id_hbContactCard.setOnMouseEntered(e -> {
-
-        });
-
-
-        id_hbContactCard.setOnMouseExited(e -> {
-
-        });
     }
 }
