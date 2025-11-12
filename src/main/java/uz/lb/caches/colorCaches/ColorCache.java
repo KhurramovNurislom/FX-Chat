@@ -5,4 +5,5 @@ public interface ColorCache {
     String getColorCountLabelHover();
     String getColorSettingButton();
     String getColorSelectSettingButton();
+    String getColorPasswordError();
 }

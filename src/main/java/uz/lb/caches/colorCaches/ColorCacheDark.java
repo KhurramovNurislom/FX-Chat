@@ -17,6 +17,8 @@ public class ColorCacheDark implements ColorCache {
     private static String colorSettingButton = "#090d10";
     private static String colorSelectSettingButton = "#253541";
 
+    private static String colorPasswordError = "#ff5c33";
+
     @Override
     public String getColorCountLabel() {
         return colorCountLabel;
@@ -35,6 +37,11 @@ public class ColorCacheDark implements ColorCache {
     @Override
     public String getColorSelectSettingButton() {
         return colorSelectSettingButton;
+    }
+
+    @Override
+    public String getColorPasswordError() {
+        return colorPasswordError;
     }
 
 }

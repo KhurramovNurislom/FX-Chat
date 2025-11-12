@@ -392,24 +392,33 @@ public class DashboardController implements Initializable {
         });
     }
 
-    public void Lock(String fxmlPath) {
-
-
+    public void changeLockWindow(String fxmlPath) {
         try {
             FXMLLoader loader = new FXMLLoader(RemusDesktop.class.getResource(fxmlPath));
-            Parent loginRoot = loader.load();
-            id_spLock.getChildren().setAll(loginRoot);
+            Parent root = loader.load();
+            id_spLock.getChildren().setAll(root);
             id_spLock.setVisible(true);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), id_spLock);
-
         fadeIn.setFromValue(0);
         fadeIn.setToValue(1);
         fadeIn.play();
     }
+
+    public void changeOtherWindow(String fxmlPath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(RemusDesktop.class.getResource(fxmlPath));
+            Parent root = loader.load();
+            id_spLock.getChildren().setAll(root);
+            id_spLock.setVisible(true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void UnLock() {
         FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.2), id_spLock);

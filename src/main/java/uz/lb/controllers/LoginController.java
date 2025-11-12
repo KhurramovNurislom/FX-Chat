@@ -12,11 +12,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
-import uz.lb.RemusDesktop;
 import uz.lb.caches.ControllerRegistry;
+import uz.lb.caches.colorCaches.ColorCacheManager;
 import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.caches.LenghtCache;
 import uz.lb.config.AppConfig;
+import uz.lb.utils.Effects;
 import uz.lb.utils.theme.ThemeBinder;
 
 import java.net.URL;
@@ -59,39 +60,15 @@ public class LoginController implements Initializable {
     private ImageView id_ivEye;
 
     private boolean eyeBool = true;
+    private boolean isEffect = false;
 
     private String passOld = "";
     Map<ImageView, Supplier<Image>> imageMap = new HashMap<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        imageMap.put(id_ivLogo, () -> ImageCacheManager.getImageCacheLogin().getImageLogo());
-        imageMap.put(id_ivEye, () -> ImageCacheManager.getImageCacheLogin().getImageEyeHover());
 
-        ThemeBinder.bind(
-                id_apLogin,
-                "/css/login/login-dark.css",
-                "/css/login/login-light.css",
-                imageMap
-        );
-
-        hoverEye();
-
-
-        id_txtRegistration.setOnMouseClicked(e -> {
-            ControllerRegistry.getDashboardController().Lock("/fxml/Registration.fxml");
-//            Stage currentStage = (Stage) id_apLogin.getScene().getWindow();
-//
-//            WindowUtil.openWindow("/fxml/Registration.fxml", "Registration", currentStage);
-        });
-
-        id_pfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
-            id_tfPassword.setText(newValue);
-        });
-
-        id_tfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
-            id_pfPassword.setText(newValue);
-        });
+        defaultSetting();
 
         id_ivEye.setOnMouseClicked(e -> {
             eyeBool = !eyeBool;
@@ -106,6 +83,53 @@ public class LoginController implements Initializable {
             id_pfPassword.setVisible(eyeBool);
         });
 
+        id_btnEnter.setOnAction(e -> {
+            id_btnEnter.setDisable(true);
+
+            if (id_tfPassword.getText().equals("qweqwe")) {
+                ControllerRegistry.getDashboardController().UnLock();
+            } else {
+                id_tfPassword.setStyle("-fx-text-fill: " + ColorCacheManager.getColorCache().getColorPasswordError());
+                id_pfPassword.setStyle("-fx-text-fill: " + ColorCacheManager.getColorCache().getColorPasswordError());
+                id_lnLine.setStyle("-fx-stroke: " + ColorCacheManager.getColorCache().getColorPasswordError());
+                id_lblEnteredPassword.setStyle("-fx-text-fill: " + ColorCacheManager.getColorCache().getColorPasswordError());
+                id_lblTextDesc.setVisible(true);
+
+                if (!isEffect) {
+                    Effects.blurEffect(id_ivLogo, 0.8, 15);
+                    Effects.blurEffect(id_lblText, 0.8, 15);
+                    isEffect = true;
+                }
+
+            }
+
+            id_btnEnter.setDisable(false);
+        });
+
+        id_txtRegistration.setOnMouseClicked(e -> {
+            ControllerRegistry.getDashboardController().changeOtherWindow("/fxml/Registration.fxml");
+        });
+
+    }
+
+
+    private void defaultSetting() {
+
+        imageMap.put(id_ivLogo, () -> ImageCacheManager.getImageCacheLogin().getImageLogo());
+        imageMap.put(id_ivEye, () -> ImageCacheManager.getImageCacheLogin().getImageEyeHover());
+
+        ThemeBinder.bind(
+                id_apLogin,
+                "/css/login/login-dark.css",
+                "/css/login/login-light.css",
+                imageMap
+        );
+
+        hoverEye();
+
+        Effects.rotateLogo(id_ivLogo);
+
+
         id_tfPassword.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
             hoverField(newValue);
         });
@@ -114,20 +138,12 @@ public class LoginController implements Initializable {
             hoverField(newValue);
         });
 
-        id_btnEnter.setOnAction(e -> {
-            id_btnEnter.setDisable(true);
+        id_pfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            id_tfPassword.setText(newValue);
+        });
 
-            if (id_tfPassword.getText().equals("qweqwe")) {
-                ControllerRegistry.getDashboardController().UnLock();
-            } else {
-                id_tfPassword.setStyle("-fx-text-fill:  #ff5c33");
-                id_pfPassword.setStyle("-fx-text-fill:  #ff5c33");
-                id_lnLine.setStyle("-fx-stroke: #ff5c33");
-                id_lblEnteredPassword.setStyle("-fx-text-fill:  #ff5c33");
-                id_lblTextDesc.setVisible(true);
-            }
-
-            id_btnEnter.setDisable(false);
+        id_tfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+            id_pfPassword.setText(newValue);
         });
 
     }

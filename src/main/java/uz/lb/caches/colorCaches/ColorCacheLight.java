@@ -2,9 +2,10 @@ package uz.lb.caches.colorCaches;
 
 import javafx.scene.paint.Color;
 
-public class ColorCacheLight implements ColorCache{
+public class ColorCacheLight implements ColorCache {
     private ColorCacheLight() {
     }
+
     private static final ColorCacheLight INSTANCE = new ColorCacheLight();
 
     public static ColorCacheLight getInstance() {
@@ -16,6 +17,7 @@ public class ColorCacheLight implements ColorCache{
 
     private static String colorSettingButton = "#2b6fd4";
     private static String colorSelectSettingButton = "#2764be";
+    private static String colorPasswordError = "#ff5c33";
 
     @Override
     public String getColorCountLabel() {
@@ -35,6 +37,11 @@ public class ColorCacheLight implements ColorCache{
     @Override
     public String getColorSelectSettingButton() {
         return colorSelectSettingButton;
+    }
+
+    @Override
+    public String getColorPasswordError() {
+        return colorPasswordError;
     }
 
 }

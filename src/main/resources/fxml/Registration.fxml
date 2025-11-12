@@ -1,23 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="id_apRegistration" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="559.0" stylesheets="@/css/login/login-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.LoginController">
-    <children>
+<?import javafx.scene.control.ComboBox?>
+<StackPane fx:id="id_spRegistration" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+           minWidth="-Infinity" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="uz.lb.controllers.RegistrationController">
 
-        <TextField fx:id="id_tfPassword" layoutX="189.0" layoutY="155.0" prefHeight="40.0" prefWidth="150.0" promptText="Parolni kiriting" visible="false" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="120.0" />
 
+    <VBox fx:id="id_vbRegistration" alignment="CENTER" spacing="15">
 
-        <Line fx:id="id_lnLine" endX="180.0" layoutX="75.0" layoutY="150.0" strokeWidth="2.0" AnchorPane.leftAnchor="74.5" AnchorPane.rightAnchor="74.5" AnchorPane.topAnchor="162.0" />
+        <padding>
+            <Insets bottom="30" left="30" right="30" top="30"/>
+        </padding>
 
-        <JFXButton fx:id="id_btnEnter" buttonType="RAISED" defaultButton="true" layoutX="106.0" layoutY="331.0" prefHeight="37.0" prefWidth="248.0" text="KIRISH" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="106.0" AnchorPane.rightAnchor="205.0" AnchorPane.topAnchor="331.0" />
-        <Label fx:id="id_lblTextDesc" contentDisplay="CENTER" layoutX="76.0" layoutY="90.0" prefHeight="20.0" prefWidth="180.0" text="kiritilgan parol xato" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="165.0" />
-        <Label fx:id="id_lblEnteredPassword" contentDisplay="CENTER" layoutX="76.0" layoutY="98.0" prefHeight="20.0" prefWidth="180.0" text="Telefon raqamni kiriting:" AnchorPane.topAnchor="100.0" />
-      <Text fx:id="id_txtRegistration" layoutX="77.0" layoutY="268.0" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Ro'yhatdan o'tish" textAlignment="CENTER" wrappingWidth="180.0" AnchorPane.topAnchor="280.0" />
-    </children>
-</AnchorPane>
+        <Label fx:id="id_lblPhoneNumber" text="Telefon raqamingiz"/>
+
+        <Label fx:id="id_lblCountryCodeAndPhoneNumber"
+               text="Mamlakat kodingizni tekshiring va telefon raqamingizni kiriting."/>
+
+        <ComboBox fx:id="id_cbCountyCode" prefHeight="30" prefWidth="250">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Uzbekistan (+998)"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="250.0" spacing="10">
+            <Label text="+998">
+                <font>
+                    <Font size="14"/>
+                </font>
+            </Label>
+            <TextField fx:id="id_tfPhoneNumber" prefWidth="180" promptText=" __ ___ __ __"/>
+        </HBox>
+        <HBox alignment="BASELINE_CENTER" prefHeight="0.0" prefWidth="336.0" spacing="20.0">
+            <children>
+
+                <JFXButton fx:id="id_btnExit" prefWidth="149.0" text="CHIQISH"/>
+                <JFXButton fx:id="id_btnConfirmation" prefWidth="149.0" text="TASDIQLASH"/>
+            </children>
+        </HBox>
+
+        <!--        <Label text="Быстрый вход по QR-коду" textFill="GRAY">-->
+        <!--            <font>-->
+        <!--                <Font size="12"/>-->
+        <!--            </font>-->
+        <!--        </Label>-->
+
+    </VBox>
+
+</StackPane>

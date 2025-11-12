@@ -1,9 +1,8 @@
 package uz.lb.controllers;
 
-import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollBar;
 import javafx.scene.control.ScrollPane;
@@ -15,15 +14,17 @@ import javafx.scene.text.Text;
 import uz.lb.caches.ControllerRegistry;
 import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.models.Contact;
+import uz.lb.utils.Effects;
 import uz.lb.utils.theme.ThemeBinder;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.function.Supplier;
 
 public class ChatContentsController implements Initializable {
 
+    @FXML
+    private ImageView id_ivLogoNoThinks;
     @FXML
     private ImageView id_ivInfo;
     @FXML
@@ -88,6 +89,40 @@ public class ChatContentsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        defaultSettings();
+
+
+        List<Contact> contactList = new ArrayList<>();
+
+//        for (int i = 0; i < 50; i++) {
+//            Contact contact = new Contact();
+//            contact.setName(contact.getName() + "132456kbj " + i);
+//            contact.setMessage(contact.getMessage() + " " + i + "132456kbj132456kbj132456kbj132456kbj132456kbj");
+//            contactList.add(contact);
+//        }
+
+
+//        for (Contact contact : contactList) {
+//            try {
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/temp/ContactCard.fxml"));
+//                HBox contactNode = loader.load();
+//
+//                ContactCardController controller = loader.getController();
+//                Image image = new Image(getClass().getResourceAsStream("/images/mv.png"));
+//                controller.setName(contact.getName());
+//                controller.setMessage(contact.getMessage());
+//                controller.setAvatarImage(image);
+//                id_vbMessages.getChildren().add(contactNode);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+
+
+    }
+
+    private void defaultSettings() {
+
         ControllerRegistry.setChatContentsController(this);
 
         imageMap.put(id_ivFileChooser, () -> ImageCacheManager.getImageCacheMessageContent().getImageAddFiles());
@@ -98,37 +133,13 @@ public class ChatContentsController implements Initializable {
         imageMap.put(id_ivInfo, () -> ImageCacheManager.getImageCacheMessageContent().getImageOpenInfo());
         imageMap.put(id_ivSettingChat, () -> ImageCacheManager.getImageCacheMessageContent().getImageSetting());
         imageMap.put(id_ivBackground, () -> ImageCacheManager.getImageCacheMessageContent().getImageBackground());
+        imageMap.put(id_ivLogoNoThinks, () -> ImageCacheManager.getImageCacheMessageContent().getImageBackground());
 
         ThemeBinder.bind(id_apChatContents, "/css/chat-contents/chat-contents-dark.css", "/css/chat-contents/chat-contents-light.css", imageMap);
 
-        typingSettings();
         hover();
-
-        List<Contact> contactList = new ArrayList<>();
-
-        for (int i = 0; i < 50; i++) {
-            Contact contact = new Contact();
-            contact.setName(contact.getName() + "132456kbj " + i);
-            contact.setMessage(contact.getMessage() + " " + i + "132456kbj132456kbj132456kbj132456kbj132456kbj");
-            contactList.add(contact);
-        }
-
-
-        for (Contact contact : contactList) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/temp/ContactCard.fxml"));
-                HBox contactNode = loader.load();
-
-                ContactCardController controller = loader.getController();
-                Image image = new Image(getClass().getResourceAsStream("/images/mv.png"));
-                controller.setName(contact.getName());
-                controller.setMessage(contact.getMessage());
-                controller.setAvatarImage(image);
-                id_vbMessages.getChildren().add(contactNode);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        typingSettings();
+        rotateLogo();
     }
 
 
@@ -136,7 +147,6 @@ public class ChatContentsController implements Initializable {
         id_apNoThinks.setVisible(false);
         System.out.println(chatId + " yozishmalar chiqishi kerak");
     }
-
 
     private void hover() {
 
@@ -210,19 +220,22 @@ public class ChatContentsController implements Initializable {
             helper.setWrappingWidth(id_taMessageContent.getWidth() - 20);
             helper.setText(newText.isEmpty() ? " " : newText);
 
-            double textHeight = helper.getLayoutBounds().getHeight() + 10; // padding
+            double textHeight = helper.getLayoutBounds().getHeight() + 10;
             double maxHeight = 120;
             double adjustedHeight = Math.min(textHeight, maxHeight);
 
             id_taMessageContent.setPrefHeight(adjustedHeight);
 
-            // Force HBox height based on the tallest child (TextArea)
             id_hbTypingMessage.setMinHeight(Region.USE_PREF_SIZE);
             id_hbTypingMessage.setPrefHeight(Region.USE_COMPUTED_SIZE);
             id_hbTypingMessage.layout();
         });
-
     }
 
+    private void rotateLogo() {
+        StackPane.setAlignment(id_ivLogoNoThinks, Pos.TOP_CENTER);
+        StackPane.setAlignment(id_lblNoThinks, Pos.BOTTOM_CENTER);
+        Effects.rotateLogo(id_ivLogoNoThinks);
+    }
 
 }

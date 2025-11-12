@@ -12,7 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
-import uz.lb.RemusDesktop;
 import uz.lb.caches.ControllerRegistry;
 import uz.lb.caches.imageCaches.ImageCacheManager;
 import uz.lb.models.Contact;
@@ -54,7 +53,7 @@ public class ChatContactsController implements Initializable {
 
         id_ivSearchClose.setOnMouseClicked(e -> {
             if (isUnlock) {
-                ControllerRegistry.getDashboardController().Lock("/fxml/Login.fxml");
+                ControllerRegistry.getDashboardController().changeLockWindow("/fxml/Login.fxml");
             } else {
 
                 id_tfSearch.clear();
@@ -69,7 +68,7 @@ public class ChatContactsController implements Initializable {
 
         List<Contact> contactList = new ArrayList<>();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 5; i++) {
             Contact contact = new Contact();
             contact.setName(contact.getName() + "132456kbj " + i);
 
