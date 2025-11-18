@@ -132,7 +132,6 @@ public class DashboardController implements Initializable {
                 imageMap
         );
 
-
         RemusDesktop.setTitlePane(id_apTitlePane);
 
         fade.setNode(id_apShadow);
@@ -209,6 +208,7 @@ public class DashboardController implements Initializable {
 
     private void setupWindowControls() {
         id_ivFullScreen.setOnMouseClicked(e -> {
+
             RemusDesktop.FullScreen();
             hoverFullScreen();
 
@@ -231,7 +231,7 @@ public class DashboardController implements Initializable {
 
         id_ivClose.setOnMouseClicked(e -> System.exit(1));
 
-        id_ivMinimize.setOnMouseClicked(e -> RemusDesktop.Minimize());
+        id_ivMinimize.setOnMouseClicked(e ->  RemusDesktop.Minimize());
     }
 
     private void openDrawer() {

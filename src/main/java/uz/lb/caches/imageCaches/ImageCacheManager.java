@@ -34,6 +34,7 @@ public class ImageCacheManager {
     private static ImageCacheMessageContent messageContentCache;
 
     public static void init(boolean isDark) {
+//        titleCache = ImageCacheTitleLight.getInstance();
         titleCache = isDark ? ImageCacheTitleDark.getInstance() : ImageCacheTitleLight.getInstance();
         settingPaneCache = isDark ? ImageCacheSettingPaneDark.getInstance() : ImageCacheSettingPaneLight.getInstance();
         settingCache = isDark ? ImageCacheSettingDark.getInstance() : ImageCacheSettingLight.getInstance();
