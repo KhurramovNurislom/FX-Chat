@@ -68,6 +68,8 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        ControllerRegistry.setLoginController(this);
+
         defaultSetting();
 
         id_ivEye.setOnMouseClicked(e -> {

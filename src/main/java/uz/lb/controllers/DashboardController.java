@@ -19,7 +19,8 @@ import uz.lb.RemusDesktop;
 import uz.lb.caches.ControllerRegistry;
 import uz.lb.caches.colorCaches.ColorCacheManager;
 import uz.lb.caches.imageCaches.ImageCacheManager;
-import uz.lb.caches.windowParametrCaches.WindowManager;
+import uz.lb.services.WindowManager;
+import uz.lb.enums.WindowState;
 import uz.lb.utils.Effects;
 import uz.lb.utils.theme.ThemeBinder;
 
@@ -30,6 +31,10 @@ import java.util.function.Supplier;
 
 public class DashboardController implements Initializable {
 
+    @FXML
+    private VBox id_vbDashboardItems;
+    @FXML
+    private AnchorPane id_apSettings;
     @FXML
     private AnchorPane id_apDragPane;
 
@@ -123,7 +128,7 @@ public class DashboardController implements Initializable {
 
         settingBtnList.addAll(List.of(id_btnMenu, id_btnAllChats, id_btnUnreadChats, id_btnPersonalChat));
         ControllerRegistry.setDashboardController(this);
-        setupFullScreenBinding();   // <-- yangi metod chaqiramiz
+        setupWindowStateBinding();
         imageMap.put(id_ivMinimize, () -> ImageCacheManager.getImageCacheTitle().getImageDefaultMinimize());
         imageMap.put(id_ivFullScreen, () -> ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
         imageMap.put(id_ivClose, () -> ImageCacheManager.getImageCacheTitle().getImageDefaultClose());
@@ -206,20 +211,43 @@ public class DashboardController implements Initializable {
 
     }
 
-    private void setupFullScreenBinding() {
-        // WindowManager'dagi fullscreen propertyga listener ulaymiz
-        WindowManager.getInstance().fullScreenProperty().addListener((obs, oldVal, isFull) -> {
-            // Holat o'zgarganda layoutni moslashtiramiz
-            applyFullScreenLayout(isFull);
-            // Iconni ham moslab qo'yamiz (agar kerak bo'lsa)
-            updateFullScreenIcon(isFull);
+    private void setupWindowStateBinding() {
+        WindowManager wm = WindowManager.getInstance();
+
+        wm.windowStateProperty().addListener((obs, oldState, newState) -> {
+
+            System.out.println("newState -> " + newState);
+
+            // Fullscreen rejim faqat MAXIMIZED holatda
+            boolean isFull = (newState == WindowState.MAXIMIZED);
+
+            applyFullScreenLayout(isFull);   // anchor + radiuslar
+            updateFullScreenIcon(isFull);    // icon (fullscreen/unfullscreen)
+
+            switch (newState) {
+                case MAXIMIZED -> {
+                    applyFullScreenLayout(true);
+                    updateFullScreenIcon(true);
+                }
+                case NORMAL -> {
+                    applyFullScreenLayout(false);
+                    updateFullScreenIcon(false);
+                }
+                default -> {
+                    applyFullScreenLayout(true);
+                    updateFullScreenIcon(false);
+                }
+            }
         });
 
-        // Dastlabki holat uchun ham qo'llab qo'yamiz
-        boolean initial = WindowManager.isWindowFullScreen();
-        applyFullScreenLayout(initial);
-        updateFullScreenIcon(initial);
+        // Dastlabki holatni ham bir marta qo'llab qo'yamiz
+        WindowState initialState = wm.getWindowState();
+        boolean initialFull = (initialState == WindowState.MAXIMIZED);
+
+        applyFullScreenLayout(initialFull);
+        updateFullScreenIcon(initialFull);
     }
+
     private void applyFullScreenLayout(boolean isFull) {
         if (isFull) {
             AnchorPane.setTopAnchor(id_apRoot, 0.0);
@@ -229,6 +257,9 @@ public class DashboardController implements Initializable {
 
             id_apTitlePane.setStyle("-fx-background-radius: 0");
             id_vbSettings.setStyle("-fx-background-radius: 0");
+            id_vbDashboardItems.setStyle("-fx-background-radius: 0");
+            id_spLock.setStyle("-fx-background-radius: 0");
+            ControllerRegistry.getSettingsController().fullScreen();
         } else {
             AnchorPane.setTopAnchor(id_apRoot, 8.0);
             AnchorPane.setRightAnchor(id_apRoot, 8.0);
@@ -237,6 +268,10 @@ public class DashboardController implements Initializable {
 
             id_apTitlePane.setStyle("-fx-background-radius: 10 10 0 0;");
             id_vbSettings.setStyle("-fx-background-radius: 0 0 0 10;");
+            id_vbDashboardItems.setStyle("-fx-background-radius: 0 0 0 10;");
+            id_spLock.setStyle("-fx-background-radius: 0 0 10 10;");
+
+            ControllerRegistry.getSettingsController().unFullScreen();
         }
     }
 
@@ -254,43 +289,10 @@ public class DashboardController implements Initializable {
         }
     }
 
-
-
-
-    private void selectButton(JFXButton btn) {
-        for (JFXButton b : settingBtnList) {
-            b.setStyle("-fx-background-color: " + ColorCacheManager.getColorCache().getColorSettingButton());
-        }
-        btn.setStyle("-fx-background-color: " + ColorCacheManager.getColorCache().getColorSelectSettingButton());
-    }
-
     private void setupWindowControls() {
-        id_ivFullScreen.setOnMouseClicked(e -> {
-            WindowManager.toggleFullScreenWindow();
-            hoverFullScreen();
-            if (WindowManager.getInstance().isFullScreen()) {
-                id_apDashboard.setTopAnchor(id_apRoot, 0.0);
-                id_apDashboard.setRightAnchor(id_apRoot, 0.0);
-                id_apDashboard.setLeftAnchor(id_apRoot, 0.0);
-                id_apDashboard.setBottomAnchor(id_apRoot, 0.0);
-                id_apTitlePane.setStyle("-fx-background-radius: 0");
-                id_vbSettings.setStyle("-fx-background-radius: 0");
-
-
-            } else {
-                id_apDashboard.setTopAnchor(id_apRoot, 8.0);
-                id_apDashboard.setRightAnchor(id_apRoot, 8.0);
-                id_apDashboard.setLeftAnchor(id_apRoot, 8.0);
-                id_apDashboard.setBottomAnchor(id_apRoot, 8.0);
-                id_apTitlePane.setStyle("-fx-background-radius: 10 10 0 0;");
-                id_vbSettings.setStyle("-fx-background-radius: 0 0 0 10;");
-                id_spChat.setStyle("-fx-background-radius: 10 0 0 0;");
-            }
-        });
-
+        id_ivFullScreen.setOnMouseClicked(e -> WindowManager.getInstance().toggleFullScreen());
         id_ivClose.setOnMouseClicked(e -> System.exit(1));
-
-        id_ivMinimize.setOnMouseClicked(e -> WindowManager.minimizeWindow());
+        id_ivMinimize.setOnMouseClicked(e -> WindowManager.getInstance().minimize());
     }
 
     private void openDrawer() {
@@ -341,31 +343,31 @@ public class DashboardController implements Initializable {
     }
 
 
-    private void hoverFullScreen() {
-
-        // Fullscreen ikonka ustidan sichqoncha chiqqanda
-        id_ivFullScreen.setOnMouseExited(e -> {
-            if (WindowManager.isWindowFullScreen()) {
-                // Hozir fullscreen bo'lsa – "unfullscreen" default ikonka
-                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
-            } else {
-                // Hozir fullscreen emas bo'lsa – "fullscreen" default ikonka
-                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
-            }
-        });
-
-        // Fullscreen ikonka ustiga sichqoncha kirganda
-        id_ivFullScreen.setOnMouseEntered(e -> {
-            if (WindowManager.isWindowFullScreen()) {
-                // Fullscreen rejimida hozir "unfullscreen" hover ko'rinishi bo'lsin
-                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageUnFullScreen());
-            } else {
-                // Oddiy rejimda "fullscreen" hover ko'rinishi bo'lsin
-                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageFullScreen());
-            }
-        });
-
-    }
+//    private void hoverFullScreen() {
+//
+//        // Fullscreen ikonka ustidan sichqoncha chiqqanda
+//        id_ivFullScreen.setOnMouseExited(e -> {
+//            if (WindowManager.isWindowFullScreen()) {
+//                // Hozir fullscreen bo'lsa – "unfullscreen" default ikonka
+//                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
+//            } else {
+//                // Hozir fullscreen emas bo'lsa – "fullscreen" default ikonka
+//                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
+//            }
+//        });
+//
+//        // Fullscreen ikonka ustiga sichqoncha kirganda
+//        id_ivFullScreen.setOnMouseEntered(e -> {
+//            if (WindowManager.isWindowFullScreen()) {
+//                // Fullscreen rejimida hozir "unfullscreen" hover ko'rinishi bo'lsin
+//                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageUnFullScreen());
+//            } else {
+//                // Oddiy rejimda "fullscreen" hover ko'rinishi bo'lsin
+//                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageFullScreen());
+//            }
+//        });
+//
+//    }
 
 
     public void settingHover() {

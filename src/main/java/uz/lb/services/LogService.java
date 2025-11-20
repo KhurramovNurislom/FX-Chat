@@ -1,4 +1,4 @@
-package uz.lb.services.implement;
+package uz.lb.services;
 
 import uz.lb.factories.LogFactory;
 import uz.lb.models.Log;

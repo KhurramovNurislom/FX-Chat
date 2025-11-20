@@ -47,7 +47,7 @@ public class SettingsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-
+        ControllerRegistry.setSettingsController(this);
 
         hover();
 
@@ -95,4 +95,12 @@ public class SettingsController implements Initializable {
         });
     }
 
+
+    public void unFullScreen() {
+        id_vbSettings.setStyle("-fx-background-radius: 0 0 0 10;");
+    }
+
+    public void fullScreen() {
+        id_vbSettings.setStyle("-fx-background-radius: 0");
+    }
 }

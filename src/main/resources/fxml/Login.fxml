@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="id_apLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="360.0" stylesheets="@/css/login/login-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.LoginController">
+<AnchorPane fx:id="id_apLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="360.0" stylesheets="@/css/login/login-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.LoginController">
     <children>
         <TextField fx:id="id_tfPassword" layoutX="189.0" layoutY="155.0" prefHeight="40.0" prefWidth="185.0" promptText="Parolni kiriting" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="350.0" />
         <PasswordField fx:id="id_pfPassword" layoutX="75.0" layoutY="350.0" prefHeight="40.0" prefWidth="185.0" promptText="Parolni kiriting" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="350.0" />
@@ -21,7 +21,7 @@
                 <Image url="@../images/login/dark/eye-dark-hover.png" />
             </image>
         </ImageView>
-        <JFXButton fx:id="id_btnEnter" buttonType="RAISED" defaultButton="true" layoutX="75.0" layoutY="430.0" prefHeight="40.0" prefWidth="210.0" text="KIRISH" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="430.0" />
+        <JFXButton fx:id="id_btnEnter" buttonType="RAISED" defaultButton="true" layoutX="75.0" layoutY="430.0" prefHeight="40.0" prefWidth="210.0" text="KIRISH" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="425.0" />
         <Label fx:id="id_lblText" alignment="CENTER" contentDisplay="CENTER" layoutX="75.0" layoutY="90.0" prefHeight="30.0" prefWidth="270.0" text="REMUS" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="260.0">
             <font>
                 <Font name="Segoe UI Bold" size="20.0" />
@@ -29,7 +29,7 @@
         </Label>
         <Label fx:id="id_lblTextDesc" contentDisplay="CENTER" layoutX="76.0" layoutY="90.0" prefHeight="20.0" prefWidth="180.0" text="kiritilgan parol xato" visible="false" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="400.0" />
         <Label fx:id="id_lblEnteredPassword" contentDisplay="CENTER" layoutX="76.0" layoutY="330.0" prefHeight="20.0" prefWidth="185.0" text="Parolni kiriting" AnchorPane.leftAnchor="75.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="330.0" />
-        <Text fx:id="id_txtRegistration" layoutX="75.0" layoutY="522.94921875" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Ro'yhatdan o'tish" textAlignment="CENTER" wrappingWidth="211.0" AnchorPane.leftAnchor="74.5" AnchorPane.rightAnchor="74.5" AnchorPane.topAnchor="510.0" />
+        <Text fx:id="id_txtRegistration" layoutX="75.0" layoutY="522.94921875" smooth="false" strokeType="OUTSIDE" strokeWidth="0.0" text="Ro'yhatdan o'tish" textAlignment="CENTER" wrappingWidth="211.0" AnchorPane.leftAnchor="74.5" AnchorPane.rightAnchor="74.5" AnchorPane.topAnchor="490.0" />
       <ImageView fx:id="id_ivLogo" fitHeight="250.0" fitWidth="250.0" layoutX="56.0" layoutY="-61.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="10.0">
          <image>
             <Image url="@../images/login/light/logo-light.png" />

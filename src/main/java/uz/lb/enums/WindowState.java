@@ -1,5 +1,8 @@
 package uz.lb.enums;
 
+// WindowManager ichida
 public enum WindowState {
-    NORMAL, MAXIMIZED, SNAPPED_LEFT, SNAPPED_RIGHT, FULLSCREEN
+    NORMAL,
+    MAXIMIZED,
+    SNAP
 }

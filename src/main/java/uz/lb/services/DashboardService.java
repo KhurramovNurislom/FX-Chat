@@ -1,11 +1,6 @@
-package uz.lb.services.implement;
+package uz.lb.services;
 
-import org.junit.platform.commons.logging.LoggerFactory;
-import uz.lb.services.IDashboardService;
-
-import java.util.logging.Logger;
-
-public class DashboardService implements IDashboardService {
+public class DashboardService {
     private final LogService logger = LogService.getInstance();
 
     // Masalan, barcha chatlarni olish

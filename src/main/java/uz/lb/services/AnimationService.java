@@ -1,4 +1,4 @@
-package uz.lb.services.implement;
+package uz.lb.services;
 
 import javafx.animation.*;
 import javafx.beans.property.DoubleProperty;

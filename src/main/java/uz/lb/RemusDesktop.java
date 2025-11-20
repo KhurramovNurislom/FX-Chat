@@ -10,7 +10,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import uz.lb.caches.windowParametrCaches.WindowManager;
+import uz.lb.services.WindowManager;
 import uz.lb.config.AppConfig;
 import uz.lb.controllers.DashboardController;
 import uz.lb.utils.ResizableWindowHelper;
@@ -45,6 +45,8 @@ public class RemusDesktop extends Application {
         if (titlePane != null) {
             WindowManager wm = WindowManager.getInstance();
             wm.init(stage, titlePane);
+        } else {
+            System.out.println("error, title pane not found !..");
         }
 
         stage.show();
