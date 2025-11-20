@@ -19,6 +19,8 @@ import uz.lb.RemusDesktop;
 import uz.lb.caches.ControllerRegistry;
 import uz.lb.caches.colorCaches.ColorCacheManager;
 import uz.lb.caches.imageCaches.ImageCacheManager;
+import uz.lb.caches.windowParametrCaches.WindowManager;
+import uz.lb.utils.Effects;
 import uz.lb.utils.theme.ThemeBinder;
 
 import java.io.IOException;
@@ -27,6 +29,9 @@ import java.util.*;
 import java.util.function.Supplier;
 
 public class DashboardController implements Initializable {
+
+    @FXML
+    private AnchorPane id_apDragPane;
 
     @FXML
     private ImageView id_ivLogo;
@@ -97,7 +102,6 @@ public class DashboardController implements Initializable {
     @FXML
     private ImageView id_ivMinimize;
 
-    private boolean isFullScreen = false;
     private final FadeTransition fade;
 
     Map<ImageView, Supplier<Image>> imageMap = new HashMap<>();
@@ -109,13 +113,17 @@ public class DashboardController implements Initializable {
         fade = new FadeTransition(Duration.millis(250));
     }
 
+    public AnchorPane getTitlePane() {
+        return id_apDragPane;
+    }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         settingBtnList.addAll(List.of(id_btnMenu, id_btnAllChats, id_btnUnreadChats, id_btnPersonalChat));
         ControllerRegistry.setDashboardController(this);
-
-
+        setupFullScreenBinding();   // <-- yangi metod chaqiramiz
         imageMap.put(id_ivMinimize, () -> ImageCacheManager.getImageCacheTitle().getImageDefaultMinimize());
         imageMap.put(id_ivFullScreen, () -> ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
         imageMap.put(id_ivClose, () -> ImageCacheManager.getImageCacheTitle().getImageDefaultClose());
@@ -132,7 +140,6 @@ public class DashboardController implements Initializable {
                 imageMap
         );
 
-        RemusDesktop.setTitlePane(id_apTitlePane);
 
         fade.setNode(id_apShadow);
 
@@ -199,6 +206,57 @@ public class DashboardController implements Initializable {
 
     }
 
+    private void setupFullScreenBinding() {
+        // WindowManager'dagi fullscreen propertyga listener ulaymiz
+        WindowManager.getInstance().fullScreenProperty().addListener((obs, oldVal, isFull) -> {
+            // Holat o'zgarganda layoutni moslashtiramiz
+            applyFullScreenLayout(isFull);
+            // Iconni ham moslab qo'yamiz (agar kerak bo'lsa)
+            updateFullScreenIcon(isFull);
+        });
+
+        // Dastlabki holat uchun ham qo'llab qo'yamiz
+        boolean initial = WindowManager.isWindowFullScreen();
+        applyFullScreenLayout(initial);
+        updateFullScreenIcon(initial);
+    }
+    private void applyFullScreenLayout(boolean isFull) {
+        if (isFull) {
+            AnchorPane.setTopAnchor(id_apRoot, 0.0);
+            AnchorPane.setRightAnchor(id_apRoot, 0.0);
+            AnchorPane.setLeftAnchor(id_apRoot, 0.0);
+            AnchorPane.setBottomAnchor(id_apRoot, 0.0);
+
+            id_apTitlePane.setStyle("-fx-background-radius: 0");
+            id_vbSettings.setStyle("-fx-background-radius: 0");
+        } else {
+            AnchorPane.setTopAnchor(id_apRoot, 8.0);
+            AnchorPane.setRightAnchor(id_apRoot, 8.0);
+            AnchorPane.setLeftAnchor(id_apRoot, 8.0);
+            AnchorPane.setBottomAnchor(id_apRoot, 8.0);
+
+            id_apTitlePane.setStyle("-fx-background-radius: 10 10 0 0;");
+            id_vbSettings.setStyle("-fx-background-radius: 0 0 0 10;");
+        }
+    }
+
+    private void updateFullScreenIcon(boolean isFull) {
+        if (isFull) {
+            // Fullscreen rejimida – "unfullscreen" default icon
+            id_ivFullScreen.setImage(
+                    ImageCacheManager.getImageCacheTitle().getImageUnFullScreen()
+            );
+        } else {
+            // Oddiy rejimda – "fullscreen" default icon
+            id_ivFullScreen.setImage(
+                    ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen()
+            );
+        }
+    }
+
+
+
+
     private void selectButton(JFXButton btn) {
         for (JFXButton b : settingBtnList) {
             b.setStyle("-fx-background-color: " + ColorCacheManager.getColorCache().getColorSettingButton());
@@ -208,17 +266,17 @@ public class DashboardController implements Initializable {
 
     private void setupWindowControls() {
         id_ivFullScreen.setOnMouseClicked(e -> {
-
-            RemusDesktop.FullScreen();
+            WindowManager.toggleFullScreenWindow();
             hoverFullScreen();
-
-            if (isFullScreen) {
+            if (WindowManager.getInstance().isFullScreen()) {
                 id_apDashboard.setTopAnchor(id_apRoot, 0.0);
                 id_apDashboard.setRightAnchor(id_apRoot, 0.0);
                 id_apDashboard.setLeftAnchor(id_apRoot, 0.0);
                 id_apDashboard.setBottomAnchor(id_apRoot, 0.0);
                 id_apTitlePane.setStyle("-fx-background-radius: 0");
                 id_vbSettings.setStyle("-fx-background-radius: 0");
+
+
             } else {
                 id_apDashboard.setTopAnchor(id_apRoot, 8.0);
                 id_apDashboard.setRightAnchor(id_apRoot, 8.0);
@@ -226,12 +284,13 @@ public class DashboardController implements Initializable {
                 id_apDashboard.setBottomAnchor(id_apRoot, 8.0);
                 id_apTitlePane.setStyle("-fx-background-radius: 10 10 0 0;");
                 id_vbSettings.setStyle("-fx-background-radius: 0 0 0 10;");
+                id_spChat.setStyle("-fx-background-radius: 10 0 0 0;");
             }
         });
 
         id_ivClose.setOnMouseClicked(e -> System.exit(1));
 
-        id_ivMinimize.setOnMouseClicked(e ->  RemusDesktop.Minimize());
+        id_ivMinimize.setOnMouseClicked(e -> WindowManager.minimizeWindow());
     }
 
     private void openDrawer() {
@@ -284,86 +343,59 @@ public class DashboardController implements Initializable {
 
     private void hoverFullScreen() {
 
-        isFullScreen = !isFullScreen;
+        // Fullscreen ikonka ustidan sichqoncha chiqqanda
+        id_ivFullScreen.setOnMouseExited(e -> {
+            if (WindowManager.isWindowFullScreen()) {
+                // Hozir fullscreen bo'lsa – "unfullscreen" default ikonka
+                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
+            } else {
+                // Hozir fullscreen emas bo'lsa – "fullscreen" default ikonka
+                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageDefaultFullScreen());
+            }
+        });
 
-        if (!isFullScreen) {
-            id_ivFullScreen.setOnMouseMoved(m -> {
-                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageFullScreen());
-            });
-        } else {
-            id_ivFullScreen.setOnMouseMoved(m -> {
+        // Fullscreen ikonka ustiga sichqoncha kirganda
+        id_ivFullScreen.setOnMouseEntered(e -> {
+            if (WindowManager.isWindowFullScreen()) {
+                // Fullscreen rejimida hozir "unfullscreen" hover ko'rinishi bo'lsin
                 id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageUnFullScreen());
-            });
-        }
+            } else {
+                // Oddiy rejimda "fullscreen" hover ko'rinishi bo'lsin
+                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageFullScreen());
+            }
+        });
 
     }
 
 
     public void settingHover() {
-
-        settingButtonHover(id_btnMenu, id_ivMenu,
+        Effects.settingButtonHover(id_btnMenu, id_ivMenu,
                 ImageCacheManager.getImageCacheSetting().getImageMenu(),
                 ImageCacheManager.getImageCacheSetting().getImageMenuHover(),
                 ImageCacheManager.getImageCacheSetting().getImageMenuHasCount(),
                 ImageCacheManager.getImageCacheSetting().getImageMenuHoverHasCount(),
                 id_lblMenu, ColorCacheManager.getColorCache().getColorCountLabel(), ColorCacheManager.getColorCache().getColorCountLabelHover());
 
-        settingButtonHover(id_btnPersonalChat, id_ivPersonalChat,
+        Effects.settingButtonHover(id_btnPersonalChat, id_ivPersonalChat,
                 ImageCacheManager.getImageCacheSetting().getImagePerson(),
                 ImageCacheManager.getImageCacheSetting().getImagePersonHover(),
                 ImageCacheManager.getImageCacheSetting().getImagePersonHasCount(),
                 ImageCacheManager.getImageCacheSetting().getImagePersonHoverHasCount(),
                 id_lblPersonalChat, ColorCacheManager.getColorCache().getColorCountLabel(), ColorCacheManager.getColorCache().getColorCountLabelHover());
 
-        settingButtonHover(id_btnAllChats, id_ivAllChats,
+        Effects.settingButtonHover(id_btnAllChats, id_ivAllChats,
                 ImageCacheManager.getImageCacheSetting().getImageAllChats(),
                 ImageCacheManager.getImageCacheSetting().getImageAllChatsHover(),
                 ImageCacheManager.getImageCacheSetting().getImageAllChatsHasCount(),
                 ImageCacheManager.getImageCacheSetting().getImageAllChatsHoverHasCount(),
                 id_lblAllChats, ColorCacheManager.getColorCache().getColorCountLabel(), ColorCacheManager.getColorCache().getColorCountLabelHover());
 
-        settingButtonHover(id_btnUnreadChats, id_ivUnreadChats,
+        Effects.settingButtonHover(id_btnUnreadChats, id_ivUnreadChats,
                 ImageCacheManager.getImageCacheSetting().getImageUnreadChat(),
                 ImageCacheManager.getImageCacheSetting().getImageUnreadChatHover(),
                 ImageCacheManager.getImageCacheSetting().getImageUnreadChatHasCount(),
                 ImageCacheManager.getImageCacheSetting().getImageUnreadChatHoverHasCount(),
                 id_lblUnreadChats, ColorCacheManager.getColorCache().getColorCountLabel(), ColorCacheManager.getColorCache().getColorCountLabelHover());
-
-
-    }
-
-
-    private void settingButtonHover(JFXButton btn, ImageView imageView, Image image, Image imageHover, Image imageHasCount,
-                                    Image imageHasCountHover, Label lbl, String color, String colorHover) {
-
-        lbl.setStyle("-fx-background-color: " + color);
-
-        if (lbl.isVisible()) {
-            imageView.setImage(imageHasCount);
-
-            btn.setOnMouseExited(l -> {
-                imageView.setImage(imageHasCount);
-                lbl.setStyle("-fx-background-color: " + color);
-            });
-
-            btn.setOnMouseEntered(m -> {
-                imageView.setImage(imageHasCountHover);
-                lbl.setStyle("-fx-background-color: " + colorHover);
-            });
-
-        } else {
-            imageView.setImage(image);
-
-            btn.setOnMouseExited(l -> {
-                imageView.setImage(image);
-                lbl.setStyle("-fx-background-color: " + color);
-            });
-
-            btn.setOnMouseEntered(m -> {
-                imageView.setImage(imageHover);
-                lbl.setStyle("-fx-background-color: " + colorHover);
-            });
-        }
     }
 
     private void titleHover() {
@@ -415,6 +447,7 @@ public class DashboardController implements Initializable {
             id_spLock.getChildren().setAll(root);
             id_spLock.setVisible(true);
         } catch (IOException e) {
+            System.out.println("changeOtherWindow -> " + fxmlPath);
             e.printStackTrace();
         }
     }

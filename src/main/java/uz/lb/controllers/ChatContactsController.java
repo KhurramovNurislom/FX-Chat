@@ -38,12 +38,11 @@ public class ChatContactsController implements Initializable {
     @FXML
     private VBox id_vbContacts;
 
-    private boolean isUnlock = true;
+    private boolean locked = true;
     Map<ImageView, Supplier<Image>> imageMap = new HashMap<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
 
         imageMap.put(id_ivSearchClose, () -> ImageCacheManager.getImageCacheContacts().getImageUnLock());
 
@@ -52,16 +51,15 @@ public class ChatContactsController implements Initializable {
         searchFieldHover();
 
         id_ivSearchClose.setOnMouseClicked(e -> {
-            if (isUnlock) {
-                ControllerRegistry.getDashboardController().changeLockWindow("/fxml/Login.fxml");
-            } else {
-
+            if (locked) {
                 id_tfSearch.clear();
                 if (id_ivSearchClose.isHover()) {
                     id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageUnLockHover());
                 } else {
                     id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageUnLock());
                 }
+            } else {
+                ControllerRegistry.getDashboardController().changeLockWindow("/fxml/Login.fxml");
             }
         });
 
@@ -111,6 +109,7 @@ public class ChatContactsController implements Initializable {
             }
         });
 
+
     }
 
 
@@ -132,7 +131,7 @@ public class ChatContactsController implements Initializable {
 
     private void updateCloseIcon() {
         if (!id_tfSearch.getText().isEmpty()) {
-            isUnlock = false;
+            locked = true;
             id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageClose());
 
             id_ivSearchClose.hoverProperty().addListener(l -> {
@@ -144,7 +143,7 @@ public class ChatContactsController implements Initializable {
                 id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageCloseHover());
             });
         } else {
-            isUnlock = true;
+            locked = false;
             id_ivSearchClose.hoverProperty().addListener(l -> {
                 id_ivSearchClose.setImage(ImageCacheManager.getImageCacheContacts().getImageUnLock());
             });

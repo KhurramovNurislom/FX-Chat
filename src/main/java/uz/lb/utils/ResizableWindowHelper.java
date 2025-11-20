@@ -110,5 +110,4 @@ public class ResizableWindowHelper {
         scene.setCursor(cursor);
     }
 
-
 }
