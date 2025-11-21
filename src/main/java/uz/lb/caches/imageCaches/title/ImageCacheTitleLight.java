@@ -1,7 +1,6 @@
 package uz.lb.caches.imageCaches.title;
 
 import javafx.scene.image.Image;
-import uz.lb.caches.imageCaches.setting.ImageCacheSettingDark;
 
 public class ImageCacheTitleLight implements ImageCacheTitle {
     private static Image imageFullScreen;

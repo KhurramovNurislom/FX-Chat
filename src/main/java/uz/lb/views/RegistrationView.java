@@ -1,31 +1,24 @@
-package uz.lb.controllers;
+package uz.lb.views;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
-import javafx.util.Callback;
-import org.junit.platform.commons.logging.LoggerFactory;
 import uz.lb.caches.ControllerRegistry;
-import uz.lb.utils.theme.ThemeBinder;
 
-import javax.swing.*;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
 
-public class RegistrationController implements Initializable {
+public class RegistrationView implements Initializable {
 
 //    private static final Logger logger = (Logger) LoggerFactory.getLogger(RegistrationController.class);
 

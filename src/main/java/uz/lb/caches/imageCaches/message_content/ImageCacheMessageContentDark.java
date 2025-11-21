@@ -1,7 +1,6 @@
 package uz.lb.caches.imageCaches.message_content;
 
 import javafx.scene.image.Image;
-import uz.lb.caches.imageCaches.contact.ImageCacheContactsDark;
 import uz.lb.caches.imageCaches.setting.ImageCacheSettingDark;
 
 public class ImageCacheMessageContentDark implements ImageCacheMessageContent {

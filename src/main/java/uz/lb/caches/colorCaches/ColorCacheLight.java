@@ -1,7 +1,5 @@
 package uz.lb.caches.colorCaches;
 
-import javafx.scene.paint.Color;
-
 public class ColorCacheLight implements ColorCache {
     private ColorCacheLight() {
     }

@@ -17,7 +17,7 @@
 <AnchorPane fx:id="id_apChatContents" prefHeight="775.0" prefWidth="705.0"
             stylesheets="@/css/chat-contents/chat-contents-dark.css" AnchorPane.topAnchor="25.0"
             BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="uz.lb.controllers.ChatContentsController">
+            fx:controller="uz.lb.views.ChatContentsView">
 
     <children>
         <BorderPane fx:id="id_bpChatContents" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0"

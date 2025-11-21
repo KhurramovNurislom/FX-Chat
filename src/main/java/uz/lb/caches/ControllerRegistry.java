@@ -1,47 +1,47 @@
 package uz.lb.caches;
 
-import uz.lb.controllers.ChatContentsController;
-import uz.lb.controllers.DashboardController;
-import uz.lb.controllers.LoginController;
-import uz.lb.controllers.SettingsController;
+import uz.lb.views.ChatContentsView;
+import uz.lb.views.DashboardView;
+import uz.lb.views.LoginView;
+import uz.lb.views.SettingsView;
 
 public class ControllerRegistry {
-    private static DashboardController dashboardController;
-    private static LoginController loginController;
+    private static DashboardView dashboardView;
+    private static LoginView loginView;
 
-    private static ChatContentsController chatContentsController;
-    private static SettingsController settingsController;
+    private static ChatContentsView chatContentsView;
+    private static SettingsView settingsView;
 
-    public static SettingsController getSettingsController() {
-        return settingsController;
+    public static SettingsView getSettingsController() {
+        return settingsView;
     }
 
-    public static void setSettingsController(SettingsController settingsController) {
-        ControllerRegistry.settingsController = settingsController;
+    public static void setSettingsController(SettingsView settingsView) {
+        ControllerRegistry.settingsView = settingsView;
     }
 
-    public static void setDashboardController(DashboardController controller) {
-        dashboardController = controller;
+    public static void setDashboardController(DashboardView controller) {
+        dashboardView = controller;
     }
 
-    public static DashboardController getDashboardController() {
-        return dashboardController;
+    public static DashboardView getDashboardController() {
+        return dashboardView;
     }
 
 
-    public static void setChatContentsController(ChatContentsController controller) {
-        chatContentsController = controller;
+    public static void setChatContentsController(ChatContentsView controller) {
+        chatContentsView = controller;
     }
 
-    public static ChatContentsController getChatContentsController() {
-        return chatContentsController;
+    public static ChatContentsView getChatContentsController() {
+        return chatContentsView;
     }
 
-    public static LoginController getLoginController() {
-        return loginController;
+    public static LoginView getLoginController() {
+        return loginView;
     }
 
-    public static void setLoginController(LoginController loginController) {
-        ControllerRegistry.loginController = loginController;
+    public static void setLoginController(LoginView loginView) {
+        ControllerRegistry.loginView = loginView;
     }
 }

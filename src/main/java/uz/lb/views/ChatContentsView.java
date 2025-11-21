@@ -1,4 +1,4 @@
-package uz.lb.controllers;
+package uz.lb.views;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +21,7 @@ import java.net.URL;
 import java.util.*;
 import java.util.function.Supplier;
 
-public class ChatContentsController implements Initializable {
+public class ChatContentsView implements Initializable {
 
     @FXML
     private ImageView id_ivLogoNoThinks;

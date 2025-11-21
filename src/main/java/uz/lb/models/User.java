@@ -7,6 +7,47 @@ import java.sql.Date;
 import java.util.List;
 
 public class User {
+    private Long id;
+    private String phoneNumber;
+    private String firstname;
+    private String lastname;
+    private String surname;
+    private String password;
+    private String passwordApp;
+    private String bio;
+    private List<Long> imageIds;
+    private java.sql.Date birthday;
+    private UserRoleEnums role = UserRoleEnums.ROLE_USER;
+    private GeneralStatus status = GeneralStatus.ACTIVE;
+    private Boolean visible = Boolean.TRUE;
+
+    private Date createdAt;
+    private Date updatedAt;
+
+    public User(Long id, String phoneNumber, String firstname, String lastname, String surname, String password,
+                String passwordApp, String bio, List<Long> imageIds, Date birthday, UserRoleEnums role,
+                GeneralStatus status, Boolean visible, Date createdAt, Date updatedAt) {
+
+        this.id = id;
+        this.phoneNumber = phoneNumber;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.surname = surname;
+        this.password = password;
+        this.passwordApp = passwordApp;
+        this.bio = bio;
+        this.imageIds = imageIds;
+        this.birthday = birthday;
+        this.role = role;
+        this.status = status;
+        this.visible = visible;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    public User() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -127,21 +168,25 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
-    private Long id;
-    private String phoneNumber;
-    private String firstname;
-    private String lastname;
-    private String surname;
-    private String password;
-    private String passwordApp;
-    private String bio;
-    private List<Long> imageIds;
-    private java.sql.Date birthday;
-    private UserRoleEnums role = UserRoleEnums.ROLE_USER;
-    private GeneralStatus status = GeneralStatus.ACTIVE;
-    private Boolean visible = Boolean.TRUE;
-
-    private Date createdAt;
-    private Date updatedAt;
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", surname='" + surname + '\'' +
+                ", password='" + password + '\'' +
+                ", passwordApp='" + passwordApp + '\'' +
+                ", bio='" + bio + '\'' +
+                ", imageIds=" + imageIds +
+                ", birthday=" + birthday +
+                ", role=" + role +
+                ", status=" + status +
+                ", visible=" + visible +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }
 

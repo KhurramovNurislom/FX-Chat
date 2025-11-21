@@ -1,4 +1,4 @@
-package uz.lb.controllers;
+package uz.lb.views;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
-public class ContactCardController implements Initializable {
+public class ContactCardView implements Initializable {
 
     @FXML
     private HBox id_hbContactCard;

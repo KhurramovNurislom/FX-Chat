@@ -1,4 +1,4 @@
-package uz.lb.controllers;
+package uz.lb.views;
 
 import com.jfoenix.controls.JFXToggleButton;
 import javafx.fxml.FXML;
@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
-public class SettingsController implements Initializable {
+public class SettingsView implements Initializable {
 
 
     @FXML
@@ -69,17 +69,17 @@ public class SettingsController implements Initializable {
             AppConfig.set("theme.night", String.valueOf(id_tglBtnNightMode.isSelected()));
             ThemeState.setDarkMode(id_tglBtnNightMode.isSelected());
 
-            DashboardController dashboardController = ControllerRegistry.getDashboardController();
-            if (dashboardController != null) {
-                dashboardController.settingHover();
+            DashboardView dashboardView = ControllerRegistry.getDashboardController();
+            if (dashboardView != null) {
+                dashboardView.settingHover();
             }
 
         });
 
         id_ivCloseSetting.setOnMouseClicked(e -> {
-            DashboardController dashboardController = ControllerRegistry.getDashboardController();
-            if (dashboardController != null) {
-                dashboardController.closeDrawerForOut();
+            DashboardView dashboardView = ControllerRegistry.getDashboardController();
+            if (dashboardView != null) {
+                dashboardView.closeDrawerForOut();
             }
         });
     }

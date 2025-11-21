@@ -1,4 +1,4 @@
-package uz.lb.repositories;
+package uz.lb.dao;
 
 import uz.lb.models.Log;
 
@@ -6,10 +6,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LogRepository {
+public class LogDAO {
     private static final String DB_URL = "jdbc:sqlite:logs.db";
 
-    public LogRepository() {
+    public LogDAO() {
         createTableIfNotExists();
     }
 

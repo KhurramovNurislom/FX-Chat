@@ -1,4 +1,4 @@
-package uz.lb.controllers;
+package uz.lb.views;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDrawer;
@@ -29,7 +29,7 @@ import java.net.URL;
 import java.util.*;
 import java.util.function.Supplier;
 
-public class DashboardController implements Initializable {
+public class DashboardView implements Initializable {
 
     @FXML
     private VBox id_vbDashboardItems;
@@ -114,13 +114,14 @@ public class DashboardController implements Initializable {
     private List<JFXButton> settingBtnList = new ArrayList<>();
 
 
-    public DashboardController() {
+    public DashboardView() {
         fade = new FadeTransition(Duration.millis(250));
     }
 
     public AnchorPane getTitlePane() {
         return id_apDragPane;
     }
+
 
 
     @Override
@@ -209,6 +210,7 @@ public class DashboardController implements Initializable {
             id_btnUnreadChats.setDisable(false);
         });
 
+        changeLockWindow("/fxml/Login.fxml");
     }
 
     private void setupWindowStateBinding() {
@@ -216,7 +218,7 @@ public class DashboardController implements Initializable {
 
         wm.windowStateProperty().addListener((obs, oldState, newState) -> {
 
-            System.out.println("newState -> " + newState);
+//            System.out.println("newState -> " + newState);
 
             // Fullscreen rejim faqat MAXIMIZED holatda
             boolean isFull = (newState == WindowState.MAXIMIZED);
@@ -238,6 +240,7 @@ public class DashboardController implements Initializable {
                     updateFullScreenIcon(false);
                 }
             }
+
         });
 
         // Dastlabki holatni ham bir marta qo'llab qo'yamiz
@@ -249,6 +252,7 @@ public class DashboardController implements Initializable {
     }
 
     private void applyFullScreenLayout(boolean isFull) {
+
         if (isFull) {
             AnchorPane.setTopAnchor(id_apRoot, 0.0);
             AnchorPane.setRightAnchor(id_apRoot, 0.0);
@@ -273,6 +277,7 @@ public class DashboardController implements Initializable {
 
             ControllerRegistry.getSettingsController().unFullScreen();
         }
+
     }
 
     private void updateFullScreenIcon(boolean isFull) {
@@ -366,7 +371,6 @@ public class DashboardController implements Initializable {
 //                id_ivFullScreen.setImage(ImageCacheManager.getImageCacheTitle().getImageFullScreen());
 //            }
 //        });
-//
 //    }
 
 
@@ -441,6 +445,7 @@ public class DashboardController implements Initializable {
         fadeIn.setToValue(1);
         fadeIn.play();
     }
+
 
     public void changeOtherWindow(String fxmlPath) {
         try {

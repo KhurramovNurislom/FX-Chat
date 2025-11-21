@@ -2,14 +2,14 @@ package uz.lb.services;
 
 import uz.lb.factories.LogFactory;
 import uz.lb.models.Log;
-import uz.lb.repositories.LogRepository;
+import uz.lb.dao.LogDAO;
 
 public class LogService {
     private static LogService instance;
-    private final LogRepository logRepository;
+    private final LogDAO logDAO;
     private final LogFactory factory;
     private LogService() {
-        this.logRepository = new LogRepository();
+        this.logDAO = new LogDAO();
         this.factory = LogFactory.getInstance();
     }
     public static synchronized LogService getInstance() {
@@ -39,9 +39,9 @@ public class LogService {
         save(log);
     }
     public void getAll(){
-        logRepository.getAllLogs();
+        logDAO.getAllLogs();
     }
     private void save(Log log){
-        logRepository.save(log);
+        logDAO.save(log);
     }
 }

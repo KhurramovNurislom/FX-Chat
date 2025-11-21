@@ -10,9 +10,10 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import uz.lb.db.SQLiteConnection;
 import uz.lb.services.WindowManager;
 import uz.lb.config.AppConfig;
-import uz.lb.controllers.DashboardController;
+import uz.lb.views.DashboardView;
 import uz.lb.utils.ResizableWindowHelper;
 
 import java.security.Security;
@@ -21,8 +22,10 @@ public class RemusDesktop extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+
         AppConfig.config();
         Security.addProvider(new BouncyCastleProvider());
+        SQLiteConnection.getInstance().initialize();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Dashboard.fxml"));
         Parent root = loader.load();
@@ -38,7 +41,7 @@ public class RemusDesktop extends Application {
         stage.setMinWidth(700);
 
         ResizableWindowHelper.makeResizable(stage);
-        DashboardController controller = loader.getController();
+        DashboardView controller = loader.getController();
 
         Pane titlePane = controller.getTitlePane();
 

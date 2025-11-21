@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="id_spRegistration" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.views.RegistrationView">
+
+
+    <VBox fx:id="id_vbRegistration" alignment="CENTER" spacing="15">
+
+        <padding>
+            <Insets bottom="30" left="30" right="30" top="30" />
+        </padding>
+
+        <Label fx:id="id_lblPhoneNumber" prefHeight="40.0" prefWidth="340.0" text="Telefon raqamingiz">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+
+        <Label fx:id="id_lblCountryCodeAndPhoneNumber" alignment="CENTER" prefHeight="54.0" prefWidth="340.0" text="Tasdiqlash kodini kiriting" wrapText="true">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+
+        <HBox alignment="CENTER" prefHeight="40.0" prefWidth="340.0" spacing="15.0">
+            <TextField fx:id="id_tfPhoneNumber" alignment="CENTER" prefHeight="40.0" prefWidth="30.0" promptText="_">
+            <font>
+               <Font size="16.0" />
+            </font>
+            <HBox.margin>
+               <Insets />
+            </HBox.margin></TextField>
+         <TextField fx:id="id_tfPhoneNumber1" alignment="CENTER" prefHeight="40.0" prefWidth="30.0" promptText="_">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </TextField>
+         <TextField fx:id="id_tfPhoneNumber2" alignment="CENTER" prefHeight="40.0" prefWidth="30.0" promptText="_">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </TextField>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="10.0" text="–" textAlignment="CENTER">
+            <font>
+               <Font name="System Bold" size="18.0" />
+            </font>
+         </Label>
+         <TextField fx:id="id_tfPhoneNumber3" alignment="CENTER" prefHeight="40.0" prefWidth="30.0" promptText="_">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </TextField>
+         <TextField fx:id="id_tfPhoneNumber4" alignment="CENTER" prefHeight="40.0" prefWidth="30.0" promptText="_">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </TextField>
+         <TextField fx:id="id_tfPhoneNumber5" alignment="CENTER" prefHeight="40.0" prefWidth="30.0" promptText="_">
+            <font>
+               <Font size="16.0" />
+            </font>
+         </TextField>
+        </HBox>
+        <HBox alignment="BASELINE_CENTER" prefHeight="40.0" prefWidth="340.0" spacing="20.0">
+            <children>
+                <JFXButton fx:id="id_btnConfirmation" buttonType="RAISED" prefHeight="40.0" prefWidth="280.0" text="TASDIQLASH">
+                    <padding>
+                        <Insets right="20.0" />
+                    </padding>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </JFXButton>
+            </children>
+        </HBox>
+      <HBox alignment="BASELINE_CENTER" prefHeight="40.0" prefWidth="340.0" spacing="20.0">
+         <children>
+            <JFXButton fx:id="id_btnEnteredPhoneNumber" buttonType="RAISED" prefHeight="40.0" prefWidth="280.0" text="TELEFON RAQAMINI QAYTA KIRITISH">
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </JFXButton>
+         </children>
+      </HBox>
+
+        <!--        <Label text="Быстрый вход по QR-коду" textFill="GRAY">-->
+        <!--            <font>-->
+        <!--                <Font size="12"/>-->
+        <!--            </font>-->
+        <!--        </Label>-->
+
+    </VBox>
+
+</StackPane>

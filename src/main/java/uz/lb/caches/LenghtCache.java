@@ -1,7 +1,5 @@
 package uz.lb.caches;
 
-import javafx.scene.image.Image;
-
 public class LenghtCache {
     private LenghtCache() {
     }

@@ -1,4 +1,4 @@
-package uz.lb.controllers;
+package uz.lb.views;
 
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.value.ObservableValue;
@@ -26,9 +26,11 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.function.Supplier;
 
-public class LoginController implements Initializable {
+public class LoginView implements Initializable {
 
-    public ImageView id_ivLogo;
+    @FXML
+    private ImageView id_ivLogo;
+
     @FXML
     private Text id_txtRegistration;
 
@@ -59,10 +61,11 @@ public class LoginController implements Initializable {
     @FXML
     private ImageView id_ivEye;
 
-    private boolean eyeBool = true;
-    private boolean isEffect = false;
 
-    private String passOld = "";
+//    private boolean eyeBool = true;
+//    private boolean isEffect = false;
+//
+//    private String passOld = "";
     Map<ImageView, Supplier<Image>> imageMap = new HashMap<>();
 
     @Override
@@ -115,40 +118,40 @@ public class LoginController implements Initializable {
     }
 
 
-    private void defaultSetting() {
-
-        imageMap.put(id_ivLogo, () -> ImageCacheManager.getImageCacheLogin().getImageLogo());
-        imageMap.put(id_ivEye, () -> ImageCacheManager.getImageCacheLogin().getImageEyeHover());
-
-        ThemeBinder.bind(
-                id_apLogin,
-                "/css/login/login-dark.css",
-                "/css/login/login-light.css",
-                imageMap
-        );
-
-        hoverEye();
-
-        Effects.rotateLogo(id_ivLogo);
-
-
-        id_tfPassword.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            hoverField(newValue);
-        });
-
-        id_pfPassword.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
-            hoverField(newValue);
-        });
-
-        id_pfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
-            id_tfPassword.setText(newValue);
-        });
-
-        id_tfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
-            id_pfPassword.setText(newValue);
-        });
-
-    }
+//    private void defaultSetting() {
+//
+//        imageMap.put(id_ivLogo, () -> ImageCacheManager.getImageCacheLogin().getImageLogo());
+//        imageMap.put(id_ivEye, () -> ImageCacheManager.getImageCacheLogin().getImageEyeHover());
+//
+//        ThemeBinder.bind(
+//                id_apLogin,
+//                "/css/login/login-dark.css",
+//                "/css/login/login-light.css",
+//                imageMap
+//        );
+//
+//        hoverEye();
+//
+//        Effects.rotateLogo(id_ivLogo);
+//
+//
+//        id_tfPassword.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+//            hoverField(newValue);
+//        });
+//
+//        id_pfPassword.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+//            hoverField(newValue);
+//        });
+//
+//        id_pfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+//            id_tfPassword.setText(newValue);
+//        });
+//
+//        id_tfPassword.textProperty().addListener((observable, oldValue, newValue) -> {
+//            id_pfPassword.setText(newValue);
+//        });
+//
+//    }
 
     private void hoverEye() {
 

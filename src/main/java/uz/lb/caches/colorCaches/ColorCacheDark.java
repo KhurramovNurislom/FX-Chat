@@ -1,7 +1,5 @@
 package uz.lb.caches.colorCaches;
 
-import uz.lb.caches.imageCaches.login.ImageCacheLoginDark;
-
 public class ColorCacheDark implements ColorCache {
     private ColorCacheDark() {
     }

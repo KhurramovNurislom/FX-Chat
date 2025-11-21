@@ -69,9 +69,9 @@ public class Effects {
         timeline.play();
     }
 
-/******************************************/
+    /******************************************/
     public static void settingButtonHover(JFXButton btn, ImageView imageView, Image image, Image imageHover, Image imageHasCount,
-                                    Image imageHasCountHover, Label lbl, String color, String colorHover) {
+                                          Image imageHasCountHover, Label lbl, String color, String colorHover) {
 
         lbl.setStyle("-fx-background-color: " + color);
 

@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 
-<VBox fx:id="id_vbSettings" alignment="TOP_CENTER" prefHeight="560.0" prefWidth="270.0" stylesheets="@/css/settings/settings-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.controllers.SettingsController">
+<VBox fx:id="id_vbSettings" alignment="TOP_CENTER" prefHeight="560.0" prefWidth="270.0" stylesheets="@/css/settings/settings-dark.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uz.lb.views.SettingsView">
     <children>
         <AnchorPane>
             <children>

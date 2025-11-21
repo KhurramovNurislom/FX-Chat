@@ -12,7 +12,7 @@
 <AnchorPane fx:id="id_apContacts" maxWidth="350.0" minHeight="200.0" minWidth="200.0" prefHeight="600.0"
             prefWidth="270.0" stylesheets="@/css/chat-contacts/chat-contacts-dark.css" BorderPane.alignment="CENTER"
             xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="uz.lb.controllers.ChatContactsController">
+            fx:controller="uz.lb.views.ChatContactsView">
     <children>
         <AnchorPane fx:id="id_apSearch" prefHeight="35.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="5.0"
                     AnchorPane.topAnchor="10.0">

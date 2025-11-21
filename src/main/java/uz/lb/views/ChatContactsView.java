@@ -1,4 +1,4 @@
-package uz.lb.controllers;
+package uz.lb.views;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -22,7 +22,7 @@ import java.net.URL;
 import java.util.*;
 import java.util.function.Supplier;
 
-public class ChatContactsController implements Initializable {
+public class ChatContactsView implements Initializable {
     @FXML
     private ScrollPane id_spContacts;
     @FXML
@@ -68,9 +68,9 @@ public class ChatContactsController implements Initializable {
 
         for (int i = 0; i < 5; i++) {
             Contact contact = new Contact();
-            contact.setName(contact.getName() + "132456kbj " + i);
-
-            contact.setMessage(contact.getMessage() + " " + i + "132456kbj132456kbj132456kbj132456kbj132456kbj");
+//            contact.setName(contact.getName() + "132456kbj " + i);
+//
+//            contact.setMessage(contact.getMessage() + " " + i + "132456kbj132456kbj132456kbj132456kbj132456kbj");
             contactList.add(contact);
         }
 
@@ -81,10 +81,10 @@ public class ChatContactsController implements Initializable {
                 Node contactNode = loader.load();
 
 
-                ContactCardController controller = loader.getController();
+                ContactCardView controller = loader.getController();
                 Image image = new Image(getClass().getResourceAsStream("/images/mv.png"));
-                controller.setName(contact.getName());
-                controller.setMessage(contact.getMessage());
+//                controller.setName(contact.getName());
+//                controller.setMessage(contact.getMessage());
                 controller.setAvatarImage(image);
                 id_vbContacts.getChildren().add(contactNode);
             } catch (IOException e) {
